@@ -5,10 +5,19 @@
 /// Each platform has a unique value associated with it. This enum provides
 /// a way to convert between string values and platform objects.
 enum Platform {
+  /// Default shortcodes platform.
   Default('default'),
+
+  /// CLDR shortcodes platform.
   CLDR('cldr'),
+
+  /// Discord shortcodes platform.
   Discord('discord'),
+
+  /// Github shortcodes platform.
   Github('github'),
+
+  /// Slack shortcodes platform.
   Slack('slack');
 
   /// Creates a new Platform object with the given String value.

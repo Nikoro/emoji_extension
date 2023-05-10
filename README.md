@@ -1,4 +1,6 @@
-<p align="center"><img src="https://github.com/Nikoro/emoji_extension/blob/main/logo/logo.png" width="600"/></p>
+<p align="center">
+  <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/logo/logo.png" width="600"/></a>
+</p>
 <h2 align="center">
 Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.0</a><br>
 +<br>

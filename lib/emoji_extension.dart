@@ -11,7 +11,9 @@ export 'src/extensions/group_list_extensions.dart';
 export 'src/extensions/shortcode_list_extensions.dart';
 export 'src/extensions/subgroup_list_extensions.dart';
 
-/// Provides [EmojiParser] getter for managing emojis on [String].
+/// Extension on [String] that adds emoji parsing capabilities.
 extension EmojiExtension on String {
+  /// Returns an [EmojiParser] instance that can be used to parse
+  /// emojis within this string.
   EmojiParser get emojis => EmojiParser(this);
 }
