@@ -5,15 +5,34 @@ import 'package:emoji_extension/src/emojis/subgroup.dart';
 /// Each group represents a high-level category of emojis, such as "Smileys & Emotion",
 /// "People & Body", "Animals & Nature", etc.
 enum Group {
+  /// The "Smileys & Emotion" group of emojis.
   smileysAndEmotion('Smileys & Emotion'),
+
+  /// The "People & Body" group of emojis.
   peopleAndBody('People & Body'),
+
+  /// The "Component" group of emojis.
   component('Component'),
+
+  /// The "Animals & Nature" group of emojis.
   animalsAndNature('Animals & Nature'),
+
+  /// The "Food & Drink" group of emojis.
   foodAndDrink('Food & Drink'),
+
+  /// The "Travel & Places" group of emojis.
   travelAndPlaces('Travel & Places'),
+
+  /// The "Activities" group of emojis.
   activities('Activities'),
+
+  /// The "Objects" group of emojis.
   objects('Objects'),
+
+  /// The "Symbols" group of emojis.
   symbols('Symbols'),
+
+  /// The "Flags" group of emojis.
   flags('Flags');
 
   /// Creates a new Group object with the given String value.

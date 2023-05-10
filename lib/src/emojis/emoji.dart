@@ -15,6 +15,7 @@ import 'package:emoji_extension/src/extensions/extensions.dart';
 /// @param shortcodes The shortcodes of the emoji as a List of Shortcode objects.
 
 class Emoji {
+  /// Constructs an Emoji object with the specified properties.
   const Emoji({
     required this.value,
     required this.unicode,

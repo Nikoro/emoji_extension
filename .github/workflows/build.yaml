@@ -17,6 +17,8 @@ jobs:
         uses: subosito/flutter-action@v2
       - name: Get dependencies
         run: flutter pub get
+      - name: Static code analysis
+        run: flutter analyze --no-pub
       - name: Check code formatting
         run: dart format . --set-exit-if-changed
       - name: Unit tests
