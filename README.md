@@ -25,6 +25,21 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 </p>
 
 ---
+## Quick overview of just a few possibilities:
+```dart
+'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract; // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
+
+
+'text😀 te😀xt 😀text'.emojis.remove; // text text text
+
+
+// to Slack shortcodes:
+'😀text🤦🏾‍♀️'.emojis.get.slackShortcodes; // [:grinning:, :woman-facepalming::skin-tone-5:]
+
+
+// from Discord shortcodes:
+'text:woman_facepalming_tone4:text'.emojis.fromShortcodes(); // text🤦🏾‍♀️text
+```
 
 ## Usage
 
