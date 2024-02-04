@@ -1,3 +1,8 @@
+## 0.1.2
+
+- Updated dependencies
+- Updated the SDK constraint to '>=2.18.6 <4.0.0'
+
 ## 0.1.1
 
 - Formatted code

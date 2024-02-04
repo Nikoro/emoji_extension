@@ -1,15 +1,15 @@
 name: emoji_extension
 description: Emojis for Dart (Unicode 15.0) + one, yet powerful emojis String extension
-version: 0.1.1
+version: 0.1.2
 repository: https://github.com/Nikoro/emoji_extension
 issue_tracker: https://github.com/Nikoro/emoji_extension/issues
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: '>=2.18.6 <4.0.0'
 
 dependencies:
-  collection: ^1.17.1
+  collection: ^1.18.0
 
 dev_dependencies:
-  test: ^1.24.2
-  flutter_lints: ^2.0.1
+  test: ^1.25.2
+  flutter_lints: ^3.0.1
