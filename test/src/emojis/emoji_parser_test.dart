@@ -238,7 +238,7 @@ void main() {
     });
 
     test(
-        'fromShortcodes() returns this raw shortcode when the shortcode does not exist and no replacement method is provider',
+        'fromShortcodes() returns this raw shortcode when the shortcode does not exist and no replacement method is provided',
         () {
       const text = ':man: :this-shortcode-does-not-exist: :woman:';
       final value = EmojiParser(text).fromShortcodes();
