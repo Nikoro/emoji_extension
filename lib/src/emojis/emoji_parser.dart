@@ -37,7 +37,7 @@ class EmojiParser {
 
   /// Gets a list of [Emoji] objects corresponding to the emojis in the
   /// String value.
-  List<Emoji> get get => extract.map((e) => _emojis.getOne(e)).toList();
+  List<Emoji> get get => extract.map((e) => _emojis.getOne(e)!).toList();
 
   /// Extracts all emojis from the String value and returns them in a list.
   List<String> get extract {
@@ -102,16 +102,17 @@ class EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOne(match).shortcodes.wherePlatform(platform) ?? match;
+      return _emojis.getOne(match)?.shortcodes.wherePlatform(platform) ?? match;
     });
   }
 
   /// Converts the emojis in [_value] from shortcode format to Unicode characters.
   /// Shortcodes are the text-based representations of emojis used by some platforms.
   /// Returns a new String with the converted emojis.
-  String fromShortcodes() {
+  String fromShortcodes({String Function(String unknownShortcode)? onUnknownShortcode}) {
     return _value.splitMapJoin(Regex.shortcode, onMatch: (m) {
-      return _emojis.getOne(m.group(0)!.removeColons()).value;
+      final match = m.group(0)!;
+      return _emojis.getOne(match.removeColons())?.value ?? onUnknownShortcode?.call(match) ?? match;
     });
   }
 

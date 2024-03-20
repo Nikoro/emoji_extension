@@ -60,15 +60,14 @@ class Emojis {
   /// Returns the Emoji with the specified value, unicode, name, or shortcode.
   /// If the specified Emoji cannot be found, the orElse parameter is called, and its
   /// return value is returned. If orElse is not specified, a [StateError] is thrown.
-  Emoji getOne(String param, {Emoji Function()? orElse}) {
-    return _emojis.firstWhere(
+  Emoji? getOne(String param) {
+    return _emojis.firstWhereOrNull(
       (e) =>
           e.value == param ||
           e.unicode == param ||
           e.name.toLowerCase() == param.toLowerCase() ||
           e.shortcodes
               .any((s) => s.values.any((v) => v == param.removeColons())),
-      orElse: orElse,
     );
   }
 
