@@ -9,5 +9,6 @@ abstract class Regex {
       unicode: true);
 
   /// A regular expression for matching emoji shortcodes.
-  static final shortcode = RegExp(r':[^:\s]*(?:::[^:\s]*)*:');
+  static final shortcode = RegExp(r':[^:\s]+:(?::skin-tone-[2-6]:)?');
+  // static final shortcode = RegExp(r':[^:\s]*(?:::[^:\s]*)*:');
 }
