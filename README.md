@@ -27,12 +27,12 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 ---
 ## Features
 
-- Contains over **5,000** emojis from Unicode 15.0. 💪
+- Contains over **5,000** emojis from Unicode 15.0 💪
 - Supports:
   - `shorcodes`: **Discord**, **Github**, **Slack** 🫡
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
   - multi-person: 👨‍👩‍👦
-- Provides `Emojis()` class that has all the info about each emoji:
+- Provides [`Emojis()`](#emojis-repository) class that has all the info about each emoji:
   - value: 😀
   - unicode: 1F600
   - name: Grinning Face
@@ -42,24 +42,29 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
     - Discord: grinning
     - Github: grinning
     - Slack: grinning
-- Provides `emojis` extension to manipulate emojis on any text. Quick overview of just a few possibilities:
+- Provides [`emojis`](#emojis-extension) extension to manipulate emojis on any text. Quick overview of just a few possibilities:
 
 ```dart
-'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract; // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
-
-
-'🟦  text  🔴'.emojis.replace('¯_(ツ)_/¯'); // ¯_(ツ)_/¯  text  ¯_(ツ)_/¯
-
-
-'text😀 te😀xt 😀text'.emojis.remove; // text text text
-
-
-// to Slack shortcodes:
-'😀text🤦🏾‍♀️'.emojis.get.slackShortcodes; // [:grinning:, :woman-facepalming::skin-tone-5:]
+'text😀text🤦🏾‍♀️text'.emojis 
+                         .any // true
+                         .only // false
+                         .onlyOne // false
+                         .count // 2
+                         .split // [text, text, text]
+                         .remove // texttexttext
+                         .replace('-') // text-text-text
+                         .extract // [😀, 🤦🏾‍♀️]
+                         .get
+                             .unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
+                             .names // [Grinning face, Woman facepalming: medium-dark skin tone]
+                             .slackShortcodes // [:grinning:, :woman-facepalming::skin-tone-5:]
+                         ... // and many more
+                          
 
 
 // from Discord shortcodes:
-'text:woman_facepalming_tone4:text'.emojis.fromShortcodes(); // text🤦🏾‍♀️text
+':grinning: text :woman-facepalming::skin-tone-5:'.emojis.fromShortcodes(); // 😀 text 🤦🏾‍♀️
+
 ```
 
 ## Usage
@@ -295,7 +300,36 @@ Emojis().faceSmiling; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
-'😀 text with emojis 😀'.emojis // .any .only .count .remove .get .extract   and many more...
+'text😀text🤦🏾‍♀️text'.emojis 
+                         .any // true
+                         .only // false
+                         .onlyOne // false
+                         .count // 2
+                         .split // [text, text, text]
+                         .remove // texttexttext
+                         .extract // [😀, 🤦🏾‍♀️]
+                                 .first // 😀
+                                 .last // 🤦🏾‍♀️
+                         .hasAny(['👍', '😀']) // true
+                         .hasEach(['👍', '😀']) // false
+                         .replace('---') // text---text---text
+                         .replaceEach({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
+                         .splitMapJoin(
+                                       onMatch: (_) => '_emoji_',
+                                       onNonMatch: (s) => s.toUpperCase(),
+                                      ) // TEXT_emoji_TEXT_emoji_TEXT
+                         .get
+                             .unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
+                             .names // [Grinning face, Woman facepalming: medium-dark skin tone]
+                             .groups // [Group.smileysAndEmotion, Group.peopleAndBody]
+                                    .values // [Smileys & Emotion, People & Body]
+                             .subgroups // [Subgroup.faceSmiling, Subgroup.personGesture]
+                                    .values // [face-smiling, person-gesture]
+                             .shortcodes // [:grinning_face:, :woman_facepalming_medium_dark_skin_tone:]
+                             .cldrShortcodes // [:grinning_face:, :woman_facepalming_tone4:]
+                             .discordShortcodes // [:grinning:, :woman_facepalming_tone4:]
+                             .githubShortcodes // [:grinning:]
+                             .slackShortcodes // [:grinning:, :woman-facepalming::skin-tone-5:]
 ```
 
 ### emojis.any
@@ -444,10 +478,10 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 ### emojis.splitMapJoin()
 
 ```dart
-'text😀text'.emojis.splitMapJoin( // TEXT_emoji_TEXT
+'text😀text'.emojis.splitMapJoin(
 onMatch: (_) => '_emoji_',
 onNonMatch: (s) => s.toUpperCase(),
-);                                
+); // TEXT_emoji_TEXT                                
 ```
 
 ### emojis.replace()
@@ -459,7 +493,7 @@ onNonMatch: (s) => s.toUpperCase(),
 ### emojis.replaceEach()
 
 ```dart
-'😀text👍🏻text😀'.emojis.replaceEach({'😀': 'ABC', '👍🏻': '123'}); // ABCtext123textABC
+'😀text👍🏻text😀'.emojis.replaceEach({'😀':'ABC', '👍🏻':'123'}); // ABCtext123textABC
 ```
 
 ### emojis.toShortcodes()
