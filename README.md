@@ -25,9 +25,30 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 </p>
 
 ---
-## Quick overview of just a few possibilities:
+## Features
+
+- Contains over **5,000** emojis from Unicode 15.0. 💪
+- Supports:
+  - `shorcodes`: **Discord**, **Github**, **Slack** 🫡
+  - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
+  - multi-person: 👨‍👩‍👦
+- Provides `Emojis()` class that has all the info about each emoji:
+  - value: 😀
+  - unicode: 1F600
+  - name: Grinning Face
+  - group: Smileys & Emotion
+  - subgroup: face-smiling
+  - shortcodes:
+    - Discord: grinning
+    - Github: grinning
+    - Slack: grinning
+- Provides `emojis` extension to manipulate emojis on any text. Quick overview of just a few possibilities:
+
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract; // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
+
+
+'🟦  text  🔴'.emojis.replace('¯_(ツ)_/¯'); // ¯_(ツ)_/¯  text  ¯_(ツ)_/¯
 
 
 'text😀 te😀xt 😀text'.emojis.remove; // text text text
@@ -45,7 +66,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 
 Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2 benefits:
 
-✅ [Emojis repository](#1%EF%B8%8F⃣-emojis-repository)
+1️⃣ [Emojis repository](#emojis-repository)
    - [get](#emojisget)
       - [values](#emojisgetvalues)
       - [unicodes](#emojisgetunicodes)
@@ -60,7 +81,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
    - [byGroup()](#emojisbygroup)
    - [bySubgroup()](#emojisbysubgroup)
 
-✅ [Emojis extension](#2%EF%B8%8F⃣-emojis-extension)
+2️⃣ [Emojis extension](#emojis-extension)
    - [any](#emojisany)
    - [only](#emojisonly)
    - [onlyOne](#emojisonlyone)
@@ -82,7 +103,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
    - [toShortcodes()](#emojistoshortcodes)
    - [fromShortcodes()](#emojisfromshortcodes)
 
-## 1️⃣ `Emojis()` repository
+## `Emojis()` repository
 Full `Emojis()` repository with unicodes, names, groups, subgroups, shortcodes:
 
 ```dart
@@ -270,7 +291,7 @@ Emojis().bySubgroup(Subgroup.faceSmiling); // [Emoji(value: 😀, ...), Emoji(va
 Emojis().faceSmiling; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 ```
 
-## 2️⃣ `emojis` extension
+## `emojis` extension
 Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
