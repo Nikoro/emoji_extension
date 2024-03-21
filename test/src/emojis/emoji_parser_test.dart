@@ -238,6 +238,26 @@ void main() {
     });
 
     test(
+        'fromShortcodes() returns correct text with emoji in place of shortcode when emojis are chained (without skin tone)',
+        () {
+      const text =
+          ':otter::woman-facepalming::santa::dancer::female-astronaut:';
+      final value = EmojiParser(text).fromShortcodes();
+      const expected = '🦦🤦‍♀️🎅💃👩‍🚀';
+      expect(value, expected);
+    });
+
+    test(
+        'fromShortcodes() returns correct text with emoji in place of shortcode when emojis are chained',
+        () {
+      const text =
+          ':otter::woman-facepalming::skin-tone-5::santa::dancer::skin-tone-4::female-astronaut::skin-tone-5:';
+      final value = EmojiParser(text).fromShortcodes();
+      const expected = '🦦🤦🏾‍♀️🎅💃🏽👩🏾‍🚀';
+      expect(value, expected);
+    });
+
+    test(
         'fromShortcodes() returns this raw shortcode when the shortcode does not exist and no replacement method is provided',
         () {
       const text = ':man: :this-shortcode-does-not-exist: :woman:';
