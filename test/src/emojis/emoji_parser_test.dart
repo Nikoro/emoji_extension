@@ -156,7 +156,7 @@ void main() {
       expect(value, expected);
     });
 
-    test('replace() returns correct text with chosen text in place of emoji ',
+    test('replace() returns correct text with chosen text in place of emoji',
         () {
       const text = '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt';
       final value = EmojiParser(text).replace('_');
@@ -170,7 +170,7 @@ void main() {
       {'😀text': '1', 'te': '2', 'xt': '3'}: '😀text👍🏻text🤦🏾‍♀️text😀',
     }).forEach((input, expected) {
       test(
-          'replaceEach() returns correct text with chosen replacement for each emoji ',
+          'replaceEach() returns correct text with chosen replacement for each emoji',
           () {
         const text = '😀text👍🏻text🤦🏾‍♀️text😀';
         final value = EmojiParser(text).replaceEach(input);
@@ -179,7 +179,7 @@ void main() {
     });
 
     test(
-        'toCLDRShortcodes() returns correct text with shortcode in place of emoji ',
+        'toCLDRShortcodes() returns correct text with shortcode in place of emoji',
         () {
       const text = 'text😀text🤦🏾‍♀️text😀';
       final value = EmojiParser(text).toCLDRShortcodes();
@@ -189,7 +189,7 @@ void main() {
     });
 
     test(
-        'toDiscordShortcodes() returns correct text with shortcode in place of emoji ',
+        'toDiscordShortcodes() returns correct text with shortcode in place of emoji',
         () {
       const text = 'text😀text🤦🏾‍♀️text😀';
       final value = EmojiParser(text).toDiscordShortcodes();
@@ -199,7 +199,7 @@ void main() {
     });
 
     test(
-        'toGithubShortcodes() returns correct text with shortcode in place of emoji ',
+        'toGithubShortcodes() returns correct text with shortcode in place of emoji',
         () {
       const text = 'text😀text🤦🏾‍♀️text😀';
       final value = EmojiParser(text).toGithubShortcodes();
@@ -208,7 +208,7 @@ void main() {
     });
 
     test(
-        'toSlackShortcodes() returns correct text with shortcode in place of emoji ',
+        'toSlackShortcodes() returns correct text with shortcode in place of emoji',
         () {
       const text = 'text😀text🤦🏾‍♀️text😀';
       final value = EmojiParser(text).toSlackShortcodes();
@@ -217,8 +217,7 @@ void main() {
       expect(value, expected);
     });
 
-    test(
-        'toShortcodes() returns correct text with shortcode in place of emoji ',
+    test('toShortcodes() returns correct text with shortcode in place of emoji',
         () {
       const text = 'text😀text🤦🏾‍♀️text😀';
       final value = EmojiParser(text).toShortcodes();
@@ -228,7 +227,7 @@ void main() {
     });
 
     test(
-        'fromShortcodes() returns correct text with emoji in place of shortcode ',
+        'fromShortcodes() returns correct text with emoji in place of shortcode',
         () {
       const text =
           'text: :woman_facepalming_tone4:text:woman_facepalming_medium_dark_skin_tone:text:woman-facepalming::skin-tone-5:text:';
