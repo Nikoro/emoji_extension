@@ -250,7 +250,8 @@ void main() {
         'fromShortcodes() returns this replacement text when shortcode cannot be found and a replacement method is provided',
         () {
       const text = ':man: :this-shortcode-does-not-exist: :woman:';
-      final value = EmojiParser(text).fromShortcodes(onUnknownShortcode: (_) => '🤷');
+      final value =
+          EmojiParser(text).fromShortcodes(onUnknownShortcode: (_) => '🤷');
       const expected = '👨 🤷 👩';
       expect(value, expected);
     });

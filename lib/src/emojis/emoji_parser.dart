@@ -102,17 +102,21 @@ class EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform) ?? match;
+      return _emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
+          match;
     });
   }
 
   /// Converts the emojis in [_value] from shortcode format to Unicode characters.
   /// Shortcodes are the text-based representations of emojis used by some platforms.
   /// Returns a new String with the converted emojis.
-  String fromShortcodes({String Function(String unknownShortcode)? onUnknownShortcode}) {
+  String fromShortcodes(
+      {String Function(String unknownShortcode)? onUnknownShortcode}) {
     return _value.splitMapJoin(Regex.shortcode, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match.removeColons())?.value ?? onUnknownShortcode?.call(match) ?? match;
+      return _emojis.getOneOrNull(match.removeColons())?.value ??
+          onUnknownShortcode?.call(match) ??
+          match;
     });
   }
 
