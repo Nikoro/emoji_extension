@@ -28453,7 +28453,7 @@ const _emojisJson =
         'woman_astronaut_medium_dark_skin_tone'
       ],
       'github': [],
-      'slack': []
+      'slack': ['female-astronaut::skin-tone-5']
     }
   },
   {

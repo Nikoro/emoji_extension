@@ -16,6 +16,8 @@ extension _JsonMapper on Map<String, dynamic> {
     final name = this['name'] as String;
     final group = this['group'] as String;
     final subgroup = this['subgroup'] as String;
+    final version = this['version'] as double;
+    final status = this['status'] as String;
 
     final shortcodes = (this['shortcodes'] as Map<String, dynamic>)
         .entries
@@ -29,6 +31,8 @@ extension _JsonMapper on Map<String, dynamic> {
       name: name,
       group: Group.from(group),
       subgroup: Subgroup.from(subgroup),
+      version: Version.from(version),
+      status: Status.from(status),
       shortcodes: shortcodes,
     );
   }

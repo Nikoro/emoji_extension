@@ -3,7 +3,9 @@ import 'package:emoji_extension/src/emojis/emoji.dart';
 import 'package:emoji_extension/src/emojis/group.dart';
 import 'package:emoji_extension/src/emojis/platform.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
+import 'package:emoji_extension/src/emojis/status.dart';
 import 'package:emoji_extension/src/emojis/subgroup.dart';
+import 'package:emoji_extension/src/emojis/version.dart';
 import 'package:emoji_extension/src/extensions/extensions.dart';
 
 part 'emojis_json.dart';
@@ -38,6 +40,9 @@ class Emojis {
   /// Returns an unmodifiable list of all the Emoji subgroups.
   List<Subgroup> get subgroups => Subgroup.values;
 
+  /// Returns an unmodifiable list of all the unicode emoji versions.
+  List<Version> get versions => Version.values;
+
   /// Returns a map of all the Emoji groups with their corresponding subgroups.
   Map<Group, List<Subgroup>> get groupsWithSubgroups {
     return {for (final group in groups) group: group.subgroups};
@@ -52,9 +57,9 @@ class Emojis {
     });
   }
 
-  /// Returns a list of all the platform names for Emoji shortcodes.
+  /// Returns an unmodifiable list of all the platform names for Emoji shortcodes.
   List<String> get shortcodePlatforms {
-    return Platform.values.map((e) => e.name).toList();
+    return Platform.values.map((e) => e.name).toUnmodifiableList();
   }
 
   /// Returns the Emoji with the specified value, unicode, name, or shortcode.
@@ -95,6 +100,12 @@ class Emojis {
   /// to the specified [Subgroup].
   List<Emoji> bySubgroup(Subgroup subgroup) {
     return _emojis.where((e) => e.subgroup == subgroup).toUnmodifiableList();
+  }
+
+  /// Returns a list of all [Emoji] objects in the _emojis list that belong
+  /// to the specified [Version].
+  List<Emoji> byVersion(Version version) {
+    return _emojis.where((e) => e.version == version).toUnmodifiableList();
   }
 
   /// A List of all Emoji objects loaded from the JSON emoji data file,

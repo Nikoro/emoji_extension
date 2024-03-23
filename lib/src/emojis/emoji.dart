@@ -2,7 +2,9 @@ import 'package:collection/collection.dart';
 import 'package:emoji_extension/src/emojis/group.dart';
 import 'package:emoji_extension/src/emojis/platform.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
+import 'package:emoji_extension/src/emojis/status.dart';
 import 'package:emoji_extension/src/emojis/subgroup.dart';
+import 'package:emoji_extension/src/emojis/version.dart';
 import 'package:emoji_extension/src/extensions/extensions.dart';
 
 /// Represents an Emoji.
@@ -22,6 +24,8 @@ class Emoji {
     required this.name,
     required this.group,
     required this.subgroup,
+    required this.version,
+    required this.status,
     required this.shortcodes,
   });
 
@@ -39,6 +43,12 @@ class Emoji {
 
   /// The subgroup of the emoji as a Subgroup enum.
   final Subgroup subgroup;
+
+  /// The unicode version in which an emoji was introduced as a Version enum.
+  final Version version;
+
+  /// The status of the emoji as a Status enum.
+  final Status status;
 
   /// The shortcodes of the emoji as a List of Shortcode objects.
   final List<Shortcode> shortcodes;
@@ -65,6 +75,8 @@ class Emoji {
             name == other.name &&
             group == other.group &&
             subgroup == other.subgroup &&
+            version == other.version &&
+            status == other.status &&
             const DeepCollectionEquality.unordered()
                 .equals(shortcodes, other.shortcodes);
   }
@@ -77,6 +89,8 @@ class Emoji {
         name.hashCode ^
         group.hashCode ^
         subgroup.hashCode ^
+        version.hashCode ^
+        status.hashCode ^
         const DeepCollectionEquality().hash(shortcodes);
   }
 
@@ -89,6 +103,8 @@ class Emoji {
         '  name: $name,\n'
         '  group: ${group.value},\n'
         '  subgroup: ${subgroup.value},\n'
+        '  version: ${version.value},\n'
+        '  status: ${status.value},\n'
         '  shortcodes: $shortcodes\n'
         ')';
   }

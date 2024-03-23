@@ -1,4 +1,5 @@
 import 'package:emoji_extension/emoji_extension.dart';
+import 'package:emoji_extension/src/emojis/version.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/tools.dart';
@@ -22,6 +23,10 @@ void main() {
 
     test('subgroups returns correct value', () {
       expect(Emojis().subgroups, Subgroup.values);
+    });
+
+    test('versions returns correct value', () {
+      expect(Emojis().versions, Version.values);
     });
 
     test('groupsWithSubgroups returns correct type', () {
@@ -200,6 +205,27 @@ void main() {
           'bySubgroup() returns $expected emojis when group is: [${input.name}]',
           () {
         expect(Emojis().bySubgroup(input).length, expected);
+      });
+    });
+
+    $({
+      Version.v6_0: 793,
+      Version.v7_0: 254,
+      Version.v8_0: 809,
+      Version.v9_0: 1187,
+      Version.v10_0: 339,
+      Version.v11_0: 188,
+      Version.v12_0: 266,
+      Version.v13_0: 146,
+      Version.v13_1: 422,
+      Version.v14_0: 112,
+      Version.v15_0: 31,
+      Version.v15_1: 301,
+    }).forEach((input, expected) {
+      test(
+          'byVersion() returns $expected emojis when version is: [${input.name}]',
+          () {
+        expect(Emojis().byVersion(input).length, expected);
       });
     });
 

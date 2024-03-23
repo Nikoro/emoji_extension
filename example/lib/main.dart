@@ -9,6 +9,8 @@ void main() {
                    name: Grinning Face,
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
+                   version: 8.0,
+                   status: fully-qualified,
                    shortcodes: [
                             Shortcode(
                             platform: Discord,
@@ -37,6 +39,8 @@ void main() {
                    name: Grinning face with big eyes,
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
+                   version: 6.0,
+                   status: fully-qualified
                    shortcodes: [...]
                   )
                  ...
@@ -65,6 +69,10 @@ void main() {
 
   final slackShortcodes = emojis.slackShortcodes;
   // print(slackShortcodes); // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+
+  final versions = Emojis().versions;
+   // print(versions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+   // print(versions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
 
   final groups = Emojis().groups;
   // print(groups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]

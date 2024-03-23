@@ -1,7 +1,9 @@
 import 'package:emoji_extension/src/emojis/emoji.dart';
 import 'package:emoji_extension/src/emojis/group.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
+import 'package:emoji_extension/src/emojis/status.dart';
 import 'package:emoji_extension/src/emojis/subgroup.dart';
+import 'package:emoji_extension/src/emojis/version.dart';
 
 abstract class TestEmojis {
   TestEmojis._();
@@ -12,6 +14,8 @@ abstract class TestEmojis {
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
+    version: Version.v8_0,
+    status: Status.fullyQualified,
     shortcodes: [
       Shortcode.$default(['grinning_face']),
       Shortcode.cldr(['grinning_face']),
@@ -27,6 +31,8 @@ abstract class TestEmojis {
     unicode: '1F926 1F3FE 200D 2640 FE0F',
     group: Group.peopleAndBody,
     subgroup: Subgroup.personGesture,
+    version: Version.v9_0,
+    status: Status.fullyQualified,
     shortcodes: [
       Shortcode.$default(['woman_facepalming_medium_dark_skin_tone']),
       Shortcode.cldr(['woman_facepalming_tone4']),
