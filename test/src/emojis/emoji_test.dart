@@ -11,7 +11,7 @@ void main() {
   const emoji2 = TestEmojis.grinningFace;
   const emoji3 = Emoji(
     value: '😀',
-    name: 'Grinning face',
+    name: 'Grinning Face',
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
@@ -40,7 +40,7 @@ void main() {
       const expected = 'Emoji(\n'
           '  value: 😀,\n'
           '  unicode: 1F600,\n'
-          '  name: Grinning face,\n'
+          '  name: Grinning Face,\n'
           '  group: Smileys & Emotion,\n'
           '  subgroup: face-smiling,\n'
           '  shortcodes: [\n'
