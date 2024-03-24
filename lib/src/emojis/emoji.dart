@@ -26,6 +26,7 @@ class Emoji {
     required this.unicode,
     required this.name,
     this.appleName,
+    required this.alsoKnownAs,
     required this.group,
     required this.subgroup,
     required this.version,
@@ -44,6 +45,9 @@ class Emoji {
 
   /// The Apple name of the emoji as a nullable String.
   final String? appleName;
+
+  /// The list of names the emoji is also known as a List of String.
+  final List<String> alsoKnownAs;
 
   /// The group of the emoji as a Group enum.
   final Group group;
@@ -81,6 +85,7 @@ class Emoji {
             unicode == other.unicode &&
             name == other.name &&
             appleName == other.appleName &&
+            const DeepCollectionEquality.unordered().equals(alsoKnownAs, other.alsoKnownAs) &&
             group == other.group &&
             subgroup == other.subgroup &&
             version == other.version &&
@@ -96,6 +101,7 @@ class Emoji {
         unicode.hashCode ^
         name.hashCode ^
         appleName.hashCode ^
+        alsoKnownAs.hashCode ^
         group.hashCode ^
         subgroup.hashCode ^
         version.hashCode ^
@@ -111,6 +117,7 @@ class Emoji {
         '  unicode: $unicode,\n'
         '  name: $name,\n'
         '  appleName: $appleName,\n'
+        '  alsoKnownAs: $alsoKnownAs,\n'
         '  group: ${group.value},\n'
         '  subgroup: ${subgroup.value},\n'
         '  version: ${version.value},\n'

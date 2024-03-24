@@ -15,6 +15,7 @@ void main() {
     value: '😀',
     name: 'Grinning Face',
     appleName: 'Grinning Face',
+    alsoKnownAs: ['Happy Face', 'Smiley Face'],
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
@@ -47,6 +48,7 @@ void main() {
           '  unicode: 1F600,\n'
           '  name: Grinning Face,\n'
           '  appleName: Grinning Face,\n'
+          '  alsoKnownAs: [Happy Face, Smiley Face],\n'
           '  group: Smileys & Emotion,\n'
           '  subgroup: face-smiling,\n'
           '  version: 8.0,\n'

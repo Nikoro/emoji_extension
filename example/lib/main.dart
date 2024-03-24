@@ -7,6 +7,8 @@ void main() {
                    value: 😀,
                    unicode: 1F600,
                    name: Grinning Face,
+                   appleName: Grinning Face,
+                   alsoKnownAs: [Happy Face, Smiley Face],
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
                    version: 8.0,
@@ -36,7 +38,9 @@ void main() {
                   Emoji(
                    value: 😃,
                    unicode: 1F603,
-                   name: Grinning face with big eyes,
+                   name: Grinning Face with Big Eyes,
+                   appleName: Grinning Face with Big Eyes
+                   alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face],
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
                    version: 6.0,
@@ -130,8 +134,12 @@ void main() {
                           value: 😀,
                           unicode: 1F600,
                           name: Grinning Face,
+                          appleName: Grinning Face,
+                          alsoKnownAs: [Happy Face, Smiley Face],
                           group: Smileys & Emotion,
                           subgroup: face-smiling,
+                          version: 8.0,
+                          status: fully-qualified,
                           shortcodes: [
                             Shortcode(
                             platform: Discord,

@@ -37,6 +37,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
   - unicode: 1F600
   - name: Grinning Face
   - apple name: Grinning Face
+  - also known as: Happy Face, Smiley Face
   - group: Smileys & Emotion
   - subgroup: face-smiling
   - version: 8.0
@@ -127,6 +128,8 @@ Emojis().get; /* [
                    value: 😀,
                    unicode: 1F600,
                    name: Grinning Face,
+                   appleName: Grinning Face,
+                   alsoKnownAs: [Happy Face, Smiley Face],
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
                    shortcodes: [
@@ -154,7 +157,9 @@ Emojis().get; /* [
                   Emoji(
                    value: 😃,
                    unicode: 1F603,
-                   name: Grinning face with big eyes,
+                   name: Grinning Face with Big Eyes,
+                   appleName: Grinning Face with Big Eyes,
+                   alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face]
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
                    shortcodes: [...]
@@ -255,6 +260,7 @@ Emojis().getOne('grinning_face'); /* [Emoji(
                                          unicode: 1F600,
                                          name: Grinning face,
                                          appleName: Grinning face,
+                                         alsoKnownAs: [Happy Face, Smiley Face],
                                          group: Smileys & Emotion,
                                          subgroup: face-smiling,
                                          shortcodes: [
@@ -287,7 +293,7 @@ Equivalent of [getOne()](#emojisgetone) with null safety:
 
 ```dart
 Emojis().getOneOrNull('😀')?.name; // Grinning face
-Emojis().getOneOrNull('some broken value')?.name; // null
+Emojis().getOneOrNull('some unknown value')?.name; // null
 ```
 
 ### Emojis().byGroup()
@@ -410,6 +416,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                           unicode: 1F600,
                           name: Grinning Face,
                           appleName: Grinning Face,
+                          alsoKnownAs: [Happy Face, Smiley Face],
                           group: Smileys & Emotion,
                           subgroup: face-smiling,
                           version: 8.0,

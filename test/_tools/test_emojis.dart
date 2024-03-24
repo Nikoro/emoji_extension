@@ -12,6 +12,7 @@ abstract class TestEmojis {
     value: '😀',
     name: 'Grinning Face',
     appleName: 'Grinning Face',
+    alsoKnownAs: ['Happy Face', 'Smiley Face'],
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
@@ -29,6 +30,7 @@ abstract class TestEmojis {
   static const womanFacepalmingMediumDarkSkinTone = Emoji(
     value: '🤦🏾‍♀️',
     name: 'Woman Facepalming: Medium-Dark Skin Tone',
+    alsoKnownAs: [],
     unicode: '1F926 1F3FE 200D 2640 FE0F',
     group: Group.peopleAndBody,
     subgroup: Subgroup.personGesture,
