@@ -130,5 +130,24 @@ void main() {
         expect(input.length, expected);
       });
     });
+
+    $({
+      Emojis().v6_0: 793,
+      Emojis().v7_0: 254,
+      Emojis().v8_0: 809,
+      Emojis().v9_0: 1187,
+      Emojis().v10_0: 339,
+      Emojis().v11_0: 188,
+      Emojis().v12_0: 266,
+      Emojis().v13_0: 146,
+      Emojis().v13_1: 422,
+      Emojis().v14_0: 112,
+      Emojis().v15_0: 31,
+      Emojis().v15_1: 301,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
   });
 }

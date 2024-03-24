@@ -5,6 +5,7 @@ import 'package:emoji_extension/src/emojis/emoji_parser.dart';
 export 'src/emojis/emojis.dart';
 export 'src/emojis/group.dart';
 export 'src/emojis/subgroup.dart';
+export 'src/emojis/version.dart';
 export 'src/extensions/emoji_list_extensions.dart';
 export 'src/extensions/emojis_extensions.dart';
 export 'src/extensions/group_list_extensions.dart';

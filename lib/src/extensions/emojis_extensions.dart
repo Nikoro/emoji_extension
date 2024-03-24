@@ -342,4 +342,45 @@ extension EmojisExtensions on Emojis {
 
   /// Returns a list of emojis under the 'subdivision flag' subgroup.
   List<Emoji> get subdivisionFlag => bySubgroup(Subgroup.subdivisionFlag);
+
+  /* ------------------------------ Versions ------------------------------- */
+
+  /// Returns a list of emojis under the Unicode 6.0 version.
+  List<Emoji> get v6_0 => byVersion(Version.v6_0);
+
+  /// Returns a list of emojis under the Unicode 7.0 version.
+  List<Emoji> get v7_0 => byVersion(Version.v7_0);
+
+  /// Returns a list of emojis under the Unicode 8.0 version.
+  List<Emoji> get v8_0 => byVersion(Version.v8_0);
+
+  /// Returns a list of emojis under the Unicode 9.0 version.
+  List<Emoji> get v9_0 => byVersion(Version.v9_0);
+
+  /// Returns a list of emojis under the Unicode 10.0 version.
+  List<Emoji> get v10_0 => byVersion(Version.v10_0);
+
+  /// Returns a list of emojis under the Unicode 11.0 version.
+  List<Emoji> get v11_0 => byVersion(Version.v11_0);
+
+  /// Returns a list of emojis under the Unicode 12.0 version.
+  List<Emoji> get v12_0 => byVersion(Version.v12_0);
+
+  /// Returns a list of emojis under the Unicode 12.1 version.
+  List<Emoji> get v12_1 => byVersion(Version.v12_1);
+
+  /// Returns a list of emojis under the Unicode 13.0 version.
+  List<Emoji> get v13_0 => byVersion(Version.v13_0);
+
+  /// Returns a list of emojis under the Unicode 13.1 version.
+  List<Emoji> get v13_1 => byVersion(Version.v13_1);
+
+  /// Returns a list of emojis under the Unicode 14.0 version.
+  List<Emoji> get v14_0 => byVersion(Version.v14_0);
+
+  /// Returns a list of emojis under the Unicode 15.0 version.
+  List<Emoji> get v15_0 => byVersion(Version.v15_0);
+
+  /// Returns a list of emojis under the Unicode 15.1 version.
+  List<Emoji> get v15_1 => byVersion(Version.v15_1);
 }

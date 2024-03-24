@@ -2,7 +2,7 @@
   <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/logo/logo.png" width="600"/></a>
 </p>
 <h2 align="center">
-Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.0</a><br>
+Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.1</a><br>
 +<br>
 One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/lib/emoji_extension.dart">emojis</a> String extension
 </h2>
@@ -20,14 +20,14 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
     <img alt="MIT License" src="https://tinyurl.com/3uf9tzpy">
   </a>
   <a href="https://www.unicode.org/reports/tr51/">
-    <img alt="Unicode 15.0" src="https://img.shields.io/badge/unicode-15.0-5555FF?logo=unicode&logoColor=white">
+    <img alt="Unicode 15.1" src="https://img.shields.io/badge/unicode-15.1-5555FF?logo=unicode&logoColor=white">
   </a>
 </p>
 
 ---
 ## Features
 
-- Contains over **5,000** emojis from Unicode 15.0 💪
+- Contains over **5,000** emojis from Unicode 15.1 💪
 - Supports:
   - `shorcodes`: **Discord**, **Github**, **Slack** 🫡
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
@@ -38,6 +38,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
   - name: Grinning Face
   - group: Smileys & Emotion
   - subgroup: face-smiling
+  - version: 8.0
   - shortcodes:
     - Discord: grinning
     - Github: grinning
@@ -81,10 +82,12 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
    - [subgroups](#emojissubgroups)
    - [groupsWithSubgroups](#emojisgroupswithsubgroups)
    - [shortcodePlatforms](#emojisshortcodeplatforms)
+   - [versions](#emojisversions)
    - [getOne()](#emojisgetone)
    - [getOneOrNull()](#emojisgetoneornull)
    - [byGroup()](#emojisbygroup)
    - [bySubgroup()](#emojisbysubgroup)
+   - [byVersion()](#emojisbyversion)
 
 2️⃣ [Emojis extension](#emojis-extension)
    - [any](#emojisany)
@@ -207,7 +210,7 @@ Emojis().groups.values; // [Smileys & Emotion, People & Body, Component, Animals
 
 ```dart
 Emojis().subgroups; // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
-Emojis().subgroups.values; // face-smiling, face-affection, face-tongue, face-hand, ...]
+Emojis().subgroups.values; // [face-smiling, face-affection, face-tongue, face-hand, ...]
 ```
 
 ### Emojis().groupsWithSubgroups
@@ -221,6 +224,13 @@ Emojis().groupsWithSubgroupsValues; // {Smileys & Emotion: [face-smiling, ...], 
 
 ```dart
 Emojis().shortcodePlatforms; // [Default, CLDR, Discord, Github, Slack]
+```
+
+### Emojis().versions
+
+```dart
+Emojis().versions; // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+Emojis().versions.values; // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
 ```
 
 ### Emojis().getOne()
@@ -294,6 +304,15 @@ Emojis().bySubgroup(Subgroup.faceSmiling); // [Emoji(value: 😀, ...), Emoji(va
 
 //or use convenient getters:
 Emojis().faceSmiling; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+```
+
+### Emojis().byVersion()
+
+```dart
+Emojis().byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+
+//or use convenient getters:
+Emojis().v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
 ```
 
 ## `emojis` extension
@@ -390,6 +409,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                           name: Grinning Face,
                           group: Smileys & Emotion,
                           subgroup: face-smiling,
+                          version: 8.0,
                           shortcodes: [
                             Shortcode(
                             platform: Discord,
