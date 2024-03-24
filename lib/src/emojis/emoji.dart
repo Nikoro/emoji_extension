@@ -12,8 +12,11 @@ import 'package:emoji_extension/src/extensions/extensions.dart';
 /// @param value The value of the emoji as a String.
 /// @param unicode The unicode representation of the emoji as a String.
 /// @param name The name of the emoji as a String.
+/// @param appleName The Apple name of the emoji as a nullable String.
 /// @param group The group of the emoji as a Group enum.
 /// @param subgroup The subgroup of the emoji as a Subgroup enum.
+/// @param version The unicode version in which an emoji was introduced as a Version enum.
+/// @param status The status of the emoji as a Status enum.
 /// @param shortcodes The shortcodes of the emoji as a List of Shortcode objects.
 
 class Emoji {
@@ -22,6 +25,7 @@ class Emoji {
     required this.value,
     required this.unicode,
     required this.name,
+    this.appleName,
     required this.group,
     required this.subgroup,
     required this.version,
@@ -37,6 +41,9 @@ class Emoji {
 
   /// The name of the emoji as a String.
   final String name;
+
+  /// The Apple name of the emoji as a nullable String.
+  final String? appleName;
 
   /// The group of the emoji as a Group enum.
   final Group group;
@@ -73,6 +80,7 @@ class Emoji {
             value == other.value &&
             unicode == other.unicode &&
             name == other.name &&
+            appleName == other.appleName &&
             group == other.group &&
             subgroup == other.subgroup &&
             version == other.version &&
@@ -87,6 +95,7 @@ class Emoji {
     return value.hashCode ^
         unicode.hashCode ^
         name.hashCode ^
+        appleName.hashCode ^
         group.hashCode ^
         subgroup.hashCode ^
         version.hashCode ^
@@ -101,6 +110,7 @@ class Emoji {
         '  value: $value,\n'
         '  unicode: $unicode,\n'
         '  name: $name,\n'
+        '  appleName: $appleName,\n'
         '  group: ${group.value},\n'
         '  subgroup: ${subgroup.value},\n'
         '  version: ${version.value},\n'

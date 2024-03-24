@@ -14,6 +14,7 @@ extension _JsonMapper on Map<String, dynamic> {
     final unicode = this['unicode'] as String;
     final value = this['value'] as String;
     final name = this['name'] as String;
+    final appleName = this['appleName'] as String?;
     final group = this['group'] as String;
     final subgroup = this['subgroup'] as String;
     final version = this['version'] as double;
@@ -29,6 +30,7 @@ extension _JsonMapper on Map<String, dynamic> {
       value: value,
       unicode: unicode,
       name: name,
+      appleName: appleName,
       group: Group.from(group),
       subgroup: Subgroup.from(subgroup),
       version: Version.from(version),

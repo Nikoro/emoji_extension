@@ -11,6 +11,7 @@ abstract class TestEmojis {
   static const grinningFace = Emoji(
     value: '😀',
     name: 'Grinning Face',
+    appleName: 'Grinning Face',
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,

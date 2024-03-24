@@ -36,6 +36,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
   - value: 😀
   - unicode: 1F600
   - name: Grinning Face
+  - apple name: Grinning Face
   - group: Smileys & Emotion
   - subgroup: face-smiling
   - version: 8.0
@@ -253,6 +254,7 @@ Emojis().getOne('grinning_face'); /* [Emoji(
                                          value: 😀,
                                          unicode: 1F600,
                                          name: Grinning face,
+                                         appleName: Grinning face,
                                          group: Smileys & Emotion,
                                          subgroup: face-smiling,
                                          shortcodes: [
@@ -407,6 +409,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                           value: 😀,
                           unicode: 1F600,
                           name: Grinning Face,
+                          appleName: Grinning Face,
                           group: Smileys & Emotion,
                           subgroup: face-smiling,
                           version: 8.0,

@@ -14,6 +14,7 @@ void main() {
   const emoji3 = Emoji(
     value: '😀',
     name: 'Grinning Face',
+    appleName: 'Grinning Face',
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
@@ -45,6 +46,7 @@ void main() {
           '  value: 😀,\n'
           '  unicode: 1F600,\n'
           '  name: Grinning Face,\n'
+          '  appleName: Grinning Face,\n'
           '  group: Smileys & Emotion,\n'
           '  subgroup: face-smiling,\n'
           '  version: 8.0,\n'
