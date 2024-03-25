@@ -131,6 +131,14 @@ void main() {
 
   final extract = '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract;
   // print(extract); // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
+  // print(extract.first); // 👍
+  // print(extract.second); // 👍🏻
+  // print(extract.third); // 👍🏼
+  // print(extract.fourth); // 👍🏽
+  // print(extract.fifth); // 👍🏾
+  // print(extract.sixth); // 👍🏿
+  // print(extract.penultimate); // 👍🏾
+  // print(extract.last); // 👍🏿
 
   final emoji = '😀text'.emojis.get;
   // print(emoji);

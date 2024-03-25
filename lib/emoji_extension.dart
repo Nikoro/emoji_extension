@@ -9,13 +9,7 @@ export 'src/emojis/shortcode.dart';
 export 'src/emojis/status.dart';
 export 'src/emojis/subgroup.dart';
 export 'src/emojis/version.dart';
-export 'src/extensions/emoji_list_extensions.dart';
-export 'src/extensions/emojis_extensions.dart';
-export 'src/extensions/group_list_extensions.dart';
-export 'src/extensions/shortcode_list_extensions.dart';
-export 'src/extensions/subgroup_list_extensions.dart';
-export 'src/extensions/version_list_extensions.dart';
-export 'src/extensions/status_list_extensions.dart';
+export 'src/extensions/extensions.dart';
 
 /// Extension on [String] that adds emoji parsing capabilities.
 extension EmojiExtension on String {

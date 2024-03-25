@@ -368,6 +368,8 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .remove // texttexttext
                          .extract // [😀, 🤦🏾‍♀️]
                                  .first // 😀
+                                 .second // 🤦🏾‍♀️
+                                 .penultimate // 😀
                                  .last // 🤦🏾‍♀️
                          .hasAny(['👍', '😀']) // true
                          .hasEach(['👍', '😀']) // false
@@ -438,8 +440,14 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
-                                          .first // 👍
-                                          .last // 👍🏿
+                                         .first // 👍
+                                         .second // 👍🏻
+                                         .third // 👍🏼
+                                         .fourth // 👍🏽
+                                         .fifth // 👍🏾
+                                         .sixth // 👍🏿
+                                         .penultimate // 👍🏾
+                                         .last // 👍🏿
 ```
 
 ### emojis.get
