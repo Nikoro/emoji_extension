@@ -42,6 +42,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
   - group: Smileys & Emotion
   - subgroup: face-smiling
   - version: 8.0
+  - status: fully-qualified
   - shortcodes:
     - Discord: grinning
     - Github: grinning
@@ -86,11 +87,13 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
    - [groupsWithSubgroups](#emojisgroupswithsubgroups)
    - [shortcodePlatforms](#emojisshortcodeplatforms)
    - [versions](#emojisversions)
+   - [statuses](#emojisstatuses)
    - [getOne()](#emojisgetone)
    - [getOneOrNull()](#emojisgetoneornull)
    - [byGroup()](#emojisbygroup)
    - [bySubgroup()](#emojisbysubgroup)
    - [byVersion()](#emojisbyversion)
+   - [byStatus()](#emojisbystatus)
 
 2️⃣ [Emojis extension](#emojis-extension)
    - [any](#emojisany)
@@ -133,26 +136,28 @@ Emojis().get; /* [
                    alsoKnownAs: [Happy Face, Smiley Face],
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
+                   version: 8.0,
+                   status: fully-qualified,
                    shortcodes: [
                             Shortcode(
+                            platform: Default,
+                            values: [grinning_face]
+                          ),
+                            Shortcode(
+                            platform: CLDR,
+                            values: [grinning_face]
+                          ),
+                            Shortcode(
                             platform: Discord,
-                            value: grinning
+                            values: [grinning]
                           ),
                             Shortcode(
                             platform: Github,
-                            value: grinning
-                          ),                             
+                            values: [grinning]
+                          ),
                             Shortcode(
                             platform: Slack,
-                            value: grinning
-                          ), 
-                            Shortcode(
-                            platform: Default,
-                            value: grinning_face
-                          ), 
-                            Shortcode(
-                            platform: CLDR,
-                            value: grinning_face
+                            values: [grinning]
                           )]
                   ), 
                   Emoji(
@@ -163,6 +168,8 @@ Emojis().get; /* [
                    alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face]
                    group: Smileys & Emotion,
                    subgroup: face-smiling,
+                   version: 6.0,
+                   status: fully-qualified
                    shortcodes: [...]
                   )
                  ...
@@ -240,6 +247,13 @@ Emojis().versions; // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, .
 Emojis().versions.values; // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
 ```
 
+### Emojis().statuses
+
+```dart
+Emojis().statuses; // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+Emojis().statuses.values; // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+```
+
 ### Emojis().getOne()
 
 ```dart
@@ -270,27 +284,29 @@ Emojis().getOne('grinning_face'); /* [Emoji(
                                          alsoKnownAs: [Happy Face, Smiley Face],
                                          group: Smileys & Emotion,
                                          subgroup: face-smiling,
+                                         version: 8.0,
+                                         status: fully-qualified,
                                          shortcodes: [
-                                           Shortcode(
-                                           platform: Discord,
-                                           value: grinning
-                                         ),
-                                           Shortcode(
-                                           platform: Github,
-                                           value: grinning
-                                         ),  
-                                           Shortcode(
-                                           platform: Slack,
-                                           value: grinning
-                                         ), 
-                                           Shortcode(
-                                           platform: Default,
-                                           value: grinning_face
-                                         ), 
-                                           Shortcode(
-                                           platform: CLDR,
-                                           value: grinning_face
-                                         )]
+                                                Shortcode(
+                                                platform: Default,
+                                                values: [grinning_face]
+                                              ),
+                                                Shortcode(
+                                                platform: CLDR,
+                                                values: [grinning_face]
+                                              ),
+                                                Shortcode(
+                                                platform: Discord,
+                                                values: [grinning]
+                                              ),
+                                                Shortcode(
+                                                platform: Github,
+                                                values: [grinning]
+                                              ),
+                                                Shortcode(
+                                                platform: Slack,
+                                                values: [grinning]
+                                              )]
                                        )] */
 ```
 
@@ -328,6 +344,15 @@ Emojis().byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄
 
 //or use convenient getters:
 Emojis().v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+```
+
+### Emojis().byStatus()
+
+```dart
+Emojis().byStatus(Status.fullyQualified); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+
+//or use convenient getters:
+Emojis().fullyQualified; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
 ```
 
 ## `emojis` extension
@@ -429,27 +454,28 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                           group: Smileys & Emotion,
                           subgroup: face-smiling,
                           version: 8.0,
+                          status: fully-qualified,
                           shortcodes: [
-                            Shortcode(
-                            platform: Discord,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Github,
-                            value: grinning
-                          ),                             
-                            Shortcode(
-                            platform: Slack,
-                            value: grinning
-                          ), 
-                            Shortcode(
-                            platform: Default,
-                            value: grinning_face
-                          ), 
-                            Shortcode(
-                            platform: CLDR,
-                            value: grinning_face
-                          )]
+                                Shortcode(
+                                platform: Default,
+                                values: [grinning_face]
+                              ),
+                                Shortcode(
+                                platform: CLDR,
+                                values: [grinning_face]
+                              ),
+                                Shortcode(
+                                platform: Discord,
+                                values: [grinning]
+                              ),
+                                Shortcode(
+                                platform: Github,
+                                values: [grinning]
+                              ),
+                                Shortcode(
+                                platform: Slack,
+                                values: [grinning]
+                              )]
                         )] */
 ```
 

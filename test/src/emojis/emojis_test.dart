@@ -28,6 +28,10 @@ void main() {
       expect(Emojis().versions, Version.values);
     });
 
+    test('statuses returns correct value', () {
+      expect(Emojis().statuses, Status.values);
+    });
+
     test('groupsWithSubgroups returns correct type', () {
       expect(Emojis().groupsWithSubgroups, isA<Map<Group, List<Subgroup>>>());
     });
@@ -227,6 +231,7 @@ void main() {
       Version.v10_0: 339,
       Version.v11_0: 188,
       Version.v12_0: 266,
+      Version.v12_1: 186,
       Version.v13_0: 146,
       Version.v13_1: 422,
       Version.v14_0: 112,
@@ -238,6 +243,19 @@ void main() {
           () {
         expect(Emojis().byVersion(input).length, expected);
       });
+    });
+
+    $({
+      Status.fullyQualified: 3773,
+      Status.minimallyQualified: 1009,
+      Status.unqualified: 243,
+      Status.component: 9,
+    }).forEach((input, expected) {
+      test(
+          'byStatus() returns $expected emojis when status is: [${input.name}]',
+              () {
+            expect(Emojis().byStatus(input).length, expected);
+          });
     });
 
     test('get returns correct values', () {

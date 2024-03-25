@@ -4,10 +4,7 @@ import 'package:emoji_extension/src/emojis/platform.dart';
 /// Represents a shortcode that maps to an emoji on a specific platform.
 class Shortcode {
   /// Creates a shortcode instance with the given [platform] and [values].
-  ///
-  /// Throws an [ArgumentError] if [platform] is not a valid [Platform] value.
-  Shortcode({required String platform, required this.values})
-      : platform = Platform.from(platform);
+  Shortcode._({required this.platform, required this.values});
 
   /// Creates a default shortcode with the given [values].
   const Shortcode.$default(this.values) : platform = Platform.Default;
@@ -30,21 +27,33 @@ class Shortcode {
   /// The values of this shortcode.
   final List<String> values;
 
+  /// Returns a new [Shortcode] object with updated properties.
+  Shortcode copyWith({
+    Platform? platform,
+    List<String>? values,
+  }) {
+    return Shortcode._(
+      platform: platform ?? this.platform,
+      values: values ?? this.values,
+    );
+  }
+
   /// Determines whether the current shortcode is equal to another object.
   @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        other is Shortcode &&
-            runtimeType == other.runtimeType &&
-            platform == other.platform &&
-            const DeepCollectionEquality.unordered()
-                .equals(values, other.values);
-  }
+  bool operator ==(Object o) =>
+      identical(this, o) ||
+      (o.runtimeType == runtimeType &&
+          o is Shortcode &&
+          (identical(o.platform, platform) || o.platform == platform) &&
+          const DeepCollectionEquality.unordered().equals(o.values, values));
 
   /// Returns the hash code for the current shortcode.
   @override
-  int get hashCode =>
-      platform.hashCode ^ const DeepCollectionEquality().hash(values);
+  int get hashCode => Object.hash(
+        runtimeType,
+        platform,
+        const DeepCollectionEquality().hash(values),
+      );
 
   /// Returns a String representation of the current shortcode.
   @override

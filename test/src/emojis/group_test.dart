@@ -25,5 +25,26 @@ void main() {
         expect(input.subgroups.length, expected);
       });
     });
+
+    $({
+      'People & Body': Group.peopleAndBody,
+      'Component': Group.component,
+      'Animals & Nature': Group.animalsAndNature,
+      'Food & Drink': Group.foodAndDrink,
+      'Travel & Places': Group.travelAndPlaces,
+      'Activities': Group.activities,
+      'Objects': Group.objects,
+      'Symbols': Group.symbols,
+      'Flags': Group.flags,
+    }).forEach((input, expected) {
+      test('from returns returns $expected  when input is: [$input]', () {
+        expect(Group.from(input), expected);
+      });
+    });
+
+    test('from throws State Error when input is invalid', () {
+      const input = 'some unknown value';
+      expect(() => Group.from(input), throwsStateError);
+    });
   });
 }

@@ -139,11 +139,22 @@ void main() {
       Emojis().v10_0: 339,
       Emojis().v11_0: 188,
       Emojis().v12_0: 266,
+      Emojis().v12_1: 186,
       Emojis().v13_0: 146,
       Emojis().v13_1: 422,
       Emojis().v14_0: 112,
       Emojis().v15_0: 31,
       Emojis().v15_1: 301,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis().fullyQualified: 3773,
+      Emojis().minimallyQualified: 1009,
+      Emojis().unqualified: 243,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
         expect(input.length, expected);

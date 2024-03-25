@@ -10,7 +10,7 @@ import '../../_tools/test_emojis.dart';
 
 void main() {
   const emoji1 = TestEmojis.grinningFace;
-  const emoji2 = TestEmojis.grinningFace;
+  final emoji2 = emoji1.copyWith();
   const emoji3 = Emoji(
     value: '😀',
     name: 'Grinning Face',

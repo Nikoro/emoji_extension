@@ -40,6 +40,9 @@ class Emojis {
   /// Returns an unmodifiable list of all the unicode emoji versions.
   List<Version> get versions => Version.values;
 
+  /// Returns an unmodifiable list of all the Emoji statuses.
+  List<Status> get statuses => Status.values;
+
   /// Returns a map of all the Emoji groups with their corresponding subgroups.
   Map<Group, List<Subgroup>> get groupsWithSubgroups {
     return {for (final group in groups) group: group.subgroups};
@@ -107,5 +110,11 @@ class Emojis {
   /// to the specified [Version].
   List<Emoji> byVersion(Version version) {
     return _emojis.where((e) => e.version == version).toUnmodifiableList();
+  }
+
+  /// Returns a list of all [Emoji] objects in the _emojis list that belong
+  /// to the specified [Status].
+  List<Emoji> byStatus(Status status) {
+    return _emojis.where((e) => e.status == status).toUnmodifiableList();
   }
 }

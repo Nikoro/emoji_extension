@@ -1,5 +1,4 @@
 import 'package:emoji_extension/emoji_extension.dart';
-import 'package:emoji_extension/src/emojis/emoji.dart';
 
 /// An extension that provides convenient methods for filtering and accessing
 /// emojis in a given Emojis list.
@@ -383,4 +382,15 @@ extension EmojisExtensions on Emojis {
 
   /// Returns a list of emojis under the Unicode 15.1 version.
   List<Emoji> get v15_1 => byVersion(Version.v15_1);
+
+  /* ------------------------------ Status ------------------------------- */
+
+  /// Returns a list of emojis under the 'fully-qualified' status.
+  List<Emoji> get fullyQualified => byStatus(Status.fullyQualified);
+
+  /// Returns a list of emojis under the 'minimally-qualified' status.
+  List<Emoji> get minimallyQualified => byStatus(Status.minimallyQualified);
+
+  /// Returns a list of emojis under the 'unqualified' status.
+  List<Emoji> get unqualified => byStatus(Status.unqualified);
 }

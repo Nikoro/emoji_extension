@@ -14,26 +14,26 @@ void main() {
                    version: 8.0,
                    status: fully-qualified,
                    shortcodes: [
-                            Shortcode(
-                            platform: Discord,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Github,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Slack,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Default,
-                            value: grinning_face
-                          ),
-                            Shortcode(
-                            platform: CLDR,
-                            value: grinning_face
-                          )]
+                        Shortcode(
+                        platform: Default,
+                        values: [grinning_face]
+                      ),
+                        Shortcode(
+                        platform: CLDR,
+                        values: [grinning_face]
+                      ),
+                        Shortcode(
+                        platform: Discord,
+                        values: [grinning]
+                      ),
+                        Shortcode(
+                        platform: Github,
+                        values: [grinning]
+                      ),
+                        Shortcode(
+                        platform: Slack,
+                        values: [grinning]
+                      )]
                   ),
                   Emoji(
                    value: 😃,
@@ -75,8 +75,12 @@ void main() {
   // print(slackShortcodes); // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
 
   final versions = Emojis().versions;
-   // print(versions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
-   // print(versions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+  // print(versions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+  // print(versions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+
+  final statuses = Emojis().statuses;
+  // print(statuses); // [Status.fullyQualified, Status.minimallyQualified, ...]
+  // print(statuses.values); // [fully-qualified, minimally-qualified, unqualified, ...]
 
   final groups = Emojis().groups;
   // print(groups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
@@ -98,7 +102,7 @@ void main() {
   final name = Emojis().getOne('😀').name;
   // print(name); // Grinning face
 
-  final nameOrNull = Emojis().getOneOrNull('some broken value')?.name;
+  final nameOrNull = Emojis().getOneOrNull('some unknown value')?.name;
   // print(nameOrNull); // null
 
   final smileysAndEmotion = Emojis().smileysAndEmotion;
@@ -142,24 +146,24 @@ void main() {
                           status: fully-qualified,
                           shortcodes: [
                             Shortcode(
-                            platform: Discord,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Github,
-                            value: grinning
-                          ),
-                            Shortcode(
-                            platform: Slack,
-                            value: grinning
-                          ),
-                            Shortcode(
                             platform: Default,
-                            value: grinning_face
+                            values: [grinning_face]
                           ),
                             Shortcode(
                             platform: CLDR,
-                            value: grinning_face
+                            values: [grinning_face]
+                          ),
+                            Shortcode(
+                            platform: Discord,
+                            values: [grinning]
+                          ),
+                            Shortcode(
+                            platform: Github,
+                            values: [grinning]
+                          ),
+                            Shortcode(
+                            platform: Slack,
+                            values: [grinning]
                           )]
                         )] */
 
