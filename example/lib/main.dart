@@ -57,7 +57,13 @@ void main() {
   // print(unicodes); // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
 
   final names = emojis.names;
-  // print(names); // [Grinning face, Grinning face with big eyes, ...]
+  // print(names); // [Grinning Face, Grinning Face with Big Eyes, ...]
+
+  final appleNames = emojis.appleNames;
+  // print(appleNames); // [Grinning Face, Grinning Face with Big Eyes, ...]
+
+  final alsoKnownAs = emojis.alsoKnownAs;
+  // print(alsoKnownAs); // [Happy Face, Smiley Face, Grinning Face, ...]
 
   final shortcodes = emojis.shortcodes;
   // print(shortcodes); // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
@@ -74,21 +80,37 @@ void main() {
   final slackShortcodes = emojis.slackShortcodes;
   // print(slackShortcodes); // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
 
-  final versions = Emojis().versions;
-  // print(versions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
-  // print(versions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+  final groups = emojis.groups;
+  // print(groups); // [Group.smileysAndEmotion, Group.smileysAndEmotion, ...]
+  // print(groups.values); // [Smileys & Emotion, Smileys & Emotion, ...]
 
-  final statuses = Emojis().statuses;
-  // print(statuses); // [Status.fullyQualified, Status.minimallyQualified, ...]
-  // print(statuses.values); // [fully-qualified, minimally-qualified, unqualified, ...]
+  final subgroups = emojis.subgroups;
+  // print(subgroups); // [Subgroup.faceSmiling, Subgroup.faceSmiling, ...]
+  // print(subgroups.values); // [face-smiling, face-smiling, ...]
 
-  final groups = Emojis().groups;
-  // print(groups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
-  // print(groups.values); // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+  final versions = emojis.versions;
+  // print(versions); // [Version.v8_0, Version.v6_0, Version.v6_0, ...]
+  // print(versions.values); // [8.0, 6.0, 6.0, 6.0, 6.0, 6.0, 9.0, ...]
 
-  final subgroups = Emojis().subgroups;
-  // print(subgroups); // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
-  // print(subgroups.values); // face-smiling, face-affection, face-tongue, face-hand, ...]
+  final statuses = emojis.statuses;
+  // print(statuses); // [Status.fullyQualified, Status.fullyQualified, ...]
+  // print(statuses.values); // [fully-qualified, fully-qualified, ...]
+
+  final availableVersions = Emojis().versions;
+  // print(availableVersions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+  // print(availableVersions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+
+  final availableStatuses = Emojis().statuses;
+  // print(availableStatuses); // [Status.fullyQualified, Status.minimallyQualified, ...]
+  // print(availableStatuses.values); // [fully-qualified, minimally-qualified, unqualified, ...]
+
+  final availableGroups = Emojis().groups;
+  // print(availableGroups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
+  // print(availableGroups.values); // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+
+  final availableSubgroups = Emojis().subgroups;
+  // print(availableSubgroups); // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
+  // print(availableSubgroups.values); // face-smiling, face-affection, face-tongue, face-hand, ...]
 
   final groupsWithSubgroups = Emojis().groupsWithSubgroups;
   // print(groupsWithSubgroups); // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
@@ -195,7 +217,7 @@ void main() {
   // print(replaceWith); // ABCtext123textABC
 
   final replaceEach =
-  '😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null);
+      '😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null);
   // print(replaceEach); // 😀text_OK_text😀
 
   final toShortcodes = '😀text🤦🏾‍♀️'.emojis.toShortcodes();

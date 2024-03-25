@@ -1,9 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:emoji_extension/src/emojis/emoji.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/extensions/iterable_extensions.dart';
-import 'package:emoji_extension/src/extensions/shortcode_list_extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 
 /// Extension that provides several getters to extract specific data from the list of emojis.
 extension EmojiListExtensions on List<Emoji> {
@@ -15,6 +11,14 @@ extension EmojiListExtensions on List<Emoji> {
 
   /// Provides a list of all the names of the emojis.
   List<String> get names => map((e) => e.name).toUnmodifiableList();
+
+  /// Provides a list of all the apple names of the emojis.
+  List<String> get appleNames =>
+      mapNotNull((e) => e?.appleName).toUnmodifiableList();
+
+  /// Provides a list of names each emoji is also known as.
+  List<String> get alsoKnownAs =>
+      expand((e) => e.alsoKnownAs).toUnmodifiableList();
 
   /// Provides a list of all the default (names in snake_case) shortcodes for the emojis.
   List<String> get shortcodes => map((e) => e.shortcode).toUnmodifiableList();
@@ -44,4 +48,10 @@ extension EmojiListExtensions on List<Emoji> {
 
   /// Provides a list of all the subgroups to which the emojis belong
   List<Subgroup> get subgroups => map((e) => e.subgroup).toUnmodifiableList();
+
+  /// Provides a list of all the versions in which each emoji was introduced
+  List<Version> get versions => map((e) => e.version).toUnmodifiableList();
+
+  /// Provides a list of all the statuses of the emojis.
+  List<Status> get statuses => map((e) => e.status).toUnmodifiableList();
 }

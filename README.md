@@ -81,6 +81,8 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
       - [values](#emojisgetvalues)
       - [unicodes](#emojisgetunicodes)
       - [names](#emojisgetnames)
+      - [appleNames](#emojisgetapplenames)
+      - [alsoKnownAs](#emojisgetalsoknownas)
       - [shortcodes](#emojisgetshortcodes)
    - [groups](#emojisgroups)
    - [subgroups](#emojissubgroups)
@@ -193,6 +195,18 @@ Emojis().get.unicodes; // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F60
 
 ```dart
 Emojis().get.names; // [Grinning Face, Grinning Face with Big Eyes, ...]
+```
+
+#### Emojis().get.appleNames
+
+```dart
+Emojis().get.appleNames; // [Grinning Face, Grinning Face with Big Eyes, ...]
+```
+
+#### Emojis().get.alsoKnownAs
+
+```dart
+Emojis().get.alsoKnownAs; // [Happy Face, Smiley Face, Grinning Face, ...]
 ```
 
 #### Emojis().get.shortcodes
@@ -384,6 +398,8 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .get
                              .unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
                              .names // [Grinning Face, Woman Facepalming: Medium-Dark Skin Tone]
+                             .appleNames // [Grinning Face]
+                             .alsoKnownAs // [Happy Face, Smiley Face]
                              .groups // [Group.smileysAndEmotion, Group.peopleAndBody]
                                     .values // [Smileys & Emotion, People & Body]
                              .subgroups // [Subgroup.faceSmiling, Subgroup.personGesture]

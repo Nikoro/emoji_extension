@@ -1,6 +1,8 @@
 import 'package:emoji_extension/src/extensions/extensions.dart';
 import 'package:test/test.dart';
 
+import '../../_tools/tools.dart';
+
 void main() {
   group('IterableExtensions', () {
     test('toUnmodifiableList() returns unmodifiable List', () {
@@ -13,6 +15,15 @@ void main() {
     test('distinct() returns a list with distinct elements', () {
       final list = [1, 2, 2, 3, 3, 4, 5, 5, 5];
       expect(list.distinct(), [1, 2, 3, 4, 5]);
+    });
+
+    $({
+      [1, 2, null, 3, null, 4]: [1, 2, 3, 4],
+      [1, 2, 3]: [1, 2, 3]
+    }).forEach((input, expected) {
+      test('mapNotNull returns $expected when input is: $input', () {
+        expect(input.mapNotNull((e) => e), expected);
+      });
     });
 
     group('second', () {

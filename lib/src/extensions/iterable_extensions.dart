@@ -11,6 +11,18 @@ extension IterableExtensions<E> on Iterable<E> {
   /// The returned list maintains the order of the original elements.
   List<E> distinct() => toSet().toUnmodifiableList();
 
+  Iterable<R> mapNotNull<R extends Object>(R? Function(E? e) transform) {
+    final resultList = <R>[];
+    for (final element in this) {
+      final item = transform(element);
+      if (item != null) {
+        resultList.add(item);
+      }
+    }
+
+    return resultList;
+  }
+
   /// Returns the second element from this iterable.
   ///
   /// Throws an [IndexError] if this iterable has fewer than two elements.

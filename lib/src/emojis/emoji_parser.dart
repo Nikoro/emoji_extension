@@ -35,7 +35,7 @@ class EmojiParser {
 
   /// Gets a list of [Emoji] objects corresponding to the emojis in the
   /// String value.
-  List<Emoji> get get => extract.map((e) => _emojis.getOne(e)).toList();
+  List<Emoji> get get => extract.map((e) => Emojis().getOne(e)).toList();
 
   /// Extracts all emojis from the String value and returns them in a list.
   List<String> get extract {
@@ -118,7 +118,7 @@ class EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
+      return Emojis().getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
           match;
     });
   }
@@ -130,14 +130,9 @@ class EmojiParser {
       {String Function(String unknownShortcode)? onUnknownShortcode}) {
     return _value.splitMapJoin(Regex.shortcode, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match.removeColons())?.value ??
+      return Emojis().getOneOrNull(match.removeColons())?.value ??
           onUnknownShortcode?.call(match) ??
           match;
     });
   }
-
-  /// Retrieves the [_emojis] cache or creates a new cache if one does not exist.
-  /// [_emojis] is used to look up information about individual emojis.
-  Emojis get _emojis => _cache ??= Emojis();
-  Emojis? _cache;
 }
