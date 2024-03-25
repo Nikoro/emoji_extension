@@ -190,9 +190,13 @@ void main() {
   final replace = '😀text👍'.emojis.replace('_');
   // print(replace); // _️text_
 
+  final replaceWith =
+      '😀text👍🏻text😀'.emojis.replaceWith({'😀': 'ABC', '👍🏻': '123'});
+  // print(replaceWith); // ABCtext123textABC
+
   final replaceEach =
-      '😀text👍🏻text😀'.emojis.replaceEach({'😀': 'ABC', '👍🏻': '123'});
-  // print(replaceEach); // ABCtext123textABC
+  '😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null);
+  // print(replaceEach); // 😀text_OK_text😀
 
   final toShortcodes = '😀text🤦🏾‍♀️'.emojis.toShortcodes();
   // print(toShortcodes); // :grinning_face:text:woman_facepalming_medium_dark_skin_tone:

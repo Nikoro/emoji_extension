@@ -113,6 +113,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
    - [hasEach()](#emojishaseach)
    - [splitMapJoin()](#emojissplitmapjoin)
    - [replace()](#emojisreplace)
+   - [replaceWith()](#emojisreplacewith)
    - [replaceEach()](#emojisreplaceeach)
    - [toShortcodes()](#emojistoshortcodes)
    - [fromShortcodes()](#emojisfromshortcodes)
@@ -374,7 +375,8 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .hasAny(['👍', '😀']) // true
                          .hasEach(['👍', '😀']) // false
                          .replace('---') // text---text---text
-                         .replaceEach({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
+                         .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
+                         .replaceEach((e) => e == '🤦🏾‍♀️' ? '__' : null); // text😀text__text
                          .splitMapJoin(
                                        onMatch: (_) => '_emoji_',
                                        onNonMatch: (s) => s.toUpperCase(),
@@ -563,10 +565,18 @@ onNonMatch: (s) => s.toUpperCase(),
 '😀text👍'.emojis.replace('_'); // _️text_
 ```
 
+### emojis.replaceWith()
+
+```dart
+'😀text👍🏻text😀'.emojis.replaceWith({'😀':'ABC', '👍🏻':'123'}); // ABCtext123textABC
+```
+
 ### emojis.replaceEach()
 
 ```dart
-'😀text👍🏻text😀'.emojis.replaceEach({'😀':'ABC', '👍🏻':'123'}); // ABCtext123textABC
+'😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null); // 😀text_OK_text😀 
+
+'😀text👍🏻text😀'.emojis.replaceEach((e) => {'😀':'ABC', '👍🏻':'123'}[e]); // ABCtext123textABC
 ```
 
 ### emojis.toShortcodes()

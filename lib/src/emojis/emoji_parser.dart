@@ -1,7 +1,5 @@
 import 'package:emoji_extension/emoji_extension.dart';
-import 'package:emoji_extension/src/emojis/emoji.dart';
 import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
 import 'package:emoji_extension/src/regex.dart';
 
 /// A class for parsing and manipulating emojis within a given String value.
@@ -66,16 +64,34 @@ class EmojiParser {
 
   /// Returns the parsed String with all emoji characters replaced by the
   /// specified String.
-  String replace(String replace) => _value.replaceAll(Regex.emoji, replace);
+  String replace(String replacement) =>
+      _value.replaceAll(Regex.emoji, replacement);
 
-  /// Returns the parsed String with all occurrences of each emoji character
-  /// replaced by the specified String, as given by the provided map of emoji
-  /// characters to replacement Strings.
-  String replaceEach(Map<String, String> emojiToReplace) {
-    if (emojiToReplace.isEmpty) return _value;
+  /// Returns a new String where all occurrences of each emoji character are replaced
+  /// with the corresponding replacement String provided in the [emojiToReplacement] map.
+  /// If the provided map is empty, returns the original String.
+  /// The [emojiToReplacement] map maps each emoji character to its replacement String.
+  String replaceWith(Map<String, String> emojiToReplacement) {
+    if (emojiToReplacement.isEmpty) return _value;
     String output = _value;
-    emojiToReplace.toMapWhereKeysAreEmojisOnly().forEach((emoji, replace) {
+    emojiToReplacement.toMapWhereKeysAreEmojisOnly().forEach((emoji, replace) {
       output = output.replaceAll(emoji, replace);
+    });
+    return output;
+  }
+
+  /// Returns a new String where each emoji character is replaced by the result of
+  /// applying the specified function [replace].
+  /// The [replace] function takes an emoji character as input and returns the String
+  /// to replace it with. If the [replace] function returns `null`, the original emoji character
+  /// is retained.
+  String replaceEach(String? Function(String e) replace) {
+    String output = _value;
+    extract.distinct().forEach((emoji) {
+      final replacement = replace(emoji);
+      if (replacement != null) {
+        output = output.replaceAll(emoji, replacement);
+      }
     });
     return output;
   }

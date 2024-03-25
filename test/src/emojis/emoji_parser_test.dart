@@ -170,6 +170,20 @@ void main() {
       {'😀text': '1', 'te': '2', 'xt': '3'}: '😀text👍🏻text🤦🏾‍♀️text😀',
     }).forEach((input, expected) {
       test(
+          'replaceWith() returns correct text with chosen replacement for each emoji',
+          () {
+        const text = '😀text👍🏻text🤦🏾‍♀️text😀';
+        final value = EmojiParser(text).replaceWith(input);
+        expect(value, expected);
+      });
+    });
+
+    $({
+      (value) => {'😀': 'A', '👍🏻': 'B'}[value]: 'AtextBtext🤦🏾‍♀️textA',
+      (value) => value == '👍🏻' ? '_OK_' : null: '😀text_OK_text🤦🏾‍♀️text😀',
+      (value) => null: '😀text👍🏻text🤦🏾‍♀️text😀',
+    }).forEach((input, expected) {
+      test(
           'replaceEach() returns correct text with chosen replacement for each emoji',
           () {
         const text = '😀text👍🏻text🤦🏾‍♀️text😀';
