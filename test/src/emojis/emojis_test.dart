@@ -1,5 +1,4 @@
 import 'package:emoji_extension/emoji_extension.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/tools.dart';
@@ -52,6 +51,12 @@ void main() {
       'Grinning face',
       'grinning face',
       'Grinning Face',
+      'Happy Face',
+      'Happy face',
+      'happy face',
+      'Smiley Face',
+      'Smiley face',
+      'smiley face',
       '1F600',
       'grinning_face',
       ':grinning_face:',
@@ -68,12 +73,18 @@ void main() {
       'Grinning face': TestEmojis.grinningFace,
       'grinning face': TestEmojis.grinningFace,
       'Grinning Face': TestEmojis.grinningFace,
+      'Happy face': TestEmojis.grinningFace,
+      'happy face': TestEmojis.grinningFace,
+      'Happy Face': TestEmojis.grinningFace,
+      'Smiley face': TestEmojis.grinningFace,
+      'smiley face': TestEmojis.grinningFace,
+      'Smiley Face': TestEmojis.grinningFace,
       '1F600': TestEmojis.grinningFace,
       'grinning_face': TestEmojis.grinningFace,
       ':grinning_face:': TestEmojis.grinningFace,
       'grinning': TestEmojis.grinningFace,
       ':grinning:': TestEmojis.grinningFace,
-      'some broken text': null,
+      'some unknown value': null,
     }).forEach((input, expected) {
       test('getOneOrNull() returns $expected when param is: [$input]', () {
         expect(Emojis().getOneOrNull(input), expected);

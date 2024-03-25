@@ -31,7 +31,8 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 - Supports:
   - `shorcodes`: **Discord**, **Github**, **Slack** 🫡
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
-  - multi-person: 👨‍👩‍👦
+  - hair style variations: 🦰 🦱 🦳 🦲
+  - multi-person: 👨‍👩‍👧‍👦
 - Provides [`Emojis()`](#emojis-repository) class that has all the info about each emoji:
   - value: 😀
   - unicode: 1F600
@@ -183,7 +184,7 @@ Emojis().get.unicodes; // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F60
 #### Emojis().get.names
 
 ```dart
-Emojis().get.names; // [Grinning face, Grinning face with big eyes, ...]
+Emojis().get.names; // [Grinning Face, Grinning Face with Big Eyes, ...]
 ```
 
 #### Emojis().get.shortcodes
@@ -248,9 +249,15 @@ Emojis().getOne('😀'); // or
 // By unicode
 Emojis().getOne('1F600'); // or
 
-// By name (ignore-case)
+// By name or apple name (ignore-case)
 Emojis().getOne('Grinning Face'); // or
 Emojis().getOne('grinning face'); // or
+
+// By also known as (ignore-case)
+Emojis().getOne('Happy Face'); // or
+Emojis().getOne('happy face'); // or
+Emojis().getOne('Smiley Face'); // or
+Emojis().getOne('smiley face'); // or
 
 // By shortcode (ignore-colons)
 Emojis().getOne(':grinning:'); // or
@@ -258,8 +265,8 @@ Emojis().getOne('grinning'); // or
 Emojis().getOne('grinning_face'); /* [Emoji(
                                          value: 😀,
                                          unicode: 1F600,
-                                         name: Grinning face,
-                                         appleName: Grinning face,
+                                         name: Grinning Face,
+                                         appleName: Grinning Face,
                                          alsoKnownAs: [Happy Face, Smiley Face],
                                          group: Smileys & Emotion,
                                          subgroup: face-smiling,
@@ -347,7 +354,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                                       ) // TEXT_emoji_TEXT_emoji_TEXT
                          .get
                              .unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
-                             .names // [Grinning face, Woman facepalming: medium-dark skin tone]
+                             .names // [Grinning Face, Woman Facepalming: Medium-Dark Skin Tone]
                              .groups // [Group.smileysAndEmotion, Group.peopleAndBody]
                                     .values // [Smileys & Emotion, People & Body]
                              .subgroups // [Subgroup.faceSmiling, Subgroup.personGesture]
@@ -405,7 +412,9 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 ### emojis.extract
 
 ```dart
-'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract; // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
+'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
+                                          .first // 👍
+                                          .last // 👍🏿
 ```
 
 ### emojis.get

@@ -2,8 +2,11 @@ library emoji_extension;
 
 import 'package:emoji_extension/src/emojis/emoji_parser.dart';
 
+export 'src/emojis/emoji.dart';
 export 'src/emojis/emojis.dart';
 export 'src/emojis/group.dart';
+export 'src/emojis/shortcode.dart';
+export 'src/emojis/status.dart';
 export 'src/emojis/subgroup.dart';
 export 'src/emojis/version.dart';
 export 'src/extensions/emoji_list_extensions.dart';
