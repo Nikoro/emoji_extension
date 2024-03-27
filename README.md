@@ -76,52 +76,71 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 
 Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2 benefits:
 
-1️⃣ [Emojis repository](#emojis-repository)
-   - [get](#emojisget)
-      - [values](#emojisgetvalues)
-      - [unicodes](#emojisgetunicodes)
-      - [names](#emojisgetnames)
-      - [appleNames](#emojisgetapplenames)
-      - [alsoKnownAs](#emojisgetalsoknownas)
-      - [shortcodes](#emojisgetshortcodes)
-   - [groups](#emojisgroups)
-   - [subgroups](#emojissubgroups)
-   - [groupsWithSubgroups](#emojisgroupswithsubgroups)
-   - [shortcodePlatforms](#emojisshortcodeplatforms)
-   - [versions](#emojisversions)
-   - [statuses](#emojisstatuses)
-   - [getOne()](#emojisgetone)
-   - [getOneOrNull()](#emojisgetoneornull)
-   - [byGroup()](#emojisbygroup)
-   - [bySubgroup()](#emojisbysubgroup)
-   - [byVersion()](#emojisbyversion)
-   - [byStatus()](#emojisbystatus)
-
-2️⃣ [Emojis extension](#emojis-extension)
-   - [any](#emojisany)
-   - [only](#emojisonly)
-   - [onlyOne](#emojisonlyone)
-   - [count](#emojiscount)
-   - [remove](#emojisremove)
-   - [split](#emojissplit)
-   - [extract](#emojisextract)
-   - [get](#emojisget-1)
-      - [unicodes](#emojisgetunicodes-1)
-      - [names](#emojisgetnames-1)
-      - [shortcodes](#emojisgetshortcodes-1)
-      - [groups](#emojisgetgroups)
-      - [subgroups](#emojisgetsubgroups)
-   - [hasAny()](#emojishasany)
-   - [hasEach()](#emojishaseach)
-   - [splitMapJoin()](#emojissplitmapjoin)
-   - [replace()](#emojisreplace)
-   - [replaceWith()](#emojisreplacewith)
-   - [replaceEach()](#emojisreplaceeach)
-   - [toShortcodes()](#emojistoshortcodes)
-   - [fromShortcodes()](#emojisfromshortcodes)
+<table align="center" style="width: 100%;">
+  <tr>
+    <td style="width: 50%;" valign="top">
+      <h3 align="center">1️⃣ <a href="#emojis-repository">Emojis repository</a></h3>
+      <p>______________________________________________</p>  
+      <ul>
+        <li><a href="#emojisget">get</a></li>
+        <ul>
+          <li><a href="#emojisgetvalues">values</a></li>
+          <li><a href="#emojisgetunicodes">unicodes</a></li>
+          <li><a href="#emojisgetnames">names</a></li>
+          <li><a href="#emojisgetapplenames">appleNames</a></li>
+          <li><a href="#emojisgetalsoknownas">alsoKnownAs</a></li>
+          <li><a href="#emojisgetshortcodes">shortcodes</a></li>
+        </ul>
+        <li><a href="#emojisgroups">groups</a></li>
+        <li><a href="#emojissubgroups">subgroups</a></li>
+        <li><a href="#emojisgroupswithsubgroups">groupsWithSubgroups</a></li>
+        <li><a href="#emojisshortcodeplatforms">shortcodePlatforms</a></li>
+        <li><a href="#emojisversions">versions</a></li>
+        <li><a href="#emojisstatuses">statuses</a></li>
+        <li><a href="#emojisgetone">getOne()</a></li>
+        <li><a href="#emojisgetoneornull">getOneOrNull()</a></li>
+        <li><a href="#emojisbygroup">byGroup()</a></li>
+        <li><a href="#emojisbysubgroup">bySubgroup()</a></li>
+        <li><a href="#emojisbyversion">byVersion()</a></li>
+        <li><a href="#emojisbystatus">byStatus()</a></li>
+      </ul>
+    </td>
+    <td style="width: 50%;" valign="top">
+      <h3 align="center">2️⃣ <a href="#emojis-extension">Emojis extension</a></h3>
+      <p>______________________________________________</p>  
+      <ul>
+        <li><a href="#emojisany">any</a></li>
+        <li><a href="#emojisonly">only</a></li>
+        <li><a href="#emojisonlyone">onlyOne</a></li>
+        <li><a href="#emojiscount">count</a></li>
+        <li><a href="#emojisremove">remove</a></li>
+        <li><a href="#emojissplit">split</a></li>
+        <li><a href="#emojisextract">extract</a></li>
+        <li><a href="#emojisget-1">get</a></li>
+        <ul>
+          <li><a href="#emojisgetunicodes-1">unicodes</a></li>
+          <li><a href="#emojisgetnames-1">names</a></li>
+          <li><a href="#emojisgetapplenames-1">appleNames</a></li>
+          <li><a href="#emojisgetalsoknownas-1">alsoKnownAs</a></li>
+          <li><a href="#emojisgetgroups">groups</a></li>
+          <li><a href="#emojisgetsubgroups">subgroups</a></li>
+          <li><a href="#emojisgetshortcodes-1">shortcodes</a></li>
+        </ul>
+        <li><a href="#emojishasany">hasAny()</a></li>
+        <li><a href="#emojishaseach">hasEach()</a></li>
+        <li><a href="#emojissplitmapjoin">splitMapJoin()</a></li>
+        <li><a href="#emojisreplace">replace()</a></li>
+        <li><a href="#emojisreplacewith">replaceWith()</a></li>
+        <li><a href="#emojisreplaceeach">replaceEach()</a></li>
+        <li><a href="#emojistoshortcodes">toShortcodes()</a></li>
+        <li><a href="#emojisfromshortcodes">fromShortcodes()</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## `Emojis()` repository
-Full `Emojis()` repository with unicodes, names, groups, subgroups, shortcodes:
+Full `Emojis()` repository with unicodes, names, apple names, "also known as", groups, subgroups, shortcodes:
 
 ```dart
 Emojis() // .get .groups .subgroups .groupsWithSubgroups .shortcodePlatforms   and many more...
@@ -517,6 +536,32 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 '😀text'.emojis.get.names; // [Grinning Face]
 ```
 
+#### emojis.get.appleNames
+
+```dart
+'😀text'.emojis.get.appleNames; // [Grinning Face]
+```
+
+#### emojis.get.alsoKnownAs
+
+```dart
+'😀text'.emojis.get.alsoKnownAs; // [Happy Face, Smiley Face]
+```
+
+#### emojis.get.groups
+
+```dart
+'😀text'.emojis.get.groups; // [Group.smileysAndEmotion]
+'😀text'.emojis.get.groups.values; // [Smileys & Emotion]
+```
+
+#### emojis.get.subgroups
+
+```dart
+'😀text'.emojis.get.subgroups; // [Subgroup.faceSmiling]
+'😀text'.emojis.get.subgroups.values; // [face-smiling]
+```
+
 #### emojis.get.shortcodes
 
 ```dart
@@ -534,20 +579,6 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 // Slack
 '😀text🤦🏾‍♀️'.emojis.get.slackShortcodes; // [:grinning:, :woman-facepalming::skin-tone-5:]
-```
-
-#### emojis.get.groups
-
-```dart
-'😀text'.emojis.get.groups; // [Group.smileysAndEmotion]
-'😀text'.emojis.get.groups.values; // [Smileys & Emotion]
-```
-
-#### emojis.get.subgroups
-
-```dart
-'😀text'.emojis.get.subgroups; // [Subgroup.faceSmiling]
-'😀text'.emojis.get.subgroups.values; // [face-smiling]
 ```
 
 ### emojis.hasAny()
