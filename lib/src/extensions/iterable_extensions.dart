@@ -11,6 +11,9 @@ extension IterableExtensions<E> on Iterable<E> {
   /// The returned list maintains the order of the original elements.
   List<E> distinct() => toSet().toUnmodifiableList();
 
+  /// Maps each element of this iterable to a non-null result
+  /// using the provided [transform] function and returns a new iterable
+  /// containing only the non-null results.
   Iterable<R> mapNotNull<R extends Object>(R? Function(E? e) transform) {
     final resultList = <R>[];
     for (final element in this) {
