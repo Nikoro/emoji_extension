@@ -253,9 +253,9 @@ void main() {
     }).forEach((input, expected) {
       test(
           'byStatus() returns $expected emojis when status is: [${input.name}]',
-              () {
-            expect(Emojis().byStatus(input).length, expected);
-          });
+          () {
+        expect(Emojis().byStatus(input).length, expected);
+      });
     });
 
     test('get returns correct values', () {

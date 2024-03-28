@@ -145,11 +145,10 @@ void main() {
       '😀 🤦🏽 😀': true,
       'te🤦🏾‍♀️xt😀te🤦🏽xt': true,
     }).forEach((input, expected) {
-      test('anyOf(😀,🤦🏾‍♀️) returns $expected when content is: [$input]',
-              () {
-            final value = EmojiParser(input).anyOf(['😀', '🤦🏾‍♀️']);
-            expect(value, expected);
-          });
+      test('anyOf(😀,🤦🏾‍♀️) returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).anyOf(['😀', '🤦🏾‍♀️']);
+        expect(value, expected);
+      });
     });
 
     $({
@@ -180,10 +179,10 @@ void main() {
       'text😀text🤦🏾‍♀️text😀': true,
     }).forEach((input, expected) {
       test('everyOf(😀,🤦🏾‍♀️) returns $expected when content is: [$input]',
-              () {
-            final value = EmojiParser(input).everyOf(['😀', '🤦🏾‍♀️']);
-            expect(value, expected);
-          });
+          () {
+        final value = EmojiParser(input).everyOf(['😀', '🤦🏾‍♀️']);
+        expect(value, expected);
+      });
     });
 
     test('splitMapJoin() returns correct value', () {
@@ -224,11 +223,11 @@ void main() {
     }).forEach((input, expected) {
       test(
           'replaceEach() returns correct text with chosen replacement for each emoji',
-              () {
-            const text = '😀text👍🏻text🤦🏾‍♀️text😀';
-            final value = EmojiParser(text).replaceEach(input);
-            expect(value, expected);
-          });
+          () {
+        const text = '😀text👍🏻text🤦🏾‍♀️text😀';
+        final value = EmojiParser(text).replaceEach(input);
+        expect(value, expected);
+      });
     });
 
     $({

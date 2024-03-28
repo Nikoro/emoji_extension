@@ -216,8 +216,9 @@ void main() {
       '😀text👍🏻text😀'.emojis.replaceWith({'😀': 'ABC', '👍🏻': '123'});
   // print(replaceWith); // ABCtext123textABC
 
-  final replaceWhere =
-      '😀text👍🏻text😀'.emojis.replaceWhere((e) => e.value == '👍🏻' ? '_OK_' : null);
+  final replaceWhere = '😀text👍🏻text😀'
+      .emojis
+      .replaceWhere((e) => e.value == '👍🏻' ? '_OK_' : null);
   // print(replaceWhere); // 😀text_OK_text😀
 
   final toShortcodes = '😀text🤦🏾‍♀️'.emojis.toShortcodes();
