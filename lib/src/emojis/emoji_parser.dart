@@ -12,7 +12,11 @@ class EmojiParser {
   final String _value;
 
   /// Determines if the String value contains any emojis.
-  bool get any => Regex.emoji.hasMatch(_value);
+  @Deprecated('Use "contains" instead.')
+  bool get any => contains;
+
+  /// Determines if the String value contains any emojis.
+  bool get contains => Regex.emoji.hasMatch(_value);
 
   /// Determines if the String value contains only emojis and no
   /// other characters.
@@ -85,12 +89,12 @@ class EmojiParser {
   /// The [replace] function takes an emoji character as input and returns the String
   /// to replace it with. If the [replace] function returns `null`, the original emoji character
   /// is retained.
-  String replaceEach(String? Function(String e) replace) {
+  String replaceWhere(String? Function(Emoji e) replace) {
     String output = _value;
-    extract.distinct().forEach((emoji) {
+    get.distinct().forEach((emoji) {
       final replacement = replace(emoji);
       if (replacement != null) {
-        output = output.replaceAll(emoji, replacement);
+        output = output.replaceAll(emoji.value, replacement);
       }
     });
     return output;

@@ -4,7 +4,7 @@
 <h2 align="center">
 Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.1</a><br>
 +<br>
-One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/lib/emoji_extension.dart">emojis</a> String extension
+One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 </h2>
 <p align="center">
   <a href="https://pub.dev/packages/emoji_extension">
@@ -51,7 +51,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
 
 ```dart
 'text😀text🤦🏾‍♀️text'.emojis 
-                         .any // true
+                         .contains // true
                          .only // false
                          .onlyOne // false
                          .count // 2
@@ -61,7 +61,7 @@ One, yet powerful <a href="https://github.com/Nikoro/emoji_extension/blob/main/l
                          .extract // [😀, 🤦🏾‍♀️]
                          .get
                              .unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
-                             .names // [Grinning face, Woman facepalming: medium-dark skin tone]
+                             .names // [Grinning Face, Woman Facepalming: Medium-Dark Skin Tone]
                              .slackShortcodes // [:grinning:, :woman-facepalming::skin-tone-5:]
                          ... // and many more
                           
@@ -109,7 +109,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
       <h3 align="center">2️⃣ <a href="#emojis-extension">Emojis extension</a></h3>
       <p>______________________________________________</p>  
       <ul>
-        <li><a href="#emojisany">any</a></li>
+        <li><a href="#emojiscontains">contains</a></li>
         <li><a href="#emojisonly">only</a></li>
         <li><a href="#emojisonlyone">onlyOne</a></li>
         <li><a href="#emojiscount">count</a></li>
@@ -131,7 +131,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         <li><a href="#emojissplitmapjoin">splitMapJoin()</a></li>
         <li><a href="#emojisreplace">replace()</a></li>
         <li><a href="#emojisreplacewith">replaceWith()</a></li>
-        <li><a href="#emojisreplaceeach">replaceEach()</a></li>
+        <li><a href="#emojisreplacewhere">replaceWhere()</a></li>
         <li><a href="#emojistoshortcodes">toShortcodes()</a></li>
         <li><a href="#emojisfromshortcodes">fromShortcodes()</a></li>
       </ul>
@@ -394,7 +394,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 'text😀text🤦🏾‍♀️text'.emojis 
-                         .any // true
+                         .contains // true
                          .only // false
                          .onlyOne // false
                          .count // 2
@@ -409,7 +409,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .hasEach(['👍', '😀']) // false
                          .replace('---') // text---text---text
                          .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
-                         .replaceEach((e) => e == '🤦🏾‍♀️' ? '__' : null); // text😀text__text
+                         .replaceWhere((e) => e == '🤦🏾‍♀️' ? '__' : null); // text😀text__text
                          .splitMapJoin(
                                        onMatch: (_) => '_emoji_',
                                        onNonMatch: (s) => s.toUpperCase(),
@@ -430,11 +430,11 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                              .slackShortcodes // [:grinning:, :woman-facepalming::skin-tone-5:]
 ```
 
-### emojis.any
+### emojis.contains
 
 ```dart
-'😀text😀'.emojis.any; // true
-'text'.emojis.any; // false
+'😀text😀'.emojis.contains; // true
+'text'.emojis.contains; // false
 ```
 
 ### emojis.only
@@ -618,12 +618,12 @@ onNonMatch: (s) => s.toUpperCase(),
 '😀text👍🏻text😀'.emojis.replaceWith({'😀':'ABC', '👍🏻':'123'}); // ABCtext123textABC
 ```
 
-### emojis.replaceEach()
+### emojis.replaceWhere()
 
 ```dart
-'😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null); // 😀text_OK_text😀 
+'😀text👍🏻text😀'.emojis.replaceWhere((e) => e.value == '👍🏻' ? '_OK_' : null); // 😀text_OK_text😀 
 
-'😀text👍🏻text😀'.emojis.replaceEach((e) => {'😀':'ABC', '👍🏻':'123'}[e]); // ABCtext123textABC
+'😀text👍🏻text😀'.emojis.replaceWhere((e) => {'😀':'ABC', '👍🏻':'123'}[e.value]); // ABCtext123textABC
 ```
 
 ### emojis.toShortcodes()
