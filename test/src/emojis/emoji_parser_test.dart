@@ -3,6 +3,7 @@ import 'package:test/test.dart';
 
 import '../../_tools/tools.dart';
 
+// ignore_for_file: deprecated_member_use_from_same_package
 void main() {
   group('EmojiParser', () {
     $({
@@ -20,6 +21,25 @@ void main() {
     }).forEach((input, expected) {
       test('any returns $expected when content is: [$input]', () {
         final value = EmojiParser(input).any;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '😀': true,
+      '🫡 ': true,
+      '🤦🏾‍♀️': true,
+      '😀 🤦🏽 😀': true,
+      '  😀 😀🤦🏽😀 ': true,
+      'text😀': true,
+      '😀text': true,
+      'text😀te🤦🏽xt': true,
+      'te🤦🏾‍♀️xt😀te🤦🏽xt': true,
+      '': false,
+      'text': false,
+    }).forEach((input, expected) {
+      test('contains returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).contains;
         expect(value, expected);
       });
     });
@@ -120,6 +140,21 @@ void main() {
       '': false,
       'text': false,
       '🫡 ': false,
+      '😀': true,
+      '🤦🏾‍♀️': true,
+      '😀 🤦🏽 😀': true,
+      'te🤦🏾‍♀️xt😀te🤦🏽xt': true,
+    }).forEach((input, expected) {
+      test('anyOf(😀,🤦🏾‍♀️) returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).anyOf(['😀', '🤦🏾‍♀️']);
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': false,
+      'text': false,
+      '🫡 ': false,
       '😀': false,
       '🤦🏾‍♀️': false,
       '😀 🤦🏾‍♀️ 😀': true,
@@ -129,6 +164,23 @@ void main() {
       test('hasEach(😀,🤦🏾‍♀️) returns $expected when content is: [$input]',
           () {
         final value = EmojiParser(input).hasEach(['😀', '🤦🏾‍♀️']);
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': false,
+      'text': false,
+      '🫡 ': false,
+      '😀': false,
+      '🤦🏾‍♀️': false,
+      '😀 🤦🏾‍♀️ 😀': true,
+      'te🤦🏾‍♀️xt😀te🤦🏽xt': true,
+      'text😀text🤦🏾‍♀️text😀': true,
+    }).forEach((input, expected) {
+      test('everyOf(😀,🤦🏾‍♀️) returns $expected when content is: [$input]',
+          () {
+        final value = EmojiParser(input).everyOf(['😀', '🤦🏾‍♀️']);
         expect(value, expected);
       });
     });
@@ -174,6 +226,34 @@ void main() {
           () {
         const text = '😀text👍🏻text🤦🏾‍♀️text😀';
         final value = EmojiParser(text).replaceEach(input);
+        expect(value, expected);
+      });
+    });
+
+    $({
+      {'😀': 'A', '👍🏻': 'B'}: 'AtextBtext🤦🏾‍♀️textA',
+      <String, String>{}: '😀text👍🏻text🤦🏾‍♀️text😀',
+      {'😀text': '1', 'te': '2', 'xt': '3'}: '😀text👍🏻text🤦🏾‍♀️text😀',
+    }).forEach((input, expected) {
+      test(
+          'replaceWith() returns correct text with chosen replacement for each emoji',
+          () {
+        const text = '😀text👍🏻text🤦🏾‍♀️text😀';
+        final value = EmojiParser(text).replaceWith(input);
+        expect(value, expected);
+      });
+    });
+
+    $({
+      (e) => {'😀': 'A', '👍🏻': 'B'}[e.value]: 'AtextBtext🤦🏾‍♀️textA',
+      (e) => e.value == '👍🏻' ? '_OK_' : null: '😀text_OK_text🤦🏾‍♀️text😀',
+      (e) => null: '😀text👍🏻text🤦🏾‍♀️text😀',
+    }).forEach((input, expected) {
+      test(
+          'replaceWhere() returns correct text with chosen replacement for each emoji',
+          () {
+        const text = '😀text👍🏻text🤦🏾‍♀️text😀';
+        final value = EmojiParser(text).replaceWhere(input);
         expect(value, expected);
       });
     });

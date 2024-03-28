@@ -54,8 +54,8 @@ void main() {
       Emojis().personActivity: 606,
       Emojis().personSport: 395,
       Emojis().personResting: 42,
-      Emojis().family: 538,
-      Emojis().personSymbol: 6,
+      Emojis().family: 533,
+      Emojis().personSymbol: 11,
       Emojis().skinTone: 5,
       Emojis().hairStyle: 4,
       Emojis().animalMammal: 68,
@@ -125,6 +125,36 @@ void main() {
       Emojis().flag: 14,
       Emojis().countryFlag: 258,
       Emojis().subdivisionFlag: 3,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis().v6_0: 793,
+      Emojis().v7_0: 254,
+      Emojis().v8_0: 809,
+      Emojis().v9_0: 1187,
+      Emojis().v10_0: 339,
+      Emojis().v11_0: 188,
+      Emojis().v12_0: 266,
+      Emojis().v12_1: 186,
+      Emojis().v13_0: 146,
+      Emojis().v13_1: 422,
+      Emojis().v14_0: 112,
+      Emojis().v15_0: 31,
+      Emojis().v15_1: 301,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis().fullyQualified: 3773,
+      Emojis().minimallyQualified: 1009,
+      Emojis().unqualified: 243,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
         expect(input.length, expected);

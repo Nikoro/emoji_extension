@@ -1,7 +1,5 @@
 import 'package:emoji_extension/emoji_extension.dart';
-import 'package:emoji_extension/src/emojis/emoji.dart';
 import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
 import 'package:emoji_extension/src/regex.dart';
 
 /// A class for parsing and manipulating emojis within a given String value.
@@ -14,7 +12,11 @@ class EmojiParser {
   final String _value;
 
   /// Determines if the String value contains any emojis.
-  bool get any => Regex.emoji.hasMatch(_value);
+  @Deprecated('Use "contains" instead.')
+  bool get any => contains;
+
+  /// Determines if the String value contains any emojis.
+  bool get contains => Regex.emoji.hasMatch(_value);
 
   /// Determines if the String value contains only emojis and no
   /// other characters.
@@ -37,7 +39,7 @@ class EmojiParser {
 
   /// Gets a list of [Emoji] objects corresponding to the emojis in the
   /// String value.
-  List<Emoji> get get => extract.map((e) => _emojis.getOne(e)).toList();
+  List<Emoji> get get => extract.map((e) => Emojis().getOne(e)).toList();
 
   /// Extracts all emojis from the String value and returns them in a list.
   List<String> get extract {
@@ -45,10 +47,18 @@ class EmojiParser {
   }
 
   /// Determines if the String value contains any of the given emojis.
-  bool hasAny(List<String> emojis) => emojis.any(_value.contains);
+  @Deprecated('Use "anyOf" instead.')
+  bool hasAny(List<String> emojis) => anyOf(emojis);
+
+  /// Determines if the String value contains any of the given emojis.
+  bool anyOf(List<String> emojis) => emojis.any(_value.contains);
 
   /// Determines if the String value contains all of the given emojis.
-  bool hasEach(List<String> emojis) => emojis.every(_value.contains);
+  @Deprecated('Use "everyOf" instead.')
+  bool hasEach(List<String> emojis) => everyOf(emojis);
+
+  /// Determines if the String value contains all of the given emojis.
+  bool everyOf(List<String> emojis) => emojis.every(_value.contains);
 
   /// Splits the parsed string at the positions of the emoji characters and maps
   /// each substring either to a replacement String or to itself, according to
@@ -66,16 +76,43 @@ class EmojiParser {
 
   /// Returns the parsed String with all emoji characters replaced by the
   /// specified String.
-  String replace(String replace) => _value.replaceAll(Regex.emoji, replace);
+  String replace(String replacement) =>
+      _value.replaceAll(Regex.emoji, replacement);
 
-  /// Returns the parsed String with all occurrences of each emoji character
-  /// replaced by the specified String, as given by the provided map of emoji
-  /// characters to replacement Strings.
-  String replaceEach(Map<String, String> emojiToReplace) {
-    if (emojiToReplace.isEmpty) return _value;
+  /// Returns a new String where all occurrences of each emoji character are replaced
+  /// with the corresponding replacement String provided in the [emojiToReplacement] map.
+  /// If the provided map is empty, returns the original String.
+  /// The [emojiToReplacement] map maps each emoji character to its replacement String.
+  @Deprecated('Use "replaceWith" instead.')
+  String replaceEach(Map<String, String> emojiToReplacement) {
+    return replaceWith(emojiToReplacement);
+  }
+
+  /// Returns a new String where all occurrences of each emoji character are replaced
+  /// with the corresponding replacement String provided in the [emojiToReplacement] map.
+  /// If the provided map is empty, returns the original String.
+  /// The [emojiToReplacement] map maps each emoji character to its replacement String.
+  String replaceWith(Map<String, String> emojiToReplacement) {
+    if (emojiToReplacement.isEmpty) return _value;
     String output = _value;
-    emojiToReplace.toMapWhereKeysAreEmojisOnly().forEach((emoji, replace) {
+    emojiToReplacement.toMapWhereKeysAreEmojisOnly().forEach((emoji, replace) {
       output = output.replaceAll(emoji, replace);
+    });
+    return output;
+  }
+
+  /// Returns a new String where each emoji character is replaced by the result of
+  /// applying the specified function [replace].
+  /// The [replace] function takes an emoji character as input and returns the String
+  /// to replace it with. If the [replace] function returns `null`, the original emoji character
+  /// is retained.
+  String replaceWhere(String? Function(Emoji e) replace) {
+    String output = _value;
+    get.distinct().forEach((emoji) {
+      final replacement = replace(emoji);
+      if (replacement != null) {
+        output = output.replaceAll(emoji.value, replacement);
+      }
     });
     return output;
   }
@@ -102,7 +139,7 @@ class EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
+      return Emojis().getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
           match;
     });
   }
@@ -114,14 +151,9 @@ class EmojiParser {
       {String Function(String unknownShortcode)? onUnknownShortcode}) {
     return _value.splitMapJoin(Regex.shortcode, onMatch: (m) {
       final match = m.group(0)!;
-      return _emojis.getOneOrNull(match.removeColons())?.value ??
+      return Emojis().getOneOrNull(match.removeColons())?.value ??
           onUnknownShortcode?.call(match) ??
           match;
     });
   }
-
-  /// Retrieves the [_emojis] cache or creates a new cache if one does not exist.
-  /// [_emojis] is used to look up information about individual emojis.
-  Emojis get _emojis => _cache ??= Emojis();
-  Emojis? _cache;
 }

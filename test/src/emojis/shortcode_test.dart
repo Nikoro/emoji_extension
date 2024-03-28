@@ -1,10 +1,11 @@
+import 'package:emoji_extension/src/emojis/platform.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final shortcode1 = Shortcode(platform: 'cldr', values: ['grinning_face']);
-  final shortcode2 = Shortcode(platform: 'cldr', values: ['grinning_face']);
-  const shortcode3 = Shortcode.cldr(['grinning_face']);
+  const shortcode1 = Shortcode.cldr(['grinning_face']);
+  final shortcode2 = shortcode1.copyWith();
+  final shortcode3 = shortcode1.copyWith(platform: Platform.CLDR);
 
   group('Shortcode', () {
     test('equality', () {

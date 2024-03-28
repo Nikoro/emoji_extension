@@ -1,3 +1,63 @@
+## 0.3.0
+
+- Updated emoji dataset to newest [Unicode 15.1](https://www.unicode.org/reports/tr51/)
+- Extended data about emoji including:
+  - apple name      
+  - also known as   
+  - version         
+  - status          
+
+Example:
+```
+Emoji(
+  value: 😆,
+  unicode: 1F606,
+  name: Grinning Squinting Face,
+  appleName: Grinning Face with Squinting Eyes,
+  alsoKnownAs: [><, Closed-Eyes Smile, Big Grin, Laughing, XD],
+  group: Smileys & Emotion,
+  subgroup: face-smiling,
+  version: 6.0,
+  status: fully-qualified,
+  shortcodes: [
+    Shortcode(
+    platform: Default,
+    values: [grinning_squinting_face]
+  ), 
+    Shortcode(
+    platform: CLDR,
+    values: [grinning_squinting_face]
+  ), 
+    Shortcode(
+    platform: Discord,
+    values: [laughing, satisfied]
+  ), 
+    Shortcode(
+    platform: Github,
+    values: [laughing, satisfied]
+  ), 
+    Shortcode(
+    platform: Slack,
+    values: [laughing, satisfied]
+  )]
+)
+```
+- Added `replaceWhere` method:
+```dart
+'😀_text_👍🏻'.emojis.replaceWhere((e) => e.value == '👍🏻' ? 'OK' : null); // 😀_text_OK
+
+'😀_text_👍🏻'.emojis.replaceWhere((e) => {'😀':'ABC', '👍🏻':'123'}[e.value]); // ABC_text_123
+```
+> **Warning**
+>
+> Deprecated `any` getter -> use `contains` instead
+>
+> Deprecated `replaceEach` method -> use `replaceWith` instead
+>
+> Deprecated `hasAny` method -> use `anyOf` instead
+>
+> Deprecated `hasEach` method -> use `everyOf` instead
+
 ## 0.2.0
 
 - Added optional fallback function `onUnknownShortcode` when parsing String with unknown shortcode:

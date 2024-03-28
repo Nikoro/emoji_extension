@@ -1,20 +1,26 @@
 import 'package:emoji_extension/src/emojis/emoji.dart';
 import 'package:emoji_extension/src/emojis/group.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
+import 'package:emoji_extension/src/emojis/status.dart';
 import 'package:emoji_extension/src/emojis/subgroup.dart';
+import 'package:emoji_extension/src/emojis/version.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/test_emojis.dart';
 
 void main() {
   const emoji1 = TestEmojis.grinningFace;
-  const emoji2 = TestEmojis.grinningFace;
+  final emoji2 = emoji1.copyWith();
   const emoji3 = Emoji(
     value: '😀',
-    name: 'Grinning face',
+    name: 'Grinning Face',
+    appleName: 'Grinning Face',
+    alsoKnownAs: ['Happy Face', 'Smiley Face'],
     unicode: '1F600',
     group: Group.smileysAndEmotion,
     subgroup: Subgroup.faceSmiling,
+    version: Version.v8_0,
+    status: Status.fullyQualified,
     shortcodes: [
       Shortcode.$default(['grinning_face']),
       Shortcode.cldr(['grinning_face']),
@@ -40,9 +46,13 @@ void main() {
       const expected = 'Emoji(\n'
           '  value: 😀,\n'
           '  unicode: 1F600,\n'
-          '  name: Grinning face,\n'
+          '  name: Grinning Face,\n'
+          '  appleName: Grinning Face,\n'
+          '  alsoKnownAs: [Happy Face, Smiley Face],\n'
           '  group: Smileys & Emotion,\n'
           '  subgroup: face-smiling,\n'
+          '  version: 8.0,\n'
+          '  status: fully-qualified,\n'
           '  shortcodes: [\n'
           '    Shortcode(\n'
           '    platform: Default,\n'

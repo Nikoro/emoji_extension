@@ -24,6 +24,14 @@ void main() {
       expect(Emojis().subgroups, Subgroup.values);
     });
 
+    test('versions returns correct value', () {
+      expect(Emojis().versions, Version.values);
+    });
+
+    test('statuses returns correct value', () {
+      expect(Emojis().statuses, Status.values);
+    });
+
     test('groupsWithSubgroups returns correct type', () {
       expect(Emojis().groupsWithSubgroups, isA<Map<Group, List<Subgroup>>>());
     });
@@ -47,6 +55,12 @@ void main() {
       'Grinning face',
       'grinning face',
       'Grinning Face',
+      'Happy Face',
+      'Happy face',
+      'happy face',
+      'Smiley Face',
+      'Smiley face',
+      'smiley face',
       '1F600',
       'grinning_face',
       ':grinning_face:',
@@ -63,12 +77,18 @@ void main() {
       'Grinning face': TestEmojis.grinningFace,
       'grinning face': TestEmojis.grinningFace,
       'Grinning Face': TestEmojis.grinningFace,
+      'Happy face': TestEmojis.grinningFace,
+      'happy face': TestEmojis.grinningFace,
+      'Happy Face': TestEmojis.grinningFace,
+      'Smiley face': TestEmojis.grinningFace,
+      'smiley face': TestEmojis.grinningFace,
+      'Smiley Face': TestEmojis.grinningFace,
       '1F600': TestEmojis.grinningFace,
       'grinning_face': TestEmojis.grinningFace,
       ':grinning_face:': TestEmojis.grinningFace,
       'grinning': TestEmojis.grinningFace,
       ':grinning:': TestEmojis.grinningFace,
-      'some broken text': null,
+      'some unknown value': null,
     }).forEach((input, expected) {
       test('getOneOrNull() returns $expected when param is: [$input]', () {
         expect(Emojis().getOneOrNull(input), expected);
@@ -124,8 +144,8 @@ void main() {
       Subgroup.personActivity: 606,
       Subgroup.personSport: 395,
       Subgroup.personResting: 42,
-      Subgroup.family: 538,
-      Subgroup.personSymbol: 6,
+      Subgroup.family: 533,
+      Subgroup.personSymbol: 11,
       Subgroup.skinTone: 5,
       Subgroup.hairStyle: 4,
       Subgroup.animalMammal: 68,
@@ -200,6 +220,41 @@ void main() {
           'bySubgroup() returns $expected emojis when group is: [${input.name}]',
           () {
         expect(Emojis().bySubgroup(input).length, expected);
+      });
+    });
+
+    $({
+      Version.v6_0: 793,
+      Version.v7_0: 254,
+      Version.v8_0: 809,
+      Version.v9_0: 1187,
+      Version.v10_0: 339,
+      Version.v11_0: 188,
+      Version.v12_0: 266,
+      Version.v12_1: 186,
+      Version.v13_0: 146,
+      Version.v13_1: 422,
+      Version.v14_0: 112,
+      Version.v15_0: 31,
+      Version.v15_1: 301,
+    }).forEach((input, expected) {
+      test(
+          'byVersion() returns $expected emojis when version is: [${input.name}]',
+          () {
+        expect(Emojis().byVersion(input).length, expected);
+      });
+    });
+
+    $({
+      Status.fullyQualified: 3773,
+      Status.minimallyQualified: 1009,
+      Status.unqualified: 243,
+      Status.component: 9,
+    }).forEach((input, expected) {
+      test(
+          'byStatus() returns $expected emojis when status is: [${input.name}]',
+          () {
+        expect(Emojis().byStatus(input).length, expected);
       });
     });
 

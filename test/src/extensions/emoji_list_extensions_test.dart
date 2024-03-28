@@ -31,6 +31,19 @@ void main() {
       ]);
     });
 
+    test('appleNames returns correct value', () {
+      expect(emojis.appleNames, [
+        TestEmojis.grinningFace.appleName,
+      ]);
+    });
+
+    test('alsoKnownAs returns correct value', () {
+      expect(emojis.alsoKnownAs, [
+        ...TestEmojis.grinningFace.alsoKnownAs,
+        ...TestEmojis.womanFacepalmingMediumDarkSkinTone.alsoKnownAs,
+      ]);
+    });
+
     test('shortcodes returns correct value', () {
       expect(emojis.shortcodes, [
         TestEmojis.grinningFace.shortcode,
@@ -76,6 +89,20 @@ void main() {
       expect(emojis.subgroups, [
         TestEmojis.grinningFace.subgroup,
         TestEmojis.womanFacepalmingMediumDarkSkinTone.subgroup,
+      ]);
+    });
+
+    test('versions returns correct value', () {
+      expect(emojis.versions, [
+        TestEmojis.grinningFace.version,
+        TestEmojis.womanFacepalmingMediumDarkSkinTone.version,
+      ]);
+    });
+
+    test('statuses returns correct value', () {
+      expect(emojis.statuses, [
+        TestEmojis.grinningFace.status,
+        TestEmojis.womanFacepalmingMediumDarkSkinTone.status,
       ]);
     });
   });
