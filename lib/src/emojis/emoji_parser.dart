@@ -47,10 +47,18 @@ class EmojiParser {
   }
 
   /// Determines if the String value contains any of the given emojis.
-  bool hasAny(List<String> emojis) => emojis.any(_value.contains);
+  @Deprecated('Use "anyOf" instead.')
+  bool hasAny(List<String> emojis) => anyOf(emojis);
+
+  /// Determines if the String value contains any of the given emojis.
+  bool anyOf(List<String> emojis) => emojis.any(_value.contains);
 
   /// Determines if the String value contains all of the given emojis.
-  bool hasEach(List<String> emojis) => emojis.every(_value.contains);
+  @Deprecated('Use "everyOf" instead.')
+  bool hasEach(List<String> emojis) => everyOf(emojis);
+
+  /// Determines if the String value contains all of the given emojis.
+  bool everyOf(List<String> emojis) => emojis.every(_value.contains);
 
   /// Splits the parsed string at the positions of the emoji characters and maps
   /// each substring either to a replacement String or to itself, according to
@@ -70,6 +78,15 @@ class EmojiParser {
   /// specified String.
   String replace(String replacement) =>
       _value.replaceAll(Regex.emoji, replacement);
+
+  /// Returns a new String where all occurrences of each emoji character are replaced
+  /// with the corresponding replacement String provided in the [emojiToReplacement] map.
+  /// If the provided map is empty, returns the original String.
+  /// The [emojiToReplacement] map maps each emoji character to its replacement String.
+  @Deprecated('Use "replaceWith" instead.')
+  String replaceEach(Map<String, String> emojiToReplacement) {
+    return replaceWith(emojiToReplacement);
+  }
 
   /// Returns a new String where all occurrences of each emoji character are replaced
   /// with the corresponding replacement String provided in the [emojiToReplacement] map.

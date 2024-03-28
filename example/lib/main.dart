@@ -133,8 +133,8 @@ void main() {
   final faceSmiling = Emojis().faceSmiling;
   // print(faceSmiling); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
-  final any = '😀text😀'.emojis.any;
-   print(any); // true
+  final contains = '😀text😀'.emojis.contains;
+  // print(contains); // true
 
   final only = '😀text😀'.emojis.only;
   // print(only); // true
@@ -197,11 +197,11 @@ void main() {
                           )]
                         )] */
 
-  final hasAny = '👍️text'.emojis.hasAny(['👍']);
-  // print(hasAny); // true
+  final anyOf = '👍️text'.emojis.anyOf(['👍']);
+  // print(anyOf); // true
 
-  final hasEach = '👍️text'.emojis.hasEach(['👍']);
-  // print(hasEach); // true
+  final everyOf = '👍️text'.emojis.everyOf(['👍']);
+  // print(everyOf); // true
 
   final splitMapJoin = 'text😀text'.emojis.splitMapJoin(
         onMatch: (_) => '_emoji_',

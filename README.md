@@ -126,8 +126,8 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
           <li><a href="#emojisgetsubgroups">subgroups</a></li>
           <li><a href="#emojisgetshortcodes-1">shortcodes</a></li>
         </ul>
-        <li><a href="#emojishasany">hasAny()</a></li>
-        <li><a href="#emojishaseach">hasEach()</a></li>
+        <li><a href="#emojisanyof">anyOf()</a></li>
+        <li><a href="#emojiseveryof">everyOf()</a></li>
         <li><a href="#emojissplitmapjoin">splitMapJoin()</a></li>
         <li><a href="#emojisreplace">replace()</a></li>
         <li><a href="#emojisreplacewith">replaceWith()</a></li>
@@ -405,8 +405,8 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                                  .second // 🤦🏾‍♀️
                                  .penultimate // 😀
                                  .last // 🤦🏾‍♀️
-                         .hasAny(['👍', '😀']) // true
-                         .hasEach(['👍', '😀']) // false
+                         .anyOf(['👍', '😀']) // true
+                         .everyOf(['👍', '😀']) // false
                          .replace('---') // text---text---text
                          .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
                          .replaceWhere((e) => e == '🤦🏾‍♀️' ? '__' : null); // text😀text__text
@@ -581,20 +581,20 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.get.slackShortcodes; // [:grinning:, :woman-facepalming::skin-tone-5:]
 ```
 
-### emojis.hasAny()
+### emojis.anyOf()
 
 ```dart
-'👍️text'.emojis.hasAny(['👍']); // true
-'😀text'.emojis.hasAny(['👍', '😀']); // true
-'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.hasAny(['😀']); // false
+'👍️text'.emojis.anyOf(['👍']); // true
+'😀text'.emojis.anyOf(['👍', '😀']); // true
+'👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.anyOf(['😀']); // false
 ```
 
-### emojis.hasEach()
+### emojis.everyOf()
 
 ```dart
-'👍️text'.emojis.hasEach(['👍']); // true
-'😀text👍'.emojis.hasEach(['👍', '😀']); // true
-'😀text'.emojis.hasEach(['👍', '😀']); // false
+'👍️text'.emojis.everyOf(['👍']); // true
+'😀text👍'.emojis.everyOf(['👍', '😀']); // true
+'😀text'.emojis.everyOf(['👍', '😀']); // false
 ```
 
 ### emojis.splitMapJoin()
