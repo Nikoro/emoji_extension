@@ -134,7 +134,7 @@ void main() {
   // print(faceSmiling); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
   final any = '😀text😀'.emojis.any;
-  // print(any); // true
+   print(any); // true
 
   final only = '😀text😀'.emojis.only;
   // print(only); // true
@@ -216,9 +216,9 @@ void main() {
       '😀text👍🏻text😀'.emojis.replaceWith({'😀': 'ABC', '👍🏻': '123'});
   // print(replaceWith); // ABCtext123textABC
 
-  final replaceEach =
-      '😀text👍🏻text😀'.emojis.replaceEach((e) => e == '👍🏻' ? '_OK_' : null);
-  // print(replaceEach); // 😀text_OK_text😀
+  final replaceWhere =
+      '😀text👍🏻text😀'.emojis.replaceWhere((e) => e == '👍🏻' ? '_OK_' : null);
+  // print(replaceWhere); // 😀text_OK_text😀
 
   final toShortcodes = '😀text🤦🏾‍♀️'.emojis.toShortcodes();
   // print(toShortcodes); // :grinning_face:text:woman_facepalming_medium_dark_skin_tone:

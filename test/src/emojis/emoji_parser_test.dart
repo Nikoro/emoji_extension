@@ -184,10 +184,10 @@ void main() {
       (value) => null: '😀text👍🏻text🤦🏾‍♀️text😀',
     }).forEach((input, expected) {
       test(
-          'replaceEach() returns correct text with chosen replacement for each emoji',
+          'replaceWhere() returns correct text with chosen replacement for each emoji',
           () {
         const text = '😀text👍🏻text🤦🏾‍♀️text😀';
-        final value = EmojiParser(text).replaceEach(input);
+        final value = EmojiParser(text).replaceWhere(input);
         expect(value, expected);
       });
     });
