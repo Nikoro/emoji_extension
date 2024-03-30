@@ -116,6 +116,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         <li><a href="#emojisremove">remove</a></li>
         <li><a href="#emojisremovewhere">removeWhere()</a></li>
         <li><a href="#emojissplit">split</a></li>
+        <li><a href="#emojissplitwhere">splitWhere()</a></li>
         <li><a href="#emojisextract">extract</a></li>
         <li><a href="#emojisget-1">get</a></li>
         <ul>
@@ -406,11 +407,13 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                                  .second // 🤦🏾‍♀️
                                  .penultimate // 😀
                                  .last // 🤦🏾‍♀️
-                         .anyOf(['👍', '😀']) // true
-                         .everyOf(['👍', '😀']) // false
+                         .anyOf(['👍🏻', '😀']) // true
+                         .everyOf(['👍🏻', '😀']) // false
+                         .removeWhere((e) => e.value == '🤦🏾‍♀️'); // text😀texttext
                          .replace('---') // text---text---text
                          .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
                          .replaceWhere((e) => e.value == '🤦🏾‍♀️' ? '__' : null); // text😀text__text
+                         .splitWhere((e) => e.value == '😀'); // [text, text🤦🏾‍♀️text]
                          .splitMapJoin(
                                        onMatch: (_) => '_emoji_',
                                        onNonMatch: (s) => s.toUpperCase(),
@@ -423,7 +426,7 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                              .groups // [Group.smileysAndEmotion, Group.peopleAndBody]
                                     .values // [Smileys & Emotion, People & Body]
                              .subgroups // [Subgroup.faceSmiling, Subgroup.personGesture]
-                                    .values // [face-smiling, person-gesture]
+                                       .values // [face-smiling, person-gesture]
                              .shortcodes // [:grinning_face:, :woman_facepalming_medium_dark_skin_tone:]
                              .cldrShortcodes // [:grinning_face:, :woman_facepalming_tone4:]
                              .discordShortcodes // [:grinning:, :woman_facepalming_tone4:]
@@ -478,6 +481,12 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 'text😀text'.emojis.split; // [text, text]
+```
+
+### emojis.splitWhere()
+
+```dart
+'😀text👍🏻text😀'.emojis.splitWhere((e) => e.value == '👍🏻'); // [😀text, text😀]
 ```
 
 ### emojis.extract

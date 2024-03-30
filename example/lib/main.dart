@@ -155,6 +155,10 @@ void main() {
   final split = '😀text😀'.emojis.split;
   // print(split); // [text, text]
 
+  final splitWhere =
+  '😀text👍🏻text😀'.emojis.splitWhere((e) => e.value == '👍🏻');
+  // print(splitWhere); // [😀text, text😀]
+
   final extract = '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract;
   // print(extract); // [👍, 👍🏻, 👍🏼, 👍🏽, 👍🏾, 👍🏿]
   // print(extract.first); // 👍

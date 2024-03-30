@@ -48,6 +48,16 @@ class EmojiParser {
   /// emoji characters.
   List<String> get split => _value.split(Regex.emoji);
 
+  /// Splits the String into a list of substrings based on the provided [split]
+  /// function that determines where to split the string.
+  List<String> splitWhere(bool Function(Emoji e) split) {
+    final valuesToSplit =
+        get.distinct().where(split).toUnmodifiableList().values;
+    return valuesToSplit.isNotEmpty
+        ? _value.split(RegExp(valuesToSplit.join('|')))
+        : [_value];
+  }
+
   /// Gets a list of [Emoji] objects corresponding to the emojis in the
   /// String value.
   List<Emoji> get get => extract.map((e) => Emojis().getOne(e)).toList();
