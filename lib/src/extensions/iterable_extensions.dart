@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 /// Provides extensions for [Iterable] classes.
 extension IterableExtensions<E> on Iterable<E> {
   /// Returns an unmodifiable [List] containing all elements from this iterable.
@@ -31,7 +33,7 @@ extension IterableExtensions<E> on Iterable<E> {
     E Function()? orElse,
   }) {
     int index = 0;
-    for (E element in this) {
+    for (final element in this) {
       if (test(index++, element)) return element;
     }
 
@@ -45,7 +47,7 @@ extension IterableExtensions<E> on Iterable<E> {
   }) {
     E? result;
     int index = 0;
-    for (E element in this) {
+    for (final element in this) {
       if (test(index++, element)) result = element;
     }
     if (result != null) return result;
@@ -99,8 +101,5 @@ extension IterableExtensions<E> on Iterable<E> {
 
   E? get penultimateOrNull => elementAtOrNull(length - 2);
 
-  List<E> get shuffled {
-    final list = [...this]..shuffle();
-    return list.toUnmodifiableList();
-  }
+  List<E> get shuffled => ([...this]..shuffle()).toUnmodifiableList();
 }
