@@ -26,7 +26,7 @@ class EmojiParser {
   /// other characters.
   bool get only => extract.isNotEmpty && remove.trim().isEmpty;
 
-  /// Determines if the String value contains only ONE emoji and no
+  /// Determines if the String value contains only one emoji and no
   /// other characters.
   bool get onlyOne => count == 1 && remove.trim().isEmpty;
 
