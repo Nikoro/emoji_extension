@@ -148,6 +148,10 @@ void main() {
   final remove = '😀text😀'.emojis.remove;
   // print(remove); // text text text
 
+  final removeWhere =
+      '😀text👍🏻text😀'.emojis.removeWhere((e) => e.value == '😀');
+  // print(removeWhere); // text👍🏻text
+
   final split = '😀text😀'.emojis.split;
   // print(split); // [text, text]
 

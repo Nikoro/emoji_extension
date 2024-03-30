@@ -114,6 +114,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         <li><a href="#emojisonlyone">onlyOne</a></li>
         <li><a href="#emojiscount">count</a></li>
         <li><a href="#emojisremove">remove</a></li>
+        <li><a href="#emojisremovewhere">removeWhere()</a></li>
         <li><a href="#emojissplit">split</a></li>
         <li><a href="#emojisextract">extract</a></li>
         <li><a href="#emojisget-1">get</a></li>
@@ -465,6 +466,12 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 'text😀 te😀xt 😀text'.emojis.remove; // text text text
+```
+
+### emojis.removeWhere()
+
+```dart
+'😀text👍🏻text😀'.emojis.removeWhere((e) => e.value == '😀'); // text👍🏻text
 ```
 
 ### emojis.split

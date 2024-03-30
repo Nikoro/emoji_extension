@@ -109,6 +109,19 @@ void main() {
     });
 
     $({
+          (e) => e.value == '😀': 'text👍🏻text🤦🏾‍♀️text',
+          (e) => false: '😀text👍🏻text🤦🏾‍♀️text😀',
+    }).forEach((input, expected) {
+      test(
+          'removeWhere() returns correct text without emoji when condition is met',
+              () {
+            const text = '😀text👍🏻text🤦🏾‍♀️text😀';
+            final value = EmojiParser(text).removeWhere(input);
+            expect(value, expected);
+          });
+    });
+
+    $({
       '😀': ['', ''],
       'text': ['text'],
       'a😀b🤦🏽c😀d': ['a', 'b', 'c', 'd'],

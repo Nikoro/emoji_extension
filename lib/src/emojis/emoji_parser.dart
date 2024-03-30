@@ -33,6 +33,17 @@ class EmojiParser {
   /// String value.
   String get remove => replace('');
 
+  /// Removes emojis from the String where the provided [remove] function returns true.
+  String removeWhere(bool Function(Emoji e) remove) {
+    String output = _value;
+    get.distinct().forEach((emoji) {
+      if (remove(emoji)) {
+        output = output.replaceAll(emoji.value, '');
+      }
+    });
+    return output;
+  }
+
   /// Splits the String value into a list of substrings, splitting on
   /// emoji characters.
   List<String> get split => _value.split(Regex.emoji);
