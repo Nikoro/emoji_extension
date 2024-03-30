@@ -156,7 +156,7 @@ void main() {
   // print(split); // [text, text]
 
   final splitWhere =
-  '😀text👍🏻text😀'.emojis.splitWhere((e) => e.value == '👍🏻');
+      '😀text👍🏻text😀'.emojis.splitWhere((e) => e.value == '👍🏻');
   // print(splitWhere); // [😀text, text😀]
 
   final extract = '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.extract;
@@ -204,6 +204,41 @@ void main() {
                             values: [grinning]
                           )]
                         )] */
+
+  // '👍️text'.emojis.forEach(print);
+  /*   Emoji(
+                                      value: 👍,
+                                      unicode: 1F44D,
+                                      name: Thumbs Up,
+                                      appleName: Thumbs Up,
+                                      alsoKnownAs: [Thumbs Up, Like, Yes],
+                                      group: People & Body,
+                                      subgroup: hand-fingers-closed,
+                                      version: 6.0,
+                                      status: fully-qualified,
+                                      shortcodes: [
+                                        Shortcode(
+                                        platform: Default,
+                                        values: [thumbs_up]
+                                      ),
+                                        Shortcode(
+                                        platform: CLDR,
+                                        values: [thumbs_up]
+                                      ),
+                                        Shortcode(
+                                        platform: Discord,
+                                        values: [thumbsup, +1, thumbup]
+                                      ),
+                                        Shortcode(
+                                        platform: Github,
+                                        values: [+1, thumbsup]
+                                      ),
+                                        Shortcode(
+                                        platform: Slack,
+                                        values: [+1, thumbsup]
+                                      )]
+                                    )
+                                    */
 
   final anyOf = '👍️text'.emojis.anyOf(['👍']);
   // print(anyOf); // true

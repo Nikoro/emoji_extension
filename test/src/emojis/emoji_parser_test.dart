@@ -1,4 +1,4 @@
-import 'package:emoji_extension/src/emojis/emoji_parser.dart';
+import 'package:emoji_extension/src/emojis/emoji_parser/emoji_parser.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/tools.dart';
@@ -389,6 +389,22 @@ void main() {
         TestEmojis.womanFacepalmingMediumDarkSkinTone
       ];
       expect(value, expected);
+    });
+
+    test('forEach iterates correctly over each emoji in given text', () {
+      const text = 'text😀text🤦🏾‍♀️text';
+      final iterator = [
+        TestEmojis.grinningFace,
+        TestEmojis.womanFacepalmingMediumDarkSkinTone
+      ].iterator
+        ..moveNext();
+
+      EmojiParser(text).forEach((emoji) {
+        expect(emoji, iterator.current);
+        iterator.moveNext();
+      });
+
+      expect(iterator.moveNext(), isFalse);
     });
   });
 }
