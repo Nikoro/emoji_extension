@@ -49,6 +49,22 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   String get remove => replace('');
 
+  String get removeFirst => removeAt(0);
+
+  String get removeSecond => removeAt(1);
+
+  String get removeThird => removeAt(2);
+
+  String get removeFourth => removeAt(3);
+
+  String get removeFifth => removeAt(4);
+
+  String get removeSixth => removeAt(5);
+
+  String get removePenultimate => removeFromEnd(1);
+
+  String get removeLast => removeFromEnd(0);
+
   /// Splits the String value into a list of substrings, splitting on emoji characters.
   ///
   /// Example:
