@@ -143,7 +143,11 @@ void main() {
   // print(onlyOne); // true
 
   final count = '😀text😀'.emojis.count;
-  // print(count); // 3
+  // print(count); // 2
+
+  final countWhere =
+  '😀text👍🏻text😀'.emojis.countWhere((e) => e.value == '😀');
+  // print(countWhere); // 2
 
   final remove = '😀text😀'.emojis.remove;
   // print(remove); // text text text

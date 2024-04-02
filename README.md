@@ -131,6 +131,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         <li><a href="#emojisanyof">anyOf()</a></li>
         <li><a href="#emojiseveryof">everyOf()</a></li>
         <li><a href="#emojissplitmapjoin">splitMapJoin()</a></li>
+        <li><a href="#emojiscountwhere">countWhere()</a></li>
         <li><a href="#emojisreplace">replace()</a></li>
         <li><a href="#emojisreplacewith">replaceWith()</a></li>
         <li><a href="#emojisreplacewhere">replaceWhere()</a></li>
@@ -145,7 +146,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
 Full `Emojis()` repository with unicodes, names, apple names, "also known as", groups, subgroups, shortcodes:
 
 ```dart
-Emojis() // .get .groups .subgroups .groupsWithSubgroups .shortcodePlatforms   and many more...
+Emojis()
         .get // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
             .values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
             .unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
@@ -500,6 +501,12 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.count; // 2
+```
+
+### emojis.countWhere()
+
+```dart
+'😀text🤦🏾‍♀️text😀'.emojis.countWhere((e) => e.value == '😀'); // 2
 ```
 
 ### emojis.remove

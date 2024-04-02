@@ -99,7 +99,7 @@ extension IterableExtensions<E> on Iterable<E> {
   /// Throws an [IndexError] if this iterable has fewer than two elements.
   E get penultimate => elementAt(length - 2);
 
-  E? get penultimateOrNull => elementAtOrNull(length - 2);
+  E? get penultimateOrNull => length < 2 ? null : elementAtOrNull(length - 2);
 
   List<E> get shuffled => ([...this]..shuffle()).toUnmodifiableList();
 }
