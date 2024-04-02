@@ -429,10 +429,11 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                                  .last // 🤦🏾‍♀️
                          .anyOf(['😀', '👍🏻']) // true
                          .everyOf(['😀', '👍🏻']) // false
-                         .removeWhere((e) => e.value == '🤦🏾‍♀️'); // text😀texttext
+                         .countWhere((e) => e.value == '🤦🏾‍♀️') // 1
+                         .removeWhere((e) => e.value == '🤦🏾‍♀️') // text😀texttext
                          .replace('-') // text-text-text
                          .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
-                         .replaceWhere((e) => e.value == '🤦🏾‍♀️' ? '123' : null); // text😀text123text
+                         .replaceWhere((e) => e.value == '🤦🏾‍♀️' ? '123' : null) // text😀text123text
                          .splitWhere((e) => e.value == '😀'); // [text, text🤦🏾‍♀️text]
                          .splitMapJoin(
                                        onMatch: (_) => '_emoji_',
