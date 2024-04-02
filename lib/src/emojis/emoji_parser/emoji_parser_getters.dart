@@ -85,7 +85,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get first => get.first;
 
-  /// Gets the first emoji in the String value, or null if the String value is empty.
+  /// Gets the first emoji in the String value, or `null` if the String value is empty.
   ///
   /// Example:
   /// ```dart
@@ -104,7 +104,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get second => get.second;
 
-  /// Gets the second emoji in the String value, or null if it doesn't exist.
+  /// Gets the second emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -123,7 +123,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get third => get.third;
 
-  /// Gets the third emoji in the String value, or null if it doesn't exist.
+  /// Gets the third emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -142,7 +142,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get fourth => get.fourth;
 
-  /// Gets the fourth emoji in the String value, or null if it doesn't exist.
+  /// Gets the fourth emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -161,7 +161,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get fifth => get.fifth;
 
-  /// Gets the fifth emoji in the String value, or null if it doesn't exist.
+  /// Gets the fifth emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -180,7 +180,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get sixth => get.sixth;
 
-  /// Gets the sixth emoji in the String value, or null if it doesn't exist.
+  /// Gets the sixth emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -199,7 +199,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get penultimate => get.penultimate;
 
-  /// Gets the penultimate emoji in the String value, or null if it doesn't exist.
+  /// Gets the penultimate emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
@@ -218,7 +218,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   Emoji get last => get.last;
 
-  /// Gets the last emoji in the String value, or null if it doesn't exist.
+  /// Gets the last emoji in the String value, or `null` if it doesn't exist.
   ///
   /// Example:
   /// ```dart
