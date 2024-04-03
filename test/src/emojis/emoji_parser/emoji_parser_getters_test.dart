@@ -4,7 +4,6 @@ import 'package:test/test.dart';
 
 import '../../../_tools/tools.dart';
 
-// ignore_for_file: deprecated_member_use_from_same_package
 void main() {
   group('EmojiParserGetters', () {
     $({

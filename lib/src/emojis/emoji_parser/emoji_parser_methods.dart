@@ -371,7 +371,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.mapIndexed((i, e) => '$i: ${e.name}'); // [1: Yellow Circle, 2: Red Heart, 3: Blue Square, 4: Green Circle]
+  /// '🟡text❤️text🟦text🟢'.emojis.mapIndexed((i, e) => '$i: ${e.name}'); // [0: Yellow Circle, 1: Red Heart, 2: Blue Square, 3: Green Circle]
   /// ```
   List<T> mapIndexed<T>(T Function(int index, Emoji emoji) convert) {
     return get.mapIndexed(convert).toUnmodifiableList();
@@ -594,7 +594,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.skipWhile((e) => e.value == '🟡'); [Emoji(value: ❤️, ...), Emoji(value: 🟦, ...), Emoji(value: 🟢️, ...)]
+  /// '🟡text❤️text🟦text🟢'.emojis.skipWhile((e) => e.value == '🟡'); // [Emoji(value: ❤️, ...), Emoji(value: 🟦, ...), Emoji(value: 🟢️, ...)]
   /// ```
   List<Emoji> skipWhile(bool Function(Emoji emoji) test) {
     return get.skipWhile(test).toUnmodifiableList();
@@ -778,6 +778,7 @@ extension EmojiParserMethods on EmojiParser {
   /// '🟡text❤️text🟦text🟢'.emojis.containsOneOf({'🟡', '❤️', '🟦', '🟢'}); // true
   /// '🟡text❤️text🟦text🟢'.emojis.containsOneOf({'🟡', '❤️', '🟦'}); // true
   /// '🟡text❤️text🟦text🟢'.emojis.containsOneOf({'🟡', '❤️', '🔶'}); // false
+  /// '🟡text❤️text🟦text🟢text❤️'.emojis.containsOneOf({'❤️'}); // false
   /// ```
   bool containsOneOf(Set<String> emojis) {
     return emojis
