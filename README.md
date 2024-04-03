@@ -68,7 +68,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 
 
 // from Discord shortcodes:
-':grinning: text :woman-facepalming::skin-tone-5:'.emojis.fromShortcodes(); // 😀 text 🤦🏾‍♀️
+':grinning:text:woman-facepalming::skin-tone-5:'.emojis.fromShortcodes(); // 😀text🤦🏾‍♀️
 
 ```
 
@@ -222,64 +222,192 @@ Emojis().get; /* [
 #### Emojis().get.values
 
 ```dart
-Emojis().get.values; // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
+Emojis().get.values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
+                   .first // 😀
+                   .second // 😃
+                   .third // 😄
+                   .fourth // 😁
+                   .fifth // 😆
+                   .sixth // 😅
+                   .penultimate // 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+                   .last // 🏴󠁧󠁢󠁷󠁬󠁳󠁿
 ```
 
 #### Emojis().get.unicodes
 
 ```dart
-Emojis().get.unicodes; // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
+Emojis().get.unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
+                     .first // 1F600
+                     .second // 1F603
+                     .third // 1F604
+                     .fourth // 1F601
+                     .fifth // 1F606
+                     .sixth // 1F605
+                     .penultimate // 1F3F4 E0067 E0062 E0073 E0063 E0074 E007F
+                     .last // 1F3F4 E0067 E0062 E0077 E006C E0073 E007F
 ```
 
 #### Emojis().get.names
 
 ```dart
-Emojis().get.names; // [Grinning Face, Grinning Face with Big Eyes, ...]
+Emojis().get.names // [Grinning Face, Grinning Face with Big Eyes, ...]
+                  .first // Grinning Face
+                  .second // Grinning Face with Big Eyes
+                  .third // Grinning Face with Smiling Eyes
+                  .fourth // Beaming Face with Smiling Eyes
+                  .fifth // Grinning Squinting Face
+                  .sixth // Grinning Face with Sweat
+                  .penultimate // Flag: Scotland
+                  .last // Flag: Wales
 ```
 
 #### Emojis().get.appleNames
 
 ```dart
-Emojis().get.appleNames; // [Grinning Face, Grinning Face with Big Eyes, ...]
+Emojis().get.appleNames // [Grinning Face, Grinning Face with Big Eyes, ...]
+                       .first // Grinning Face
+                       .second // Grinning Face with Big Eyes
+                       .third // Grinning Face with Smiling Eyes
+                       .fourth // Beaming Face with Smiling Eyes
+                       .fifth // Grinning Face with Squinting Eyes
+                       .sixth // Grinning Face with Sweat
+                       .penultimate // Flag of Scotland
+                       .last // Flag of Wales
 ```
 
 #### Emojis().get.alsoKnownAs
 
 ```dart
-Emojis().get.alsoKnownAs; // [Happy Face, Smiley Face, Grinning Face, ...]
+Emojis().get.alsoKnownAs // [Happy Face, Smiley Face, Grinning Face, ...]
+                        .first // Happy Face
+                        .second // Smiley Face
+                        .third // Grinning Face
+                        .fourth // Happy Face
+                        .fifth // Happy
+                        .sixth // Smiley Face
+                        .penultimate // Welsh Flag
+                        .last // Y Ddraig Goch
 ```
 
 #### Emojis().get.shortcodes
 
 ```dart
 // Default (emoji name in snake_case)
-Emojis().get.shortcodes; // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+Emojis().get.shortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+                       .first // :grinning_face:
+                       .second // :grinning_face_with_big_eyes:
+                       .third // :grinning_face_with_smiling_eyes:
+                       .fourth // :beaming_face_with_smiling_eyes:
+                       .fifth // :grinning_squinting_face:
+                       .sixth // :grinning_face_with_sweat:
+                       .penultimate // :flag_scotland:
+                       .last // :flag_wales:
+```
 
+#### Emojis().get.cldrShortcodes
+
+```dart
 // CLDR
-Emojis().get.cldrShortcodes; // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+Emojis().get.cldrShortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+                           .first // :grinning_face:
+                           .second // :grinning_face_with_big_eyes:
+                           .third // :grinning_face_with_smiling_eyes:
+                           .fourth // :beaming_face_with_smiling_eyes:
+                           .fifth // :grinning_squinting_face:
+                           .sixth // :grinning_face_with_sweat:
+                           .penultimate // :flag_scotland:
+                           .last // :flag_wales:
+```
 
+#### Emojis().get.discordShortcodes
+
+```dart
 // Discord
-Emojis().get.discordShortcodes; // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+Emojis().get.discordShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+                              .first // :grinning:
+                              .second // :smiley:
+                              .third // :smile:
+                              .fourth // :grin:
+                              .fifth // :laughing:
+                              .sixth // :sweat_smile:
+                              .penultimate // :scotland:
+                              .last // :wales:
+```
 
+#### Emojis().get.githubShortcodes
+
+```dart
 // Github (no skin-tone shortcodes)
-Emojis().get.githubShortcodes; // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+Emojis().get.githubShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+                             .first // :grinning:
+                             .second // :smiley:
+                             .third // :smile:
+                             .fourth // :grin:
+                             .fifth // :laughing:
+                             .sixth // :sweat_smile:
+                             .penultimate // :scotland:
+                             .last // :wales:
+```
 
+#### Emojis().get.slackShortcodes
+
+```dart
 // Slack
-Emojis().get.slackShortcodes; // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+Emojis().get.slackShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+                            .first // :grinning:
+                            .second // :smiley:
+                            .third // :smile:
+                            .fourth // :grin:
+                            .fifth // :laughing:
+                            .sixth // :sweat_smile:
+                            .penultimate // :flag-scotland:
+                            .last // :flag-wales:
 ```
 
 ### Emojis().groups
 
 ```dart
-Emojis().groups; // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
-Emojis().groups.values; // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+Emojis().groups // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
+               .first // Group.smileysAndEmotion
+               .second // Group.peopleAndBody
+               .third // Group.component
+               .fourth // Group.animalsAndNature
+               .fifth // Group.foodAndDrink
+               .sixth // Group.travelAndPlaces
+               .penultimate // Group.symbols
+               .last // Group.flags
+               .values // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+                      .first // Smileys & Emotion
+                      .second // People & Body
+                      .third // Component
+                      .fourth // Animals & Nature
+                      .fifth // Food & Drink
+                      .sixth // Travel & Places
+                      .penultimate // Symbols
+                      .last // Flags
 ```
 
 ### Emojis().subgroups
 
 ```dart
-Emojis().subgroups; // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
-Emojis().subgroups.values; // [face-smiling, face-affection, face-tongue, face-hand, ...]
+Emojis().subgroups // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
+                  .first // Subgroup.faceSmiling
+                  .second // Subgroup.faceAffection
+                  .third // Subgroup.faceTongue
+                  .fourth // Subgroup.faceHand
+                  .fifth // Subgroup.faceNeutralSkeptical
+                  .sixth // Subgroup.faceSleepy
+                  .penultimate // Subgroup.countryFlag
+                  .last // Subgroup.subdivisionFlag
+                  .values // [face-smiling, face-affection, face-tongue, face-hand, ...]
+                         .first // face-smiling
+                         .second // face-affection
+                         .third // face-tongue
+                         .fourth // face-hand
+                         .fifth // face-neutral-skeptical
+                         .sixth // face-sleepy
+                         .penultimate // country-flag
+                         .last // subdivision-flag
 ```
 
 ### Emojis().groupsWithSubgroups
@@ -292,21 +420,61 @@ Emojis().groupsWithSubgroupsValues; // {Smileys & Emotion: [face-smiling, ...], 
 ### Emojis().shortcodePlatforms
 
 ```dart
-Emojis().shortcodePlatforms; // [Default, CLDR, Discord, Github, Slack]
+Emojis().shortcodePlatforms // [Default, CLDR, Discord, Github, Slack]
+                           .first // Default
+                           .second // CLDR
+                           .third // Discord
+                           .fourth // Github
+                           .fifth // Slack
+                           .sixthOrNull // null
+                           .penultimate // Github
+                           .last // Slack
 ```
 
 ### Emojis().versions
 
 ```dart
-Emojis().versions; // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
-Emojis().versions.values; // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+Emojis().versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+                 .first // Version.v6_0
+                 .second // Version.v7_0
+                 .third // Version.v8_0
+                 .fourth // Version.v9_0
+                 .fifth // Version.v10_0
+                 .sixth // Version.v11_0
+                 .penultimate // Version.v15_0
+                 .last // Version.v15_1
+                 .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+                        .first // 6.0
+                        .second // 7.0
+                        .third // 8.0
+                        .fourth // 9.0
+                        .fifth // 10.0
+                        .sixth // 11.0
+                        .penultimate // 15.0
+                        .last // 15.1
 ```
 
 ### Emojis().statuses
 
 ```dart
-Emojis().statuses; // [Status.fullyQualified, Status.minimallyQualified, ...]
-Emojis().statuses.values; // [fully-qualified, minimally-qualified, unqualified, ...]
+Emojis().statuses // [Status.fullyQualified, Status.minimallyQualified, ...]
+                 .first // Status.fullyQualified
+                 .second // Status.minimallyQualified
+                 .third // Status.unqualified
+                 .fourth // Status.component
+                 .fifthOrNull // null
+                 .sixthOrNull // null
+                 .penultimate // Status.unqualified
+                 .last // Status.component
+                 .values // [fully-qualified, minimally-qualified, unqualified, ...]
+                        .first // fully-qualified
+                        .second // minimally-qualified
+                        .third // unqualified
+                        .fourth // component
+                        .fifthOrNull // null
+                        .sixthOrNull // null
+                        .penultimate // unqualified
+                        .last // component
 ```
 
 ### Emojis().getOne()
@@ -589,30 +757,30 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.get.unicodes // [1F600, 1F926 1F3FE 200D 2640 FE0F]
-                                .first // 1F600
-                                .penultimate // 1F600
-                                .second // 1F926 1F3FE 200D 2640 FE0F
-                                .last // 1F926 1F3FE 200D 2640 FE0F
+                              .first // 1F600
+                              .penultimate // 1F600
+                              .second // 1F926 1F3FE 200D 2640 FE0F
+                              .last // 1F926 1F3FE 200D 2640 FE0F
 ```
 
 #### emojis.get.names
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.get.names // [Grinning Face, Woman Facepalming: Medium-Dark Skin Tone]
-                             .first // Grinning Face
-                             .penultimate // Grinning Face
-                             .second // Woman Facepalming: Medium-Dark Skin Tone
-                             .last // Woman Facepalming: Medium-Dark Skin Tone
+                           .first // Grinning Face
+                           .penultimate // Grinning Face
+                           .second // Woman Facepalming: Medium-Dark Skin Tone
+                           .last // Woman Facepalming: Medium-Dark Skin Tone
 ```
 
 #### emojis.get.appleNames
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.get.appleNames // [Grinning Face]
-                                  .first // Grinning Face
-                                  .penultimate // Grinning Face
-                                  .secondOrNull // null
-                                  .lastOrNull // null
+                                .first // Grinning Face
+                                .penultimate // Grinning Face
+                                .secondOrNull // null
+                                .lastOrNull // null
 ```
 
 #### emojis.get.alsoKnownAs
@@ -629,31 +797,30 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.get.groups // [Group.smileysAndEmotion, Group.peopleAndBody]
-                              .first // Group.smileysAndEmotion
-                              .penultimate // Group.smileysAndEmotion
-                              .second // Group.peopleAndBody
-                              .last // Group.peopleAndBody
-                              .values // [Smileys & Emotion, People & Body]
-                                     .first // Smileys & Emotion
-                                     .penultimate // Smileys & Emotion
-                                     .second // People & Body
-                                     .last // People & Body
-                        
+                            .first // Group.smileysAndEmotion
+                            .penultimate // Group.smileysAndEmotion
+                            .second // Group.peopleAndBody
+                            .last // Group.peopleAndBody
+                            .values // [Smileys & Emotion, People & Body]
+                                   .first // Smileys & Emotion
+                                   .penultimate // Smileys & Emotion
+                                   .second // People & Body
+                                   .last // People & Body 
 ```
 
 #### emojis.get.subgroups
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.get.subgroups // [Subgroup.faceSmiling, Subgroup.personGesture]
-                                 .first // Subgroup.faceSmiling
-                                 .penultimate // Subgroup.faceSmiling
-                                 .second // Subgroup.personGesture
-                                 .last // Subgroup.personGesture
-                                 .values // [face-smiling, person-gesture]
-                                        .first // face-smiling
-                                        .penultimate // face-smiling
-                                        .second // person-gesture
-                                        .last // person-gesture
+                               .first // Subgroup.faceSmiling
+                               .penultimate // Subgroup.faceSmiling
+                               .second // Subgroup.personGesture
+                               .last // Subgroup.personGesture
+                               .values // [face-smiling, person-gesture]
+                                      .first // face-smiling
+                                      .penultimate // face-smiling
+                                      .second // person-gesture
+                                      .last // person-gesture
 ```
 
 #### emojis.get.shortcodes
@@ -717,7 +884,7 @@ onNonMatch: (s) => s.toUpperCase(),
 ```dart
 '😀text🤦🏾‍♀️'.emojis.replaceWhere((e) => e.value == '🤦🏾‍♀️' ? '123' : null); // 😀text123
 
-'😀text🤦🏾‍♀️'.emojis.replaceWhere((e) => {'😀':'ABC', '👍🏻':'123'}[e.value]); // ABCtext123
+'😀text🤦🏾‍♀️'.emojis.replaceWhere((e) => {'😀':'ABC', '🤦🏾‍♀️':'123'}[e.value]); // ABCtext123
 ```
 
 ### emojis.toShortcodes()
