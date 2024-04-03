@@ -65,11 +65,11 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
                              .slackShortcodes // [:grinning:, :woman-facepalming::skin-tone-5:]
                          ... // and many more
                           
+// to Slack shortcodes:
+'😀text🤦🏾‍♀️'.emojis.toSlackShortcodes(); // :grinning:text:woman-facepalming::skin-tone-5:
 
-
-// from Discord shortcodes:
+// from Slack shortcodes:
 ':grinning:text:woman-facepalming::skin-tone-5:'.emojis.fromShortcodes(); // 😀text🤦🏾‍♀️
-
 ```
 
 ## Usage
@@ -589,6 +589,10 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .count // 2
                          .split // [text, text, text]
                          .remove // texttexttext
+                         .removeFirst // texttext🤦🏾‍♀️text
+                         .removeSecond // text😀texttext
+                         .removePenultimate // texttext🤦🏾‍♀️text
+                         .removeLast // text😀texttext
                          .extract // [😀, 🤦🏾‍♀️]
                                  .first // 😀
                                  .second // 🤦🏾‍♀️
@@ -598,6 +602,8 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                          .anyOf(['😀', '👍🏻']) // true
                          .everyOf(['😀', '👍🏻']) // false
                          .countWhere((e) => e.value == '🤦🏾‍♀️') // 1
+                         .removeAt(0) // texttext🤦🏾‍♀️text
+                         .removeFromEnd(0) // text😀texttext
                          .removeWhere((e) => e.value == '🤦🏾‍♀️') // text😀texttext
                          .replace('-') // text-text-text
                          .replaceWith({'😀':'ABC' , '🤦🏾‍♀️':'123'}) // textABCtext123text
