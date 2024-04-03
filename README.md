@@ -599,8 +599,12 @@ Simple `emojis` extension that you can use to manipulate emojis on any text:
                                  .thirdOrNull // null
                                  .penultimate // 😀
                                  .last // 🤦🏾‍♀️
+                         .any((e) => e.value == '😀') // true
                          .anyOf(['😀', '👍🏻']) // true
+                         .every((e) => e.value == '😀') // false
                          .everyOf(['😀', '👍🏻']) // false
+                         .none((e) => e.value == '👍🏻') // true
+                         .noneOf(['😀', '👍🏻']) // false
                          .countWhere((e) => e.value == '🤦🏾‍♀️') // 1
                          .removeAt(0) // texttext🤦🏾‍♀️text
                          .removeFromEnd(0) // text😀texttext

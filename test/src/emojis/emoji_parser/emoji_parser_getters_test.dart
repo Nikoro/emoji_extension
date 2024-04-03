@@ -91,6 +91,102 @@ void main() {
     });
 
     $({
+      '': '',
+      'text': 'text',
+      '🔴👍🏻👍🏼👍🏽👍🏾👍🏿': '👍🏻👍🏼👍🏽👍🏾👍🏿',
+      '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt': 'te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt',
+    }).forEach((input, expected) {
+      test('removeFirst returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeFirst;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️🔴👍🏼👍🏽👍🏾👍🏿': '👍️👍🏼👍🏽👍🏾👍🏿',
+      '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt': '👍️text👍🏼te👍🏽xt👍🏾te👍🏿xt',
+    }).forEach((input, expected) {
+      test('removeSecond returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeSecond;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻🔴👍🏽👍🏾👍🏿': '👍️👍🏻👍🏽👍🏾👍🏿',
+      '👍️te👍🏻xt🔴te👍🏽xt👍🏾te👍🏿xt': '👍️te👍🏻xtte👍🏽xt👍🏾te👍🏿xt',
+    }).forEach((input, expected) {
+      test('removeThird returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeThird;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻👍🏼🔴👍🏾👍🏿': '👍️👍🏻👍🏼👍🏾👍🏿',
+      '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt': '👍️te👍🏻xt👍🏼text👍🏾te👍🏿xt',
+    }).forEach((input, expected) {
+      test('removeFourth returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeFourth;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻👍🏼👍🏽🔴👍🏿': '👍️👍🏻👍🏼👍🏽👍🏿',
+      '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt': '👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt',
+    }).forEach((input, expected) {
+      test('removeFifth returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeFifth;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻👍🏼👍🏽👍🏾🔴': '👍️👍🏻👍🏼👍🏽👍🏾',
+      '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt': '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text',
+    }).forEach((input, expected) {
+      test('removeSixth returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeSixth;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻👍🏼👍🏽🔴👍🏿': '👍️👍🏻👍🏼👍🏽👍🏿',
+      '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt': '👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt',
+    }).forEach((input, expected) {
+      test('removePenultimate returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removePenultimate;
+        expect(value, expected);
+      });
+    });
+
+    $({
+      '': '',
+      'text': 'text',
+      '👍️👍🏻👍🏼👍🏽👍🏾🔴': '👍️👍🏻👍🏼👍🏽👍🏾',
+      '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt': '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text',
+    }).forEach((input, expected) {
+      test('removeLast returns $expected when content is: [$input]', () {
+        final value = EmojiParser(input).removeLast;
+        expect(value, expected);
+      });
+    });
+
+    $({
       '😀': ['', ''],
       'text': ['text'],
       'a😀b🤦🏽c😀d': ['a', 'b', 'c', 'd'],
