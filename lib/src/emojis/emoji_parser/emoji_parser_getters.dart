@@ -49,20 +49,68 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   String get remove => replace('');
 
+  /// Gets a new String value with first emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.removeFirst; // te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt
+  /// ```
   String get removeFirst => removeAt(0);
 
+  /// Gets a new String value with second emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.removeSecond; // 👍️text👍🏼te👍🏽xt👍🏾te👍🏿xt
+  /// ```
   String get removeSecond => removeAt(1);
 
+  /// Gets a new String value with third emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt🔴te👍🏽xt👍🏾te👍🏿xt'.emojis.removeThird; // 👍️te👍🏻xtte👍🏽xt👍🏾te👍🏿xt
+  /// ```
   String get removeThird => removeAt(2);
 
+  /// Gets a new String value with fourth emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.removeFourth; // 👍️te👍🏻xt👍🏼text👍🏾te👍🏿xt
+  /// ```
   String get removeFourth => removeAt(3);
 
+  /// Gets a new String value with fifth emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.removeFifth; // 👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt
+  /// ```
   String get removeFifth => removeAt(4);
 
+  /// Gets a new String value with sixth emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.removeSixth; // 👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text
+  /// ```
   String get removeSixth => removeAt(5);
 
+  /// Gets a new String value with penultimate emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.removePenultimate; // 👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt
+  /// ```
   String get removePenultimate => removeFromEnd(1);
 
+  /// Gets a new String value with last emoji removed from the original String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.removeLast; // 👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text
+  /// ```
   String get removeLast => removeFromEnd(0);
 
   /// Splits the String value into a list of substrings, splitting on emoji characters.
@@ -97,7 +145,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🔴te👍️xt👍🏻te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.first; // Emoji(value: 🔴, ...)
+  /// '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.first; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get first => get.first;
 
@@ -105,7 +153,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🔴te👍️xt👍🏻te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.firstOrNull; // Emoji(value: 🔴, ...)
+  /// '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.firstOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.firstOrNull; // null
   /// ```
   Emoji? get firstOrNull => get.firstOrNull;
@@ -116,7 +164,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te🔴xt👍🏻te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.second; // Emoji(value: 🔴, ...)
+  /// '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.second; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get second => get.second;
 
@@ -124,7 +172,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te🔴xt👍🏻te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.secondOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.secondOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.secondOrNull; // null
   /// ```
   Emoji? get secondOrNull => get.secondOrNull;
@@ -135,7 +183,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt🔴te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.third; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt🔴te👍🏽xt👍🏾te👍🏿xt'.emojis.third; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get third => get.third;
 
@@ -143,7 +191,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt🔴te👍🏼xt👍🏽te👍🏾xt👍🏿'.emojis.thirdOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt🔴te👍🏽xt👍🏾te👍🏿xt'.emojis.thirdOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.thirdOrNull; // null
   /// ```
   Emoji? get thirdOrNull => get.thirdOrNull;
@@ -154,7 +202,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te🔴xt👍🏽te👍🏾xt👍🏿'.emojis.fourth; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.fourth; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get fourth => get.fourth;
 
@@ -162,7 +210,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te🔴xt👍🏽te👍🏾xt👍🏿'.emojis.fourthOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.fourthOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.fourthOrNull; // null
   /// ```
   Emoji? get fourthOrNull => get.fourthOrNull;
@@ -173,7 +221,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏾xt👍🏿'.emojis.fifth; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.fifth; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get fifth => get.fifth;
 
@@ -181,7 +229,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏾xt👍🏿'.emojis.fifthOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.fifthOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.fifthOrNull; // null
   /// ```
   Emoji? get fifthOrNull => get.fifthOrNull;
@@ -192,7 +240,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt👍🏿'.emojis.sixth; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.sixth; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get sixth => get.sixth;
 
@@ -200,7 +248,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt👍🏿'.emojis.sixthOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.sixthOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.sixthOrNull; // null
   /// ```
   Emoji? get sixthOrNull => get.sixthOrNull;
@@ -211,7 +259,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt👍🏿'.emojis.penultimate; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.penultimate; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get penultimate => get.penultimate;
 
@@ -219,7 +267,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt👍🏿'.emojis.penultimateOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.penultimateOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.penultimateOrNull; // null
   /// ```
   Emoji? get penultimateOrNull => get.penultimateOrNull;
@@ -230,7 +278,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt🔴'.emojis.last; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.last; // Emoji(value: 🔴, ...)
   /// ```
   Emoji get last => get.last;
 
@@ -238,7 +286,7 @@ extension EmojiParserGetters on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt🔴'.emojis.lastOrNull; // Emoji(value: 🔴, ...)
+  /// '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.lastOrNull; // Emoji(value: 🔴, ...)
   /// 'text'.emojis.lastOrNull; // null
   /// ```
   Emoji? get lastOrNull => get.lastOrNull;

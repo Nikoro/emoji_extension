@@ -11,24 +11,55 @@ extension EmojiParserMethods on EmojiParser {
   /// ```
   int countWhere(bool Function(Emoji emoji) count) => get.where(count).length;
 
+  /// Counts the number of emojis in the String value that satisfy the given [count] function.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.countWhereIndexed((i, e) => i == 1 && e.value == '❤️'); // 1
+  /// '🟡text❤️text🟦text🟢'.emojis.countWhereIndexed((i, e) => i == 0 && e.name.contains('Circle')); // 1
+  /// ```
   int countWhereIndexed(bool Function(int index, Emoji emoji) count) {
     return get.whereIndexed(count).length;
   }
 
+  /// Removes the emoji at the specified [position] in the String value.
+  /// If the [position] is out of range or there is no emoji at that position,
+  /// the original String is returned.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.removeAt(1); // 🟡texttext🟦text🟢
+  /// '🟡text❤️text🟦text🟢'.emojis.removeAt(10); // 🟡text❤️text🟦text🟢
+  /// ```
   String removeAt(int position) {
     String output = _value;
     final emoji = extract.firstWhereIndexedOrNull((i, e) => i == position);
     return emoji == null ? output : output.replaceFirst(emoji, '');
   }
 
+  /// Removes the emoji from the end of the String value at the specified [position].
+  /// If the [position] is out of range or there is no emoji at that position from the end,
+  /// the original String is returned.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.removeFromEnd(1); // 🟡text❤️texttext🟢
+  /// '🟡text❤️text🟦text🟢'.emojis.removeFromEnd(10); // 🟡text❤️text🟦text🟢
+  /// ```
   String removeFromEnd(int position) {
     String output = _value;
     final emojis = extract;
     final emoji =
-        emojis.firstWhereIndexedOrNull((i, e) => i == emojis.length - position);
+        emojis.firstWhereIndexedOrNull((i, e) => i == emojis.length - 1 - position);
     return emoji == null ? output : output.replaceFirst(emoji, '');
   }
 
+  /// Removes every occurrence of emojis specified in the [emojis] list from the String value.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.removeEveryOf(['❤️', '🟦']); // 🟡texttexttext🟢
+  /// ```
   String removeEveryOf(List<String> emojis) {
     String output = _value;
     extract.distinct().forEach((emoji) {
@@ -56,6 +87,13 @@ extension EmojiParserMethods on EmojiParser {
     return output;
   }
 
+  /// Removes emojis from the String where the provided [remove] function returns true.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.removeWhereIndexed((i, e) => i == 1 && e.value == '❤️'); // 🟡texttext🟦text🟢
+  /// '🟡text❤️text🟦text🟢'.emojis.removeWhereIndexed((i, e) => i == 0 && e.name.contains('Circle')); // text❤️text🟦text🟢
+  /// ```
   String removeWhereIndexed(bool Function(int index, Emoji emoji) remove) {
     String output = _value;
     get.forEachIndexed((index, emoji) {
@@ -81,6 +119,14 @@ extension EmojiParserMethods on EmojiParser {
         : [_value];
   }
 
+  /// Splits the String into a list of substrings based on the provided [split]
+  /// function that determines where to split the String. The [split] function
+  /// takes an index and an Emoji character as input.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.splitWhereIndexed((i, e) => i == 1 && e.value == '❤️'); // [🟡text, text🟦text🟢]
+  /// ```
   List<String> splitWhereIndexed(bool Function(int index, Emoji emoji) split) {
     final valuesToSplit = get.whereIndexed(split).toUnmodifiableList().values;
     return valuesToSplit.isNotEmpty
@@ -160,6 +206,17 @@ extension EmojiParserMethods on EmojiParser {
     return output;
   }
 
+  /// Returns a new String where each emoji character is replaced by the result of
+  /// applying the specified function [replace].
+  /// The [replace] function takes an emoji character and its index as input and returns the String
+  /// to replace it with. If the [replace] function returns `null`, the original emoji character
+  /// is retained.
+  ///
+  /// Example:
+  /// ```dart
+  /// '🟡text❤️text🟦text🟢'.emojis.replaceWhereIndexed((i, e) => i == 1 ? '123' : null); // 🟡text123text🟦text🟢
+  /// '🟡text❤️text🟦text🟢'.emojis.replaceWhereIndexed((i, e) => i == 0 && e.name.contains('Circle') ? '123' : null); // 123text❤️text🟦text🟢
+  /// ```
   String replaceWhereIndexed(String? Function(int index, Emoji emoji) replace) {
     String output = _value;
     get.forEachIndexed((index, emoji) {
@@ -673,6 +730,7 @@ extension EmojiParserMethods on EmojiParser {
   /// ```dart
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOf(['🟢']); // false
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOf(['🟡', '❤️', '🟦', '🟢']); // true
+  /// '🟡text❤️text🟦text🟢text❤️'.emojis.containsExactlyOf(['🟡', '❤️', '🟦', '🟢']); // true
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOf(['🔶']); // false
   /// ```
   bool containsExactlyOf(List<String> emojis) {
@@ -734,6 +792,7 @@ extension EmojiParserMethods on EmojiParser {
   /// Example:
   /// ```dart
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOneOf({'🟡', '❤️', '🟦', '🟢'}); // true
+  /// '🟡text❤️text🟦text🟢text❤️'.emojis.containsExactlyOneOf({'🟡', '❤️', '🟦', '🟢'}); // false
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOneOf({'🟡', '❤️', '🟦'}); // false
   /// '🟡text❤️text🟦text🟢'.emojis.containsExactlyOneOf({'🟡', '❤️', '🔶'}); // false
   /// ```
