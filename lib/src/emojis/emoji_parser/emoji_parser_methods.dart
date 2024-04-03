@@ -49,8 +49,8 @@ extension EmojiParserMethods on EmojiParser {
   String removeFromEnd(int position) {
     String output = _value;
     final emojis = extract;
-    final emoji =
-        emojis.firstWhereIndexedOrNull((i, e) => i == emojis.length - 1 - position);
+    final emoji = emojis
+        .firstWhereIndexedOrNull((i, e) => i == emojis.length - 1 - position);
     return emoji == null ? output : output.replaceFirst(emoji, '');
   }
 
@@ -336,7 +336,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.forEachIndexed(i,e) => print('$i:${e.value})); // 0:🟡 1:❤️ 2:🟦 3:🟢
+  /// '🟡text❤️text🟦text🟢'.emojis.forEachIndexed(i,e) => print('$i:${e.value}')); // 0:🟡 1:❤️ 2:🟦 3:🟢
   /// ```
   void forEachIndexed(void Function(int index, Emoji emoji) action) {
     get.forEachIndexed(action);
@@ -362,7 +362,7 @@ extension EmojiParserMethods on EmojiParser {
   /// ```dart
   /// '🟡text❤️text🟦text🟢'.emojis.map((e) => e.value); // [🟡, ❤️, 🟦, 🟢]
   /// ```
-  List<Emoji> map(Emoji Function(Emoji emoji) toElement) {
+  List<T> map<T>(T Function(Emoji emoji) toElement) {
     return get.map(toElement).toUnmodifiableList();
   }
 
@@ -373,7 +373,7 @@ extension EmojiParserMethods on EmojiParser {
   /// ```dart
   /// '🟡text❤️text🟦text🟢'.emojis.mapIndexed((i, e) => '$i: ${e.name}'); // [1: Yellow Circle, 2: Red Heart, 3: Blue Square, 4: Green Circle]
   /// ```
-  List<Emoji> mapIndexed(Emoji Function(int index, Emoji emoji) convert) {
+  List<T> mapIndexed<T>(T Function(int index, Emoji emoji) convert) {
     return get.mapIndexed(convert).toUnmodifiableList();
   }
 
@@ -381,7 +381,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.where((e) => e.name.contains('Circle')); // [🟡, 🟢]
+  /// '🟡text❤️text🟦text🟢'.emojis.where((e) => e.name.contains('Circle')); // [Emoji(value: 🟡, ...), Emoji(value: 🟢, ...)]
   /// ```
   List<Emoji> where(bool Function(Emoji emoji) test) {
     return get.where(test).toUnmodifiableList();
@@ -392,7 +392,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.whereIndexed((i, e) => i == 0 && e.name.contains('Circle'); // [🟡]
+  /// '🟡text❤️text🟦text🟢'.emojis.whereIndexed((i, e) => i == 0 && e.name.contains('Circle')); // [Emoji(value: 🟡, ...)]
   /// ```
   List<Emoji> whereIndexed(bool Function(int index, Emoji emoji) test) {
     return get.whereIndexed(test).toUnmodifiableList();
@@ -402,7 +402,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.whereNot((e) => e.name.contains('Circle')); // [❤️, 🟦]
+  /// '🟡text❤️text🟦text🟢'.emojis.whereNot((e) => e.name.contains('Circle')); // [Emoji(value: ❤️, ...), Emoji(value: 🟦, ...)]
   /// ```
   List<Emoji> whereNot(bool Function(Emoji emoji) test) {
     return get.whereNot(test).toUnmodifiableList();
@@ -413,7 +413,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.whereNotIndexed((i, e) => i == 0 && e.name.contains('Circle')); [❤️, 🟦, 🟢]
+  /// '🟡text❤️text🟦text🟢'.emojis.whereNotIndexed((i, e) => i == 0 && e.name.contains('Circle')); [Emoji(value: ❤️, ...), Emoji(value: 🟦, ...), Emoji(value: 🟢, ...)]
   /// ```
   List<Emoji> whereNotIndexed(bool Function(int index, Emoji emoji) test) {
     return get.whereNotIndexed(test).toUnmodifiableList();
@@ -435,7 +435,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.foldIndexed('text', (i, p ,c) => '$p${c.value}$i'); // text🟡❤️0🟦1🟢2
+  /// '🟡text❤️text🟦text🟢'.emojis.foldIndexed('text', (i, p ,c) => '$p${c.value}$i'); // text🟡0❤️1🟦2🟢3
   /// ```
   T foldIndexed<T>(
     T initialValue,
@@ -489,7 +489,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.firstWhereOrNull((e) => i == 0 && e.name.contains('Circle')); // Emoji(value: 🟡, ...)
+  /// '🟡text❤️text🟦text🟢'.emojis.firstWhereIndexedOrNull((i, e) => i == 0 && e.name.contains('Circle')); // Emoji(value: 🟡, ...)
   /// '🟡text❤️text🟦text🟢'.emojis.firstWhereIndexedOrNull((i, e) => i == 0 && e.value == '❤️'); // null
   /// ```
   Emoji? firstWhereIndexedOrNull(bool Function(int index, Emoji emoji) test) {
@@ -608,7 +608,7 @@ extension EmojiParserMethods on EmojiParser {
   ///
   /// Example:
   /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.join((e) => e.value, separator: '.', prefix: 'prefix', suffix: 'suffix'); // 'prefix🟦.🟡.🟢️.❤️suffix'
+  /// '🟡text❤️text🟦text🟢'.emojis.join((e) => e.value, separator: '.', prefix: 'prefix', suffix: 'suffix'); // 'prefix🟡.❤️.🟦.🟢suffix'
   /// ```
   String join(
     String Function(Emoji emoji) transform, {
