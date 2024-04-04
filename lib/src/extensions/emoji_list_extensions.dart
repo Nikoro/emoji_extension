@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:emoji_extension/emoji_extension.dart';
 
 /// Extension that provides several getters to extract specific data from the list of emojis.
