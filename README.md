@@ -34,20 +34,21 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   - hair style variations: 🦰 🦱 🦳 🦲
   - multi-person: 👨‍👩‍👧‍👦
 - Provides [`Emojis()`](#emojis-collection) class that has all the info about each emoji:
-  - value: 😀
-  - unicode: 1F600
-  - name: Grinning Face
-  - apple name: Grinning Face
-  - also known as: Happy Face, Smiley Face
+  - value: 😆
+  - unicode: 1F606
+  - name: Grinning Squinting Face
+  - apple name: Grinning Face with Squinting Eyes
+  - also known as: ><, Closed-Eyes Smile, Big Grin, Laughing, XD
   - group: Smileys & Emotion
   - subgroup: face-smiling
-  - version: 8.0
+  - version: 6.0
   - status: fully-qualified
   - shortcodes:
-    - Discord: grinning
-    - Github: grinning
-    - Slack: grinning
-- Provides [`emojis`](#emojis-extension) extension to manipulate emojis on any text. Quick overview of just a few possibilities:
+    - CLDR: grinning_squinting_face
+    - Discord: laughing, satisfied
+    - Github: laughing, satisfied
+    - Slack: laughing, satisfied
+- Provides [`emojis`](#emojis-extension) extension to interact with emojis within any text. Quick overview of just a few possibilities:
 
 ```dart
 'text😀text🤦🏾‍♀️text'.emojis 
@@ -694,7 +695,7 @@ Emojis().versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ..
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ## `emojis` extension
-One `emojis` extension that you can use to manipulate emojis on any text:
+One `emojis` extension that you can use to interact with emojis within any text:
 
 ```dart
 'text😀text🤦🏾‍♀️text'.emojis 
@@ -1215,7 +1216,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '👍🏻'); // false
 ```
-> Same as emojis.[some()](#emojissome)
+> Same as: emojis.[some()](#emojissome)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.anyOf()
@@ -1225,7 +1226,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.anyOf(['😀', '👍🏻']); // true
 '😀text🤦🏾‍♀️'.emojis.anyOf(['👍🏻']); // false
 ```
-> Same as emojis.[someOf()](#emojissomeof)
+> Same as: emojis.[someOf()](#emojissomeof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.containsOf()
@@ -1236,7 +1237,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.containsOf(['😀', '👍🏻']); // false
 '😀text🤦🏾‍♀️'.emojis.containsOf(['👍🏻']); // false
 ```
-> Same as emojis.[everyOf()](#emojiseveryof)
+> Same as: emojis.[everyOf()](#emojiseveryof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.containsExactlyOf()
@@ -1318,7 +1319,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.everyOf(['😀', '👍🏻']); // false
 '😀text🤦🏾‍♀️'.emojis.everyOf(['👍🏻']); // false
 ```
-> Same as emojis.[containsOf()](#emojiscontainsof)
+> Same as: emojis.[containsOf()](#emojiscontainsof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.firstWhere()
@@ -1384,9 +1385,9 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.forEachWhile((e) {
-                                            print(e.value);
-                                            return e.value == '😀';
-                                            }); // 😀 🤦🏾‍♀️
+                                          print(e.value);
+                                          return e.value == '😀';
+                                          }); // 😀 🤦🏾‍♀️
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -1394,9 +1395,9 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.forEachIndexedWhile((i, e) {
-                                                      print('$i:${e.value}');
-                                                      return e.value == '😀';
-                                                      }); // 0:😀 1:🤦🏾‍♀️
+                                                    print('$i:${e.value}');
+                                                    return e.value == '😀';
+                                                    }); // 0:😀 1:🤦🏾‍♀️
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -1404,9 +1405,9 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 
 ```dart
 '😀text🤦🏾‍♀️'.emojis.join((e) => e.value, 
-                                separator: '.', 
-                                prefix: 'prefix', 
-                                suffix: 'suffix'); // 'prefix😀.🤦🏾‍♀️suffix'
+                              separator: '.', 
+                              prefix: 'prefix', 
+                              suffix: 'suffix'); // 'prefix😀.🤦🏾‍♀️suffix'
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -1535,7 +1536,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.some((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.some((e) => e.value == '👍🏻'); // false
 ```
-> Same as emojis.[any()](#emojisany)
+> Same as: emojis.[any()](#emojisany)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.someOf()
@@ -1545,7 +1546,7 @@ One `emojis` extension that you can use to manipulate emojis on any text:
 '😀text🤦🏾‍♀️'.emojis.someOf(['😀', '👍🏻']); // true
 '😀text🤦🏾‍♀️'.emojis.someOf(['👍🏻']); // false
 ```
-> Same as emojis.[anyOf()](#emojisanyof)
+> Same as: emojis.[anyOf()](#emojisanyof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.splitMapJoin()
