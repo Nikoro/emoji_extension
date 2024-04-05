@@ -129,6 +129,9 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
       <ul>
       <li><a href="#emoji-class">Emoji</a></li>
         <ul>
+          <li><a href="#emojiname">name</a></li>
+          <li><a href="#emojiapplename">appleName</a></li>
+          <li><a href="#emojialsoknownas">alsoKnownAs</a></li>
           <li><a href="#emojishortcode">shortcode</a></li>
             <ul>
               <li><a href="#emojicldrshortcode">CLDR</a></li>
@@ -138,6 +141,18 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
             </ul>
           <li><a href="#emojiunicode">unicode</a></li>
           <li><a href="#emojivalue">value</a></li>
+          <li><a href="#emojiisanimal">isAnimal</a></li>
+          <li><a href="#emojiisperson">isPerson</a></li>
+          <li><a href="#emojiismultiperson">isMultiPerson</a></li>
+          <li><a href="#emojiisflag">isFlag</a></li>
+          <li><a href="#emojiisfruit">isFruit</a></li>
+          <li><a href="#emojiisvegetable">isVegetable</a></li>
+          <li><a href="#emojiisflower">isFlower</a></li>
+          <li><a href="#emojiissymbol">isSymbol</a></li>
+          <li><a href="#emojiisgeometric">isGeometric</a></li>
+          <li><a href="#emojihasface">hasFace</a></li>
+          <li><a href="#emojihasskintone">hasSkinTone</a></li>
+          <li><a href="#emojihashairstyle">hasHairStyle</a></li>
         </ul>
       </ul>
     </td>

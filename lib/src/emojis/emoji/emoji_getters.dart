@@ -32,14 +32,6 @@ extension EmojiGetters on Emoji {
   /// Returns the Slack shortcodes of the emoji as a List of Strings.
   List<String> get slackShortcodes => shortcodes.slack;
 
-  bool get hasSkinTone => RegExp(r'1F3F[B-F]').hasMatch(unicode);
-
-  bool get hasHairStyle => RegExp(r'1F9B[0-3]').hasMatch(unicode);
-
-  bool get isMultiPerson {
-    return subgroup == Subgroup.family || name.containsIgnoreCase('family');
-  }
-
   bool get isFullyQualified => status == Status.fullyQualified;
 
   bool get isMinimallyQualified => status == Status.minimallyQualified;
@@ -90,15 +82,23 @@ extension EmojiGetters on Emoji {
 
   bool get isGeometric => subgroup == Subgroup.geometric;
 
+  bool get isPerson => Subgroup.values
+      .where((s) => s.value.contains('person'))
+      .any((s) => s == subgroup);
+
+  bool get isMultiPerson {
+    return subgroup == Subgroup.family || name.containsIgnoreCase('family');
+  }
+
+  bool get hasSkinTone => RegExp(r'1F3F[B-F]').hasMatch(unicode);
+
+  bool get hasHairStyle => RegExp(r'1F9B[0-3]').hasMatch(unicode);
+
   bool get hasFace =>
       Subgroup.values
           .where((s) => s.value.contains('face'))
           .any((s) => s == subgroup) ||
-      name.containsIgnoreCase(' face') ||
-      (appleName != null && appleName!.containsIgnoreCase(' face') ||
-          alsoKnownAs.any((a) => a.containsIgnoreCase(' face')));
-
-  bool get isPerson => Subgroup.values
-      .where((s) => s.value.contains('person'))
-      .any((s) => s == subgroup);
+          name.containsIgnoreCase(' face') ||
+          (appleName != null && appleName!.containsIgnoreCase(' face') ||
+              alsoKnownAs.any((a) => a.containsIgnoreCase(' face')));
 }
