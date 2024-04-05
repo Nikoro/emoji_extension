@@ -1,7 +1,7 @@
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
-import '../../_tools/tools.dart';
+import '../../../_tools/tools.dart';
 
 void main() {
   group('EmojiParserGetters', () {
@@ -226,7 +226,7 @@ void main() {
         const text = '😀text';
 
         final value = EmojiParser(text).first;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -241,7 +241,7 @@ void main() {
         const text = '😀text';
 
         final value = EmojiParser(text).firstOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -258,7 +258,7 @@ void main() {
         const text = '👍text😀';
 
         final value = EmojiParser(text).second;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -273,7 +273,7 @@ void main() {
         const text = '👍text😀';
 
         final value = EmojiParser(text).secondOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -290,7 +290,7 @@ void main() {
         const text = '👍te👍🏻xt😀';
 
         final value = EmojiParser(text).third;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -305,7 +305,7 @@ void main() {
         const text = '👍te👍🏻xt😀';
 
         final value = EmojiParser(text).thirdOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -322,7 +322,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te😀xt';
 
         final value = EmojiParser(text).fourth;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -337,7 +337,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te😀xt';
 
         final value = EmojiParser(text).fourthOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -354,7 +354,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te👍🏽xt😀';
 
         final value = EmojiParser(text).fifth;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -369,7 +369,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te👍🏽xt😀';
 
         final value = EmojiParser(text).fifthOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -386,7 +386,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te👍🏽xt👍🏾te😀xt';
 
         final value = EmojiParser(text).sixth;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -401,7 +401,7 @@ void main() {
         const text = '👍te👍🏻xt👍🏼te👍🏽xt👍🏾te😀xt';
 
         final value = EmojiParser(text).sixthOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -418,7 +418,7 @@ void main() {
         const text = '😀text👍';
 
         final value = EmojiParser(text).penultimate;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -433,7 +433,7 @@ void main() {
         const text = '😀text👍';
 
         final value = EmojiParser(text).penultimateOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -450,7 +450,7 @@ void main() {
         const text = '👍text😀';
 
         final value = EmojiParser(text).last;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 
@@ -465,7 +465,7 @@ void main() {
         const text = '👍text😀';
 
         final value = EmojiParser(text).lastOrNull;
-        const expected = TestEmojis.grinningFace;
+        final expected = TestEmojis.grinningFace;
         expect(value, expected);
       });
 

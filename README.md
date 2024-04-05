@@ -33,7 +33,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
   - hair style variations: 🦰 🦱 🦳 🦲
   - multi-person: 👨‍👩‍👧‍👦
-- Provides [`Emojis`](#emojis-collection) class that has all the info about each emoji:
+- Provides [`Emojis`](#emojis-collection) collection that has all the info about each emoji:
   - value: 😆
   - unicode: 1F606
   - name: Grinning Squinting Face
@@ -71,6 +71,20 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 
 // from Slack shortcodes:
 ':grinning:text:woman-facepalming::skin-tone-5:'.emojis.fromShortcodes(); // 😀text🤦🏾‍♀️
+```
+- Provides [`Emoji`](#emoji-class) class equipped with numerous properties and getters for your convenience:
+```dart
+Emoji('🩷').shortcode; // :pink_heart:
+
+Emoji('👍🏻').hasSkinTone; // true
+
+Emoji('👪').isMultiPerson; // true
+
+Emoji('🦊').isAnimal; // true
+
+Emoji('😃').hasFace; // true
+
+... // and many more
 ```
 
 ## Table of contents
@@ -110,6 +124,21 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         <li><a href="#emojisshortcodeplatforms">shortcodePlatforms</a></li>
         <li><a href="#emojisstatuses">statuses</a></li>
         <li><a href="#emojisversions">versions</a></li>
+      </ul>
+      <p>______________________________________</p>
+      <ul>
+      <li><a href="#emoji-class">Emoji</a></li>
+        <ul>
+          <li><a href="#emojishortcode">shortcode</a></li>
+            <ul>
+              <li><a href="#emojicldrshortcode">CLDR</a></li>
+              <li><a href="#emojidiscordshortcode">Discord</a></li>
+              <li><a href="#emojigithubshortcode">Github</a></li>
+              <li><a href="#emojislackshortcode">Slack</a></li>
+            </ul>
+          <li><a href="#emojiunicode">unicode</a></li>
+          <li><a href="#emojivalue">value</a></li>
+        </ul>
       </ul>
     </td>
     <td style="width: 50%;" valign="top">
@@ -697,6 +726,13 @@ Emojis.versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
                       .sixth // 11.0
                       .penultimate // 15.0
                       .last // 15.1
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+## `Emoji` class
+`Emoji` class equipped with numerous properties and getters for your convenience:
+```dart
+
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

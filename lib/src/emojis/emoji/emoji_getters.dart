@@ -1,4 +1,5 @@
-part of 'emoji.dart';
+part of '../emojis.dart';
+
 
 /// Extension providing various utility getters for Emoji class.
 extension EmojiGetters on Emoji {

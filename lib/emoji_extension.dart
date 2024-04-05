@@ -1,12 +1,9 @@
 library emoji_extension;
 
-import 'package:emoji_extension/src/emoji_parser/emoji_parser.dart';
-
+import 'package:emoji_extension/src/emojis/emoji_parser/emoji_parser.dart';
 export 'package:collection/collection.dart';
 
-export 'src/emoji/emoji.dart';
-export 'src/emoji/emoji_constructor.dart';
-export 'src/emoji_parser/emoji_parser.dart';
+export 'src/emojis/emoji_parser/emoji_parser.dart';
 export 'src/emojis/emojis.dart';
 export 'src/emojis/group.dart';
 export 'src/emojis/platform.dart';

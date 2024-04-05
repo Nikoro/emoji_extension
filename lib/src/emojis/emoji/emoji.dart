@@ -1,8 +1,4 @@
-import 'package:emoji_extension/emoji_extension.dart';
-
-part 'emoji_getters.dart';
-
-part 'emoji_methods.dart';
+part of '../emojis.dart';
 
 /// Represents an Emoji.
 /// An Emoji is characterized by its value, unicode, name, group, subgroup, and shortcodes.
@@ -19,7 +15,8 @@ part 'emoji_methods.dart';
 
 class Emoji {
   /// Constructs an Emoji object with the specified properties.
-  const Emoji({
+  ///
+  const Emoji._({
     required this.value,
     required this.unicode,
     required this.name,
@@ -31,6 +28,20 @@ class Emoji {
     required this.status,
     required this.shortcodes,
   });
+
+  factory Emoji(String value) {
+    assert(
+      EmojiParser(value).onlyOne,
+      """
+    
+    Provided value must be a single emoji:
+    ✅ emoji('😀') - valid
+    ❌ emoji('😀😀') - invalid
+    ❌ emoji('not an emoji') - invalid
+    """,
+    );
+    return Emojis.getOne(value.trim());
+  }
 
   /// The value of the emoji as a String.
   final String value;

@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import '../../_tools/test_emojis.dart';
 
 void main() {
-  const emojis = [
+  final emojis = [
     TestEmojis.grinningFace,
     TestEmojis.womanFacepalmingMediumDarkSkinTone,
   ];

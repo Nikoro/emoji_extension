@@ -1,31 +1,28 @@
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
-import '../../_tools/test_emojis.dart';
+import '../../../_tools/tools.dart';
 
 void main() {
-  const emoji1 = TestEmojis.grinningFace;
-  final emoji2 = emoji('😀');
-  const emoji3 = Emoji(
-    value: '😀',
-    name: 'Grinning Face',
-    appleName: 'Grinning Face',
-    alsoKnownAs: ['Happy Face', 'Smiley Face'],
-    unicode: '1F600',
-    group: Group.smileysAndEmotion,
-    subgroup: Subgroup.faceSmiling,
-    version: Version.v8_0,
-    status: Status.fullyQualified,
-    shortcodes: [
-      Shortcode.$default(['grinning_face']),
-      Shortcode.cldr(['grinning_face']),
-      Shortcode.discord(['grinning']),
-      Shortcode.github(['grinning']),
-      Shortcode.slack(['grinning']),
-    ],
-  );
+  final emoji1 = TestEmojis.grinningFace;
+  final emoji2 = Emoji('😀');
+  final emoji3 = Emojis.getOne('1F600');
 
   group('Emoji', () {
+    group('Constructor Emoji()', () {
+      test('constructs Emoji object when provided value is single emoji', () {
+        expect(Emoji('😀'), TestEmojis.grinningFace);
+      });
+
+      test('throws assertion error  when provided value is multiple emojis',
+          () {
+        expect(() => Emoji('😀😀'), throwsA(isA<AssertionError>()));
+      });
+
+      test('throws assertion error  when provided value is not an emoji', () {
+        expect(() => Emoji('not an emoji'), throwsA(isA<AssertionError>()));
+      });
+    });
     test('equality', () {
       expect(emoji1 == emoji2, true);
       expect(emoji2 == emoji3, true);

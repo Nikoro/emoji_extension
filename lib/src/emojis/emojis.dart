@@ -1,6 +1,9 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 part 'emojis_data.dart';
+part 'emoji/emoji.dart';
+part 'emoji/emoji_getters.dart';
+part 'emoji/emoji_methods.dart';
 
 /// A class that represents a collection of Emojis.
 /// This class provides various methods to retrieve information about the Emojis, including

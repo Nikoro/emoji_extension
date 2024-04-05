@@ -1,54 +1,26 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 void main() {
+  final shortcode = Emoji('🩷').shortcode;
+  // print(shortcode); // :pink_heart:
+
+  final hasSkinTone = Emoji('👍🏻').hasSkinTone;
+  // print(hasSkinTone); // true
+
+  final isMultiPerson = Emoji('👪').isMultiPerson;
+  // print(isMultiPerson); // true
+
+  final isV13_0 = Emoji('🥷').isV13_0;
+  // print(isV13_0); // true
+
+  final isAnimal = Emoji('🦊').isAnimal;
+  // print(isAnimal); // true
+
+  final hasFace = Emoji('😃').hasFace;
+  // print(hasFace); // true
+
   final emojis = Emojis.all;
-  // print(emojis);
-  /* Emoji(
-                   value: 😀,
-                   unicode: 1F600,
-                   name: Grinning Face,
-                   appleName: Grinning Face,
-                   alsoKnownAs: [Happy Face, Smiley Face],
-                   group: Smileys & Emotion,
-                   subgroup: face-smiling,
-                   version: 8.0,
-                   status: fully-qualified,
-                   shortcodes: [
-                        Shortcode(
-                        platform: Default,
-                        values: [grinning_face]
-                      ),
-                        Shortcode(
-                        platform: CLDR,
-                        values: [grinning_face]
-                      ),
-                        Shortcode(
-                        platform: Discord,
-                        values: [grinning]
-                      ),
-                        Shortcode(
-                        platform: Github,
-                        values: [grinning]
-                      ),
-                        Shortcode(
-                        platform: Slack,
-                        values: [grinning]
-                      )]
-                  ),
-                  Emoji(
-                   value: 😃,
-                   unicode: 1F603,
-                   name: Grinning Face with Big Eyes,
-                   appleName: Grinning Face with Big Eyes
-                   alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face],
-                   group: Smileys & Emotion,
-                   subgroup: face-smiling,
-                   version: 6.0,
-                   status: fully-qualified
-                   shortcodes: [...]
-                  )
-                 ...
-                 ] */
+  // print(emojis); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
   final values = emojis.values;
   // print(values); // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
@@ -136,25 +108,24 @@ void main() {
   final contains = '😀text😀'.emojis.contains;
   // print(contains); // true
 
-  final only = '😀text😀'.emojis.only;
+  final only = '😀 😀'.emojis.only;
   // print(only); // true
 
-  final onlyOne = '😀text😀'.emojis.onlyOne;
+  final onlyOne = '😀'.emojis.onlyOne;
   // print(onlyOne); // true
 
   final count = '😀text😀'.emojis.count;
   // print(count); // 2
 
-  final countWhere =
-  '😀text👍🏻text😀'.emojis.countWhere((e) => e.value == '😀');
+  final countWhere = '😀text🔴text😀'.emojis.countWhere((e) => e.hasFace);
   // print(countWhere); // 2
 
   final remove = '😀text😀'.emojis.remove;
-  // print(remove); // text text text
+  // print(remove); // text
 
   final removeWhere =
-      '😀text👍🏻text😀'.emojis.removeWhere((e) => e.value == '😀');
-  // print(removeWhere); // text👍🏻text
+      '😀text👍🏻text😀'.emojis.removeWhere((e) => e.hasSkinTone);
+  // print(removeWhere); // 😀texttext😀
 
   final split = '😀text😀'.emojis.split;
   // print(split); // [text, text]
@@ -175,74 +146,7 @@ void main() {
   // print(extract.last); // 👍🏿
 
   final emoji = '😀text'.emojis.get;
-  // print(emoji);
-  /* [Emoji(
-                          value: 😀,
-                          unicode: 1F600,
-                          name: Grinning Face,
-                          appleName: Grinning Face,
-                          alsoKnownAs: [Happy Face, Smiley Face],
-                          group: Smileys & Emotion,
-                          subgroup: face-smiling,
-                          version: 8.0,
-                          status: fully-qualified,
-                          shortcodes: [
-                            Shortcode(
-                            platform: Default,
-                            values: [grinning_face]
-                          ),
-                            Shortcode(
-                            platform: CLDR,
-                            values: [grinning_face]
-                          ),
-                            Shortcode(
-                            platform: Discord,
-                            values: [grinning]
-                          ),
-                            Shortcode(
-                            platform: Github,
-                            values: [grinning]
-                          ),
-                            Shortcode(
-                            platform: Slack,
-                            values: [grinning]
-                          )]
-                        )] */
-
-  // '👍️text'.emojis.forEach(print);
-  /*   Emoji(
-                                      value: 👍,
-                                      unicode: 1F44D,
-                                      name: Thumbs Up,
-                                      appleName: Thumbs Up,
-                                      alsoKnownAs: [Thumbs Up, Like, Yes],
-                                      group: People & Body,
-                                      subgroup: hand-fingers-closed,
-                                      version: 6.0,
-                                      status: fully-qualified,
-                                      shortcodes: [
-                                        Shortcode(
-                                        platform: Default,
-                                        values: [thumbs_up]
-                                      ),
-                                        Shortcode(
-                                        platform: CLDR,
-                                        values: [thumbs_up]
-                                      ),
-                                        Shortcode(
-                                        platform: Discord,
-                                        values: [thumbsup, +1, thumbup]
-                                      ),
-                                        Shortcode(
-                                        platform: Github,
-                                        values: [+1, thumbsup]
-                                      ),
-                                        Shortcode(
-                                        platform: Slack,
-                                        values: [+1, thumbsup]
-                                      )]
-                                    )
-                                    */
+  // print(emoji); Emoji(value: 😀, ...)
 
   final anyOf = '👍️text'.emojis.anyOf(['👍']);
   // print(anyOf); // true
@@ -286,4 +190,44 @@ void main() {
   final fromShortcodes =
       'text:woman_facepalming_tone4:text'.emojis.fromShortcodes();
   // print(fromShortcodes); // text🤦🏾‍♀️text
+
+  final take = '😀text🤦🏾‍♀️'.emojis.take(1);
+  // print(take); // Emoji(value: 😀, ...)
+
+  final takeLast = '😀text🤦🏾‍♀️'.emojis.takeLast(1);
+  // print(takeLast); // Emoji(value: 🤦🏾‍♀️, ...)
+
+  final first = '😀text🤦🏾‍♀️'.emojis.first;
+  // print(first); // Emoji(value: 😀, ...)
+
+  final penultimate = '😀text🤦🏾‍♀️'.emojis.penultimate;
+  // print(penultimate); // Emoji(value: 😀, ...)
+
+  final second = '😀text🤦🏾‍♀️'.emojis.second;
+  // print(second); // Emoji(value: 🤦🏾‍♀️, ...)
+
+  final last = '😀text🤦🏾‍♀️'.emojis.last;
+  // print(last); // Emoji(value: 🤦🏾‍♀️, ...)
+
+  final thirdOrNull = '😀text🤦🏾‍♀️'.emojis.thirdOrNull;
+  // print(thirdOrNull); // null
+
+  final removeFirst = '😀text🤦🏾‍♀️'.emojis.removeFirst;
+  // print(removeFirst); // text🤦🏾‍♀️
+
+  final removePenultimate = '😀text🤦🏾‍♀️'.emojis.removePenultimate;
+  // print(removePenultimate); // text🤦🏾‍♀️
+
+  final removeSecond = '😀text🤦🏾‍♀️'.emojis.removeSecond;
+  // print(removeSecond); // 😀text
+
+  final removeLast = '😀text🤦🏾‍♀️'.emojis.removeLast;
+  // print(removeLast); // 😀text
+
+  final removeThird = '😀text🤦🏾‍♀️'.emojis.removeThird;
+  // print(removeThird); // 😀text🤦🏾‍♀️
+
+  final any = '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '😀');
+  // print(any); // true
+
 }

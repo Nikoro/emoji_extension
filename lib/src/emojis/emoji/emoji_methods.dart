@@ -1,4 +1,4 @@
-part of 'emoji.dart';
+part of '../emojis.dart';
 
 /// Extension providing various utility methods for Emoji class.
 extension EmojiMethods on Emoji {

@@ -1,7 +1,7 @@
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
-import '../../_tools/tools.dart';
+import '../../../_tools/tools.dart';
 
 void main() {
   group('EmojiGetters', () {
@@ -10,7 +10,7 @@ void main() {
       '🩷': ':pink_heart:',
     }).forEach((input, expected) {
       test('shortcode returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).shortcode, expected);
+        expect(Emoji(input).shortcode, expected);
       });
     });
 
@@ -19,7 +19,7 @@ void main() {
       '🩷': ':pink_heart:',
     }).forEach((input, expected) {
       test('cldrShortcode returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).cldrShortcode, expected);
+        expect(Emoji(input).cldrShortcode, expected);
       });
     });
 
@@ -28,7 +28,7 @@ void main() {
       '🩷': null,
     }).forEach((input, expected) {
       test('discordShortcode returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).discordShortcode, expected);
+        expect(Emoji(input).discordShortcode, expected);
       });
     });
 
@@ -37,7 +37,7 @@ void main() {
       '🩷': null,
     }).forEach((input, expected) {
       test('githubShortcode returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).githubShortcode, expected);
+        expect(Emoji(input).githubShortcode, expected);
       });
     });
 
@@ -46,7 +46,7 @@ void main() {
       '🩷': null,
     }).forEach((input, expected) {
       test('slackShortcode returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).slackShortcode, expected);
+        expect(Emoji(input).slackShortcode, expected);
       });
     });
 
@@ -64,7 +64,7 @@ void main() {
       '🏿': true,
     }).forEach((input, expected) {
       test('hasSkinTone returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).hasSkinTone, expected);
+        expect(Emoji(input).hasSkinTone, expected);
       });
     });
 
@@ -80,7 +80,7 @@ void main() {
       '🦲': true,
     }).forEach((input, expected) {
       test('hasHairStyle returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).hasHairStyle, expected);
+        expect(Emoji(input).hasHairStyle, expected);
       });
     });
 
@@ -94,7 +94,7 @@ void main() {
       '🧑‍🧑‍🧒‍🧒': true,
     }).forEach((input, expected) {
       test('isMultiPerson returns $expected when emoji is: $input', () {
-        expect(Emojis.getOne(input).isMultiPerson, expected);
+        expect(Emoji(input).isMultiPerson, expected);
       });
 
       $({
@@ -104,7 +104,7 @@ void main() {
         '🏻': false,
       }).forEach((input, expected) {
         test('isFullyQualified returns $expected when emoji is: $input', () {
-          expect(Emojis.getOne(input).isFullyQualified, expected);
+          expect(Emoji(input).isFullyQualified, expected);
         });
       });
 
@@ -116,7 +116,7 @@ void main() {
       }).forEach((input, expected) {
         test('isMinimallyQualified returns $expected when emoji is: $input',
             () {
-          expect(Emojis.getOne(input).isMinimallyQualified, expected);
+          expect(Emoji(input).isMinimallyQualified, expected);
         });
       });
 
@@ -127,7 +127,7 @@ void main() {
         '🏻': false,
       }).forEach((input, expected) {
         test('isUnqualified returns $expected when emoji is: $input', () {
-          expect(Emojis.getOne(input).isUnqualified, expected);
+          expect(Emoji(input).isUnqualified, expected);
         });
       });
 
@@ -138,7 +138,7 @@ void main() {
         '☹': false,
       }).forEach((input, expected) {
         test('isComponent returns $expected when emoji is: $input', () {
-          expect(Emojis.getOne(input).isComponent, expected);
+          expect(Emoji(input).isComponent, expected);
         });
 
         $({
@@ -157,7 +157,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV6_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV6_0, expected);
+            expect(Emoji(input).isV6_0, expected);
           });
         });
 
@@ -177,7 +177,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV7_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV7_0, expected);
+            expect(Emoji(input).isV7_0, expected);
           });
         });
 
@@ -197,7 +197,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV8_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV8_0, expected);
+            expect(Emoji(input).isV8_0, expected);
           });
         });
 
@@ -217,7 +217,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV9_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV9_0, expected);
+            expect(Emoji(input).isV9_0, expected);
           });
         });
 
@@ -237,7 +237,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV10_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV10_0, expected);
+            expect(Emoji(input).isV10_0, expected);
           });
         });
 
@@ -257,7 +257,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV11_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV11_0, expected);
+            expect(Emoji(input).isV11_0, expected);
           });
         });
 
@@ -277,7 +277,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV12_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV12_0, expected);
+            expect(Emoji(input).isV12_0, expected);
           });
         });
 
@@ -297,7 +297,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV12_1 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV12_1, expected);
+            expect(Emoji(input).isV12_1, expected);
           });
         });
 
@@ -317,7 +317,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV13_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV13_0, expected);
+            expect(Emoji(input).isV13_0, expected);
           });
         });
 
@@ -337,7 +337,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV13_1 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV13_1, expected);
+            expect(Emoji(input).isV13_1, expected);
           });
         });
 
@@ -357,7 +357,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV14_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV14_0, expected);
+            expect(Emoji(input).isV14_0, expected);
           });
         });
 
@@ -377,7 +377,7 @@ void main() {
           '🍋‍🟩': false,
         }).forEach((input, expected) {
           test('isV15_0 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV15_0, expected);
+            expect(Emoji(input).isV15_0, expected);
           });
         });
 
@@ -397,7 +397,7 @@ void main() {
           '🪼': false,
         }).forEach((input, expected) {
           test('isV15_1 returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isV15_1, expected);
+            expect(Emoji(input).isV15_1, expected);
           });
         });
 
@@ -406,7 +406,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isFlag returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isFlag, expected);
+            expect(Emoji(input).isFlag, expected);
           });
         });
 
@@ -415,7 +415,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isFruit returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isFruit, expected);
+            expect(Emoji(input).isFruit, expected);
           });
         });
 
@@ -424,7 +424,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isVegetable returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isVegetable, expected);
+            expect(Emoji(input).isVegetable, expected);
           });
         });
 
@@ -438,7 +438,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isAnimal returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isAnimal, expected);
+            expect(Emoji(input).isAnimal, expected);
           });
         });
 
@@ -447,7 +447,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isFlower returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isFlower, expected);
+            expect(Emoji(input).isFlower, expected);
           });
         });
 
@@ -456,7 +456,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isSymbol returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isSymbol, expected);
+            expect(Emoji(input).isSymbol, expected);
           });
         });
 
@@ -465,7 +465,7 @@ void main() {
           '😃': false,
         }).forEach((input, expected) {
           test('isGeometric returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isGeometric, expected);
+            expect(Emoji(input).isGeometric, expected);
           });
         });
 
@@ -483,7 +483,7 @@ void main() {
           '🔴': false,
         }).forEach((input, expected) {
           test('hasFace returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).hasFace, expected);
+            expect(Emoji(input).hasFace, expected);
           });
         });
 
@@ -499,7 +499,7 @@ void main() {
           '🔴': false,
         }).forEach((input, expected) {
           test('isPerson returns $expected when emoji is: $input', () {
-            expect(Emojis.getOne(input).isPerson, expected);
+            expect(Emoji(input).isPerson, expected);
           });
         });
       });
