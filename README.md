@@ -33,7 +33,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
   - hair style variations: 🦰 🦱 🦳 🦲
   - multi-person: 👨‍👩‍👧‍👦
-- Provides [`Emojis()`](#emojis-collection) class that has all the info about each emoji:
+- Provides [`Emojis`](#emojis-collection) class that has all the info about each emoji:
   - value: 😆
   - unicode: 1F606
   - name: Grinning Squinting Face
@@ -83,15 +83,11 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
       <h3 align="center">1️⃣ <a href="#emojis-collection">Emojis collection</a></h3>
       <p>______________________________________</p>  
       <ul>
-        <li><a href="#emojisbygroup">byGroup()</a></li>
-        <li><a href="#emojisbysubgroup">bySubgroup()</a></li>
-        <li><a href="#emojisbyversion">byVersion()</a></li>
-        <li><a href="#emojisbystatus">byStatus()</a></li>
-        <li><a href="#emojisget">get</a></li>
+        <li><a href="#emojisall">all</a></li>
         <ul>
-          <li><a href="#emojisgetalsoknownas">alsoKnownAs</a></li>
-          <li><a href="#emojisgetapplenames">appleNames</a></li>
           <li><a href="#emojisgetnames">names</a></li>
+          <li><a href="#emojisgetapplenames">appleNames</a></li>
+          <li><a href="#emojisgetalsoknownas">alsoKnownAs</a></li>
           <li><a href="#emojisgetshortcodes">shortcodes</a></li>
             <ul>
               <li><a href="#emojisgetcldrshortcodes">CLDR</a></li>
@@ -104,6 +100,10 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         </ul>
         <li><a href="#emojisgetone">getOne()</a></li>
         <li><a href="#emojisgetoneornull">getOneOrNull()</a></li>
+        <li><a href="#emojisbygroup">byGroup()</a></li>
+        <li><a href="#emojisbysubgroup">bySubgroup()</a></li>
+        <li><a href="#emojisbyversion">byVersion()</a></li>
+        <li><a href="#emojisbystatus">byStatus()</a></li>
         <li><a href="#emojisgroups">groups</a></li>
         <li><a href="#emojissubgroups">subgroups</a></li>
         <li><a href="#emojisgroupswithsubgroups">groupsWithSubgroups</a></li>
@@ -235,38 +235,38 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
   </tr>
 </table>
 
-## `Emojis()` collection
-Full `Emojis()` collection with unicodes, names, apple names, "also known as", groups, subgroups, shortcodes:
+## `Emojis` collection
+Full `Emojis` collection with unicodes, names, apple names, "also known as", groups, subgroups, shortcodes:
 
 ```dart
-Emojis()
-        .get // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
-            .values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
-            .unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
-            .names // [Grinning Face, Grinning Face with Big Eyes, ...]
-            .appleNames // [Grinning Face, Grinning Face with Big Eyes, ...]
-            .alsoKnownAs // [Happy Face, Smiley Face, Grinning Face, ...]
-            .shortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
-        .groups // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
-               .values // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
-        .subgroups // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
-                  .values // [face-smiling, face-affection, face-tongue, face-hand, ...]
-        .groupsWithSubgroups // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
-                            .values // {Smileys & Emotion: [face-smiling, ...], ...}
-        .shortcodePlatforms // [Default, CLDR, Discord, Github, Slack]
-        .versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
-                 .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
-        .statuses // [Status.fullyQualified, Status.minimallyQualified, ...]
-                 .values // [fully-qualified, minimally-qualified, unqualified, ...]
+Emojis
+      .all // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+          .values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
+          .unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
+          .names // [Grinning Face, Grinning Face with Big Eyes, ...]
+          .appleNames // [Grinning Face, Grinning Face with Big Eyes, ...]
+          .alsoKnownAs // [Happy Face, Smiley Face, Grinning Face, ...]
+          .shortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+      .groups // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
+             .values // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+      .subgroups // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
+                .values // [face-smiling, face-affection, face-tongue, face-hand, ...]
+      .groupsWithSubgroups // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
+                          .values // {Smileys & Emotion: [face-smiling, ...], ...}
+      .shortcodePlatforms // [Default, CLDR, Discord, Github, Slack]
+      .versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+               .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+      .statuses // [Status.fullyQualified, Status.minimallyQualified, ...]
+               .values // [fully-qualified, minimally-qualified, unqualified, ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().byGroup()
+### Emojis.byGroup()
 ```dart
-Emojis().byGroup(Group.smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.byGroup(Group.smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
 //or use convenient getters:
-Emojis().smileysAndEmotion; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.smileysAndEmotion; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

@@ -279,7 +279,7 @@ extension EmojiParserMethods on EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return Emojis().getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
+      return Emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform) ??
           match;
     });
   }
@@ -305,7 +305,7 @@ extension EmojiParserMethods on EmojiParser {
       {String Function(String unknownShortcode)? onUnknownShortcode}) {
     return _value.splitMapJoin(Regex.shortcode, onMatch: (m) {
       final match = m.group(0)!;
-      return Emojis().getOneOrNull(match.removeColons())?.value ??
+      return Emojis.getOneOrNull(match.removeColons())?.value ??
           onUnknownShortcode?.call(match) ??
           match;
     });

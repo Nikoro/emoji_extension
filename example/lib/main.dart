@@ -1,7 +1,7 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 void main() {
-  final emojis = Emojis().get;
+  final emojis = Emojis.all;
   // print(emojis);
   /* Emoji(
                    value: 😀,
@@ -96,41 +96,41 @@ void main() {
   // print(statuses); // [Status.fullyQualified, Status.fullyQualified, ...]
   // print(statuses.values); // [fully-qualified, fully-qualified, ...]
 
-  final availableVersions = Emojis().versions;
+  final availableVersions = Emojis.versions;
   // print(availableVersions); // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
   // print(availableVersions.values); // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
 
-  final availableStatuses = Emojis().statuses;
+  final availableStatuses = Emojis.statuses;
   // print(availableStatuses); // [Status.fullyQualified, Status.minimallyQualified, ...]
   // print(availableStatuses.values); // [fully-qualified, minimally-qualified, unqualified, ...]
 
-  final availableGroups = Emojis().groups;
+  final availableGroups = Emojis.groups;
   // print(availableGroups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
   // print(availableGroups.values); // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
 
-  final availableSubgroups = Emojis().subgroups;
+  final availableSubgroups = Emojis.subgroups;
   // print(availableSubgroups); // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
   // print(availableSubgroups.values); // face-smiling, face-affection, face-tongue, face-hand, ...]
 
-  final groupsWithSubgroups = Emojis().groupsWithSubgroups;
+  final groupsWithSubgroups = Emojis.groupsWithSubgroups;
   // print(groupsWithSubgroups); // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
 
-  final groupsWithSubgroupsValues = Emojis().groupsWithSubgroupsValues;
+  final groupsWithSubgroupsValues = Emojis.groupsWithSubgroupsValues;
   // print(groupsWithSubgroupsValues); // {Smileys & Emotion: [face-smiling, ...], ...}
 
-  final shortcodePlatforms = Emojis().shortcodePlatforms;
+  final shortcodePlatforms = Emojis.shortcodePlatforms;
   // print(shortcodePlatforms); // [Default, CLDR, Discord, Github, Slack]
 
-  final name = Emojis().getOne('😀').name;
+  final name = Emojis.getOne('😀').name;
   // print(name); // Grinning face
 
-  final nameOrNull = Emojis().getOneOrNull('some unknown value')?.name;
+  final nameOrNull = Emojis.getOneOrNull('some unknown value')?.name;
   // print(nameOrNull); // null
 
-  final smileysAndEmotion = Emojis().smileysAndEmotion;
+  final smileysAndEmotion = Emojis.smileysAndEmotion;
   // print(smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
-  final faceSmiling = Emojis().faceSmiling;
+  final faceSmiling = Emojis.faceSmiling;
   // print(faceSmiling); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 
   final contains = '😀text😀'.emojis.contains;

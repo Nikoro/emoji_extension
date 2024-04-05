@@ -127,7 +127,7 @@ extension EmojiParserGetters on EmojiParser {
   /// ```dart
   /// '🟡text❤️text🟦text🟢'.emojis.get; // [Emoji(value: 🟡, ...), Emoji(value: ❤️, ...), ...]
   /// ```
-  List<Emoji> get get => extract.map((e) => Emojis().getOne(e)).toList();
+  List<Emoji> get get => extract.map((e) => Emojis.getOne(e)).toList();
 
   /// Extracts all emojis from the String value and returns them in a list.
   ///
