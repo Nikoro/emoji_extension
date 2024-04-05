@@ -85,18 +85,18 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
       <ul>
         <li><a href="#emojisall">all</a></li>
         <ul>
-          <li><a href="#emojisgetnames">names</a></li>
-          <li><a href="#emojisgetapplenames">appleNames</a></li>
-          <li><a href="#emojisgetalsoknownas">alsoKnownAs</a></li>
-          <li><a href="#emojisgetshortcodes">shortcodes</a></li>
+          <li><a href="#emojisallnames">names</a></li>
+          <li><a href="#emojisallapplenames">appleNames</a></li>
+          <li><a href="#emojisallalsoknownas">alsoKnownAs</a></li>
+          <li><a href="#emojisallshortcodes">shortcodes</a></li>
             <ul>
-              <li><a href="#emojisgetcldrshortcodes">CLDR</a></li>
-              <li><a href="#emojisgetdiscordshortcodes">Discord</a></li>
-              <li><a href="#emojisgetgithubshortcodes">Github</a></li>
-              <li><a href="#emojisgetslackshortcodes">Slack</a></li>
+              <li><a href="#emojisallcldrshortcodes">CLDR</a></li>
+              <li><a href="#emojisalldiscordshortcodes">Discord</a></li>
+              <li><a href="#emojisallgithubshortcodes">Github</a></li>
+              <li><a href="#emojisallslackshortcodes">Slack</a></li>
             </ul>
-          <li><a href="#emojisgetunicodes">unicodes</a></li>
-          <li><a href="#emojisgetvalues">values</a></li>
+          <li><a href="#emojisallunicodes">unicodes</a></li>
+          <li><a href="#emojisallvalues">values</a></li>
         </ul>
         <li><a href="#emojisgetone">getOne()</a></li>
         <li><a href="#emojisgetoneornull">getOneOrNull()</a></li>
@@ -138,21 +138,21 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
               <li><a href="#emojispenultimateornull">penultimateOrNull</a></li>
               <li><a href="#emojislast">last</a></li>
               <li><a href="#emojislastornull">lastOrNull</a></li>
-              <li><a href="#emojisget-1">get</a></li>
+              <li><a href="#emojisget">get</a></li>
               <ul>
                 <li><a href="#emojisgetalsoknownas-1">alsoKnownAs</a></li>
                 <li><a href="#emojisgetapplenames-1">appleNames</a></li>
-                <li><a href="#emojisgetnames-1">names</a></li>
+                <li><a href="#emojisgetnames">names</a></li>
                 <li><a href="#emojisgetgroups">groups</a></li>
                 <li><a href="#emojisgetsubgroups">subgroups</a></li>
-                <li><a href="#emojisgetshortcodes-1">shortcodes</a></li>
+                <li><a href="#emojisgetshortcodes">shortcodes</a></li>
                 <ul>
-                  <li><a href="#emojisgetcldrshortcodes-1">CLDR</a></li>
-                  <li><a href="#emojisgetdiscordshortcodes-1">Discord</a></li>
-                  <li><a href="#emojisgetgithubshortcodes-1">Github</a></li>
-                  <li><a href="#emojisgetslackshortcodes-1">Slack</a></li>
+                  <li><a href="#emojisgetcldrshortcodes">CLDR</a></li>
+                  <li><a href="#emojisgetdiscordshortcodes">Discord</a></li>
+                  <li><a href="#emojisgetgithubshortcodes">Github</a></li>
+                  <li><a href="#emojisgetslackshortcodes">Slack</a></li>
                 </ul>
-                <li><a href="#emojisgetunicodes-1">unicodes</a></li>
+                <li><a href="#emojisgetunicodes">unicodes</a></li>
               </ul>
               <li><a href="#emojisonly">only</a></li>
               <li><a href="#emojisonlyone">onlyOne</a></li>
@@ -261,436 +261,442 @@ Emojis
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis.byGroup()
-```dart
-Emojis.byGroup(Group.smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+### Emojis.all
 
-//or use convenient getters:
-Emojis.smileysAndEmotion; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+```dart
+Emojis.all  /* [
+                Emoji(
+                 value: 😀,
+                 unicode: 1F600,
+                 name: Grinning Face,
+                 appleName: Grinning Face,
+                 alsoKnownAs: [Happy Face, Smiley Face],
+                 group: Smileys & Emotion,
+                 subgroup: face-smiling,
+                 version: 8.0,
+                 status: fully-qualified,
+                 shortcodes: [
+                          Shortcode(
+                          platform: Default,
+                          values: [grinning_face]
+                        ),
+                          Shortcode(
+                          platform: CLDR,
+                          values: [grinning_face]
+                        ),
+                          Shortcode(
+                          platform: Discord,
+                          values: [grinning]
+                        ),
+                          Shortcode(
+                          platform: Github,
+                          values: [grinning]
+                        ),
+                          Shortcode(
+                          platform: Slack,
+                          values: [grinning]
+                        )]
+                ), 
+                Emoji(
+                 value: 😃,
+                 unicode: 1F603,
+                 name: Grinning Face with Big Eyes,
+                 appleName: Grinning Face with Big Eyes,
+                 alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face]
+                 group: Smileys & Emotion,
+                 subgroup: face-smiling,
+                 version: 6.0,
+                 status: fully-qualified
+                 shortcodes: [...]
+                )
+               ...
+               ] */
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().bySubgroup()
+#### Emojis.all.names
 
 ```dart
-Emojis().bySubgroup(Subgroup.faceSmiling); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
-
-//or use convenient getters:
-Emojis().faceSmiling; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.all.names // [Grinning Face, Grinning Face with Big Eyes, ...]
+                .first // Grinning Face
+                .second // Grinning Face with Big Eyes
+                .third // Grinning Face with Smiling Eyes
+                .fourth // Beaming Face with Smiling Eyes
+                .fifth // Grinning Squinting Face
+                .sixth // Grinning Face with Sweat
+                .penultimate // Flag: Scotland
+                .last // Flag: Wales
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().byVersion()
+#### Emojis.all.appleNames
 
 ```dart
-Emojis().byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
-
-//or use convenient getters:
-Emojis().v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+Emojis.all.appleNames // [Grinning Face, Grinning Face with Big Eyes, ...]
+                     .first // Grinning Face
+                     .second // Grinning Face with Big Eyes
+                     .third // Grinning Face with Smiling Eyes
+                     .fourth // Beaming Face with Smiling Eyes
+                     .fifth // Grinning Face with Squinting Eyes
+                     .sixth // Grinning Face with Sweat
+                     .penultimate // Flag of Scotland
+                     .last // Flag of Wales
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().byStatus()
+#### Emojis.all.alsoKnownAs
 
 ```dart
-Emojis().byStatus(Status.fullyQualified); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
-
-//or use convenient getters:
-Emojis().fullyQualified; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+Emojis.all.alsoKnownAs // [Happy Face, Smiley Face, Grinning Face, ...]
+                      .first // Happy Face
+                      .second // Smiley Face
+                      .third // Grinning Face
+                      .fourth // Happy Face
+                      .fifth // Happy
+                      .sixth // Smiley Face
+                      .penultimate // Welsh Flag
+                      .last // Y Ddraig Goch
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().get
-
-```dart
-Emojis().get; /* [
-                  Emoji(
-                   value: 😀,
-                   unicode: 1F600,
-                   name: Grinning Face,
-                   appleName: Grinning Face,
-                   alsoKnownAs: [Happy Face, Smiley Face],
-                   group: Smileys & Emotion,
-                   subgroup: face-smiling,
-                   version: 8.0,
-                   status: fully-qualified,
-                   shortcodes: [
-                            Shortcode(
-                            platform: Default,
-                            values: [grinning_face]
-                          ),
-                            Shortcode(
-                            platform: CLDR,
-                            values: [grinning_face]
-                          ),
-                            Shortcode(
-                            platform: Discord,
-                            values: [grinning]
-                          ),
-                            Shortcode(
-                            platform: Github,
-                            values: [grinning]
-                          ),
-                            Shortcode(
-                            platform: Slack,
-                            values: [grinning]
-                          )]
-                  ), 
-                  Emoji(
-                   value: 😃,
-                   unicode: 1F603,
-                   name: Grinning Face with Big Eyes,
-                   appleName: Grinning Face with Big Eyes,
-                   alsoKnownAs: [Grinning Face, Happy Face, Happy, Smiley Face]
-                   group: Smileys & Emotion,
-                   subgroup: face-smiling,
-                   version: 6.0,
-                   status: fully-qualified
-                   shortcodes: [...]
-                  )
-                 ...
-                 ] */
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.alsoKnownAs
-
-```dart
-Emojis().get.alsoKnownAs // [Happy Face, Smiley Face, Grinning Face, ...]
-                        .first // Happy Face
-                        .second // Smiley Face
-                        .third // Grinning Face
-                        .fourth // Happy Face
-                        .fifth // Happy
-                        .sixth // Smiley Face
-                        .penultimate // Welsh Flag
-                        .last // Y Ddraig Goch
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.appleNames
-
-```dart
-Emojis().get.appleNames // [Grinning Face, Grinning Face with Big Eyes, ...]
-                       .first // Grinning Face
-                       .second // Grinning Face with Big Eyes
-                       .third // Grinning Face with Smiling Eyes
-                       .fourth // Beaming Face with Smiling Eyes
-                       .fifth // Grinning Face with Squinting Eyes
-                       .sixth // Grinning Face with Sweat
-                       .penultimate // Flag of Scotland
-                       .last // Flag of Wales
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.names
-
-```dart
-Emojis().get.names // [Grinning Face, Grinning Face with Big Eyes, ...]
-                  .first // Grinning Face
-                  .second // Grinning Face with Big Eyes
-                  .third // Grinning Face with Smiling Eyes
-                  .fourth // Beaming Face with Smiling Eyes
-                  .fifth // Grinning Squinting Face
-                  .sixth // Grinning Face with Sweat
-                  .penultimate // Flag: Scotland
-                  .last // Flag: Wales
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.shortcodes
+#### Emojis.all.shortcodes
 
 ```dart
 // Default (emoji name in snake_case)
-Emojis().get.shortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
-                       .first // :grinning_face:
-                       .second // :grinning_face_with_big_eyes:
-                       .third // :grinning_face_with_smiling_eyes:
-                       .fourth // :beaming_face_with_smiling_eyes:
-                       .fifth // :grinning_squinting_face:
-                       .sixth // :grinning_face_with_sweat:
-                       .penultimate // :flag_scotland:
-                       .last // :flag_wales:
+Emojis.all.shortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+                     .first // :grinning_face:
+                     .second // :grinning_face_with_big_eyes:
+                     .third // :grinning_face_with_smiling_eyes:
+                     .fourth // :beaming_face_with_smiling_eyes:
+                     .fifth // :grinning_squinting_face:
+                     .sixth // :grinning_face_with_sweat:
+                     .penultimate // :flag_scotland:
+                     .last // :flag_wales:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-#### Emojis().get.cldrShortcodes
+#### Emojis.all.cldrShortcodes
 
 ```dart
 // CLDR
-Emojis().get.cldrShortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
-                           .first // :grinning_face:
-                           .second // :grinning_face_with_big_eyes:
-                           .third // :grinning_face_with_smiling_eyes:
-                           .fourth // :beaming_face_with_smiling_eyes:
-                           .fifth // :grinning_squinting_face:
-                           .sixth // :grinning_face_with_sweat:
-                           .penultimate // :flag_scotland:
-                           .last // :flag_wales:
+Emojis.all.cldrShortcodes // [:grinning_face:, :grinning_face_with_big_eyes:, ...]
+                         .first // :grinning_face:
+                         .second // :grinning_face_with_big_eyes:
+                         .third // :grinning_face_with_smiling_eyes:
+                         .fourth // :beaming_face_with_smiling_eyes:
+                         .fifth // :grinning_squinting_face:
+                         .sixth // :grinning_face_with_sweat:
+                         .penultimate // :flag_scotland:
+                         .last // :flag_wales:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-#### Emojis().get.discordShortcodes
+#### Emojis.all.discordShortcodes
 
 ```dart
 // Discord
-Emojis().get.discordShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
-                              .first // :grinning:
-                              .second // :smiley:
-                              .third // :smile:
-                              .fourth // :grin:
-                              .fifth // :laughing:
-                              .sixth // :sweat_smile:
-                              .penultimate // :scotland:
-                              .last // :wales:
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.githubShortcodes
-
-```dart
-// Github (no skin-tone shortcodes)
-Emojis().get.githubShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
-                             .first // :grinning:
-                             .second // :smiley:
-                             .third // :smile:
-                             .fourth // :grin:
-                             .fifth // :laughing:
-                             .sixth // :sweat_smile:
-                             .penultimate // :scotland:
-                             .last // :wales:
-```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-#### Emojis().get.slackShortcodes
-
-```dart
-// Slack
-Emojis().get.slackShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+Emojis.all.discordShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
                             .first // :grinning:
                             .second // :smiley:
                             .third // :smile:
                             .fourth // :grin:
                             .fifth // :laughing:
                             .sixth // :sweat_smile:
-                            .penultimate // :flag-scotland:
-                            .last // :flag-wales:
+                            .penultimate // :scotland:
+                            .last // :wales:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-#### Emojis().get.unicodes
+#### Emojis.all.githubShortcodes
 
 ```dart
-Emojis().get.unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
-                     .first // 1F600
-                     .second // 1F603
-                     .third // 1F604
-                     .fourth // 1F601
-                     .fifth // 1F606
-                     .sixth // 1F605
-                     .penultimate // 1F3F4 E0067 E0062 E0073 E0063 E0074 E007F
-                     .last // 1F3F4 E0067 E0062 E0077 E006C E0073 E007F
+// Github (no skin-tone shortcodes)
+Emojis.all.githubShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+                           .first // :grinning:
+                           .second // :smiley:
+                           .third // :smile:
+                           .fourth // :grin:
+                           .fifth // :laughing:
+                           .sixth // :sweat_smile:
+                           .penultimate // :scotland:
+                           .last // :wales:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-#### Emojis().get.values
+#### Emojis.all.slackShortcodes
 
 ```dart
-Emojis().get.values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
-                   .first // 😀
-                   .second // 😃
-                   .third // 😄
-                   .fourth // 😁
-                   .fifth // 😆
-                   .sixth // 😅
-                   .penultimate // 🏴󠁧󠁢󠁳󠁣󠁴󠁿
-                   .last // 🏴󠁧󠁢󠁷󠁬󠁳󠁿
+// Slack
+Emojis.all.slackShortcodes // [:grinning:, :smiley:, :smile:, :grin:, :laughing:, ...]
+                          .first // :grinning:
+                          .second // :smiley:
+                          .third // :smile:
+                          .fourth // :grin:
+                          .fifth // :laughing:
+                          .sixth // :sweat_smile:
+                          .penultimate // :flag-scotland:
+                          .last // :flag-wales:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().getOne()
+#### Emojis.all.unicodes
+
+```dart
+Emojis.all.unicodes // [1F600, 1F603, 1F604, 1F601, 1F606, 1F605, 1F923, 1F602, 1F642, ...]
+                   .first // 1F600
+                   .second // 1F603
+                   .third // 1F604
+                   .fourth // 1F601
+                   .fifth // 1F606
+                   .sixth // 1F605
+                   .penultimate // 1F3F4 E0067 E0062 E0073 E0063 E0074 E007F
+                   .last // 1F3F4 E0067 E0062 E0077 E006C E0073 E007F
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+#### Emojis.all.values
+
+```dart
+Emojis.all.values // [😀, 😃, 😄, 😁, 😆, 😅, 🤣, 😂, 🙂, 🙃, 🫠, 😉, 😊, 😇, 🥰, 😍, ...]
+                 .first // 😀
+                 .second // 😃
+                 .third // 😄
+                 .fourth // 😁
+                 .fifth // 😆
+                 .sixth // 😅
+                 .penultimate // 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+                 .last // 🏴󠁧󠁢󠁷󠁬󠁳󠁿
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.getOne()
 
 ```dart
 // By value
-Emojis().getOne('😀'); // or
+Emojis.getOne('😀'); // or
 
 // By unicode
-Emojis().getOne('1F600'); // or
+Emojis.getOne('1F600'); // or
 
 // By name or apple name (ignore-case)
-Emojis().getOne('Grinning Face'); // or
-Emojis().getOne('grinning face'); // or
+Emojis.getOne('Grinning Face'); // or
+Emojis.getOne('grinning face'); // or
 
 // By also known as (ignore-case)
-Emojis().getOne('Happy Face'); // or
-Emojis().getOne('happy face'); // or
-Emojis().getOne('Smiley Face'); // or
-Emojis().getOne('smiley face'); // or
+Emojis.getOne('Happy Face'); // or
+Emojis.getOne('happy face'); // or
+Emojis.getOne('Smiley Face'); // or
+Emojis.getOne('smiley face'); // or
 
 // By shortcode (ignore-colons)
-Emojis().getOne(':grinning:'); // or
-Emojis().getOne('grinning'); // or
-Emojis().getOne('grinning_face'); /* [Emoji(
-                                         value: 😀,
-                                         unicode: 1F600,
-                                         name: Grinning Face,
-                                         appleName: Grinning Face,
-                                         alsoKnownAs: [Happy Face, Smiley Face],
-                                         group: Smileys & Emotion,
-                                         subgroup: face-smiling,
-                                         version: 8.0,
-                                         status: fully-qualified,
-                                         shortcodes: [
-                                                Shortcode(
-                                                platform: Default,
-                                                values: [grinning_face]
-                                              ),
-                                                Shortcode(
-                                                platform: CLDR,
-                                                values: [grinning_face]
-                                              ),
-                                                Shortcode(
-                                                platform: Discord,
-                                                values: [grinning]
-                                              ),
-                                                Shortcode(
-                                                platform: Github,
-                                                values: [grinning]
-                                              ),
-                                                Shortcode(
-                                                platform: Slack,
-                                                values: [grinning]
-                                              )]
-                                       )] */
+Emojis.getOne(':grinning:'); // or
+Emojis.getOne('grinning'); // or
+Emojis.getOne('grinning_face'); /* [Emoji(
+                                       value: 😀,
+                                       unicode: 1F600,
+                                       name: Grinning Face,
+                                       appleName: Grinning Face,
+                                       alsoKnownAs: [Happy Face, Smiley Face],
+                                       group: Smileys & Emotion,
+                                       subgroup: face-smiling,
+                                       version: 8.0,
+                                       status: fully-qualified,
+                                       shortcodes: [
+                                              Shortcode(
+                                              platform: Default,
+                                              values: [grinning_face]
+                                            ),
+                                              Shortcode(
+                                              platform: CLDR,
+                                              values: [grinning_face]
+                                            ),
+                                              Shortcode(
+                                              platform: Discord,
+                                              values: [grinning]
+                                            ),
+                                              Shortcode(
+                                              platform: Github,
+                                              values: [grinning]
+                                            ),
+                                              Shortcode(
+                                              platform: Slack,
+                                              values: [grinning]
+                                            )]
+                                     )] */
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().getOneOrNull()
+### Emojis.getOneOrNull()
 
 Equivalent of [getOne()](#emojisgetone) with null safety:
 
 ```dart
-Emojis().getOneOrNull('😀')?.name; // Grinning face
-Emojis().getOneOrNull('some unknown value')?.name; // null
+Emojis.getOneOrNull('😀')?.name; // Grinning face
+Emojis.getOneOrNull('some unknown value')?.name; // null
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().groups
-
+### Emojis.byGroup()
 ```dart
-Emojis().groups // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
-               .first // Group.smileysAndEmotion
-               .second // Group.peopleAndBody
-               .third // Group.component
-               .fourth // Group.animalsAndNature
-               .fifth // Group.foodAndDrink
-               .sixth // Group.travelAndPlaces
-               .penultimate // Group.symbols
-               .last // Group.flags
-               .values // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
-                      .first // Smileys & Emotion
-                      .second // People & Body
-                      .third // Component
-                      .fourth // Animals & Nature
-                      .fifth // Food & Drink
-                      .sixth // Travel & Places
-                      .penultimate // Symbols
-                      .last // Flags
+Emojis.byGroup(Group.smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.byGroup(Group.foodAndDrink); // [Emoji(value: 🍇, ...), Emoji(value: 🍈, ...), ...]
+
+//or use convenient getters:
+Emojis.smileysAndEmotion; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.foodAndDrink; // [Emoji(value: 🍇, ...), Emoji(value: 🍈, ...), ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().subgroups
+### Emojis.bySubgroup()
 
 ```dart
-Emojis().subgroups // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
-                  .first // Subgroup.faceSmiling
-                  .second // Subgroup.faceAffection
-                  .third // Subgroup.faceTongue
-                  .fourth // Subgroup.faceHand
-                  .fifth // Subgroup.faceNeutralSkeptical
-                  .sixth // Subgroup.faceSleepy
-                  .penultimate // Subgroup.countryFlag
-                  .last // Subgroup.subdivisionFlag
-                  .values // [face-smiling, face-affection, face-tongue, face-hand, ...]
-                         .first // face-smiling
-                         .second // face-affection
-                         .third // face-tongue
-                         .fourth // face-hand
-                         .fifth // face-neutral-skeptical
-                         .sixth // face-sleepy
-                         .penultimate // country-flag
-                         .last // subdivision-flag
+Emojis.bySubgroup(Subgroup.faceSmiling); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.bySubgroup(Subgroup.animalBird); // [Emoji(value: 🦃, ...), Emoji(value: 🐔, ...), ...]
+
+//or use convenient getters:
+Emojis.faceSmiling; // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
+Emojis.animalBird; // [Emoji(value: 🦃, ...), Emoji(value: 🐔, ...), ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().groupsWithSubgroups
+### Emojis.byVersion()
 
 ```dart
-Emojis().groupsWithSubgroups; // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
-Emojis().groupsWithSubgroupsValues; // {Smileys & Emotion: [face-smiling, ...], ...}
+Emojis.byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+Emojis.byVersion(Version.v15_0 // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
+
+//or use convenient getters:
+Emojis.v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+Emojis.v15_0; // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().shortcodePlatforms
+### Emojis.byStatus()
 
 ```dart
-Emojis().shortcodePlatforms // [Default, CLDR, Discord, Github, Slack]
-                           .first // Default
-                           .second // CLDR
-                           .third // Discord
-                           .fourth // Github
-                           .fifth // Slack
-                           .sixthOrNull // null
-                           .penultimate // Github
-                           .last // Slack
+Emojis.byStatus(Status.fullyQualified); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+
+//or use convenient getters:
+Emojis.fullyQualified; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().statuses
+### Emojis.groups
 
 ```dart
-Emojis().statuses // [Status.fullyQualified, Status.minimallyQualified, ...]
-                 .first // Status.fullyQualified
-                 .second // Status.minimallyQualified
-                 .third // Status.unqualified
-                 .fourth // Status.component
-                 .fifthOrNull // null
-                 .sixthOrNull // null
-                 .penultimate // Status.unqualified
-                 .last // Status.component
-                 .values // [fully-qualified, minimally-qualified, unqualified, ...]
-                        .first // fully-qualified
-                        .second // minimally-qualified
-                        .third // unqualified
-                        .fourth // component
-                        .fifthOrNull // null
-                        .sixthOrNull // null
-                        .penultimate // unqualified
-                        .last // component
+Emojis.groups // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
+             .first // Group.smileysAndEmotion
+             .second // Group.peopleAndBody
+             .third // Group.component
+             .fourth // Group.animalsAndNature
+             .fifth // Group.foodAndDrink
+             .sixth // Group.travelAndPlaces
+             .penultimate // Group.symbols
+             .last // Group.flags
+             .values // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]
+                    .first // Smileys & Emotion
+                    .second // People & Body
+                    .third // Component
+                    .fourth // Animals & Nature
+                    .fifth // Food & Drink
+                    .sixth // Travel & Places
+                    .penultimate // Symbols
+                    .last // Flags
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis().versions
+### Emojis.subgroups
 
 ```dart
-Emojis().versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
-                 .first // Version.v6_0
-                 .second // Version.v7_0
-                 .third // Version.v8_0
-                 .fourth // Version.v9_0
-                 .fifth // Version.v10_0
-                 .sixth // Version.v11_0
-                 .penultimate // Version.v15_0
-                 .last // Version.v15_1
-                 .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
-                        .first // 6.0
-                        .second // 7.0
-                        .third // 8.0
-                        .fourth // 9.0
-                        .fifth // 10.0
-                        .sixth // 11.0
-                        .penultimate // 15.0
-                        .last // 15.1
+Emojis.subgroups // [Subgroup.faceSmiling, Subgroup.faceAffection, Subgroup.faceTongue, ...]
+                .first // Subgroup.faceSmiling
+                .second // Subgroup.faceAffection
+                .third // Subgroup.faceTongue
+                .fourth // Subgroup.faceHand
+                .fifth // Subgroup.faceNeutralSkeptical
+                .sixth // Subgroup.faceSleepy
+                .penultimate // Subgroup.countryFlag
+                .last // Subgroup.subdivisionFlag
+                .values // [face-smiling, face-affection, face-tongue, face-hand, ...]
+                       .first // face-smiling
+                       .second // face-affection
+                       .third // face-tongue
+                       .fourth // face-hand
+                       .fifth // face-neutral-skeptical
+                       .sixth // face-sleepy
+                       .penultimate // country-flag
+                       .last // subdivision-flag
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.groupsWithSubgroups
+
+```dart
+Emojis.groupsWithSubgroups; // {Group.smileysAndEmotion: [Subgroup.faceSmiling, ...], ...}
+Emojis.groupsWithSubgroupsValues; // {Smileys & Emotion: [face-smiling, ...], ...}
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.shortcodePlatforms
+
+```dart
+Emojis.shortcodePlatforms // [Default, CLDR, Discord, Github, Slack]
+                         .first // Default
+                         .second // CLDR
+                         .third // Discord
+                         .fourth // Github
+                         .fifth // Slack
+                         .sixthOrNull // null
+                         .penultimate // Github
+                         .last // Slack
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.statuses
+
+```dart
+Emojis.statuses // [Status.fullyQualified, Status.minimallyQualified, ...]
+               .first // Status.fullyQualified
+               .second // Status.minimallyQualified
+               .third // Status.unqualified
+               .fourth // Status.component
+               .fifthOrNull // null
+               .sixthOrNull // null
+               .penultimate // Status.unqualified
+               .last // Status.component
+               .values // [fully-qualified, minimally-qualified, unqualified, ...]
+                      .first // fully-qualified
+                      .second // minimally-qualified
+                      .third // unqualified
+                      .fourth // component
+                      .fifthOrNull // null
+                      .sixthOrNull // null
+                      .penultimate // unqualified
+                      .last // component
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.versions
+
+```dart
+Emojis.versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
+               .first // Version.v6_0
+               .second // Version.v7_0
+               .third // Version.v8_0
+               .fourth // Version.v9_0
+               .fifth // Version.v10_0
+               .sixth // Version.v11_0
+               .penultimate // Version.v15_0
+               .last // Version.v15_1
+               .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
+                      .first // 6.0
+                      .second // 7.0
+                      .third // 8.0
+                      .fourth // 9.0
+                      .fifth // 10.0
+                      .sixth // 11.0
+                      .penultimate // 15.0
+                      .last // 15.1
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -780,7 +786,7 @@ One `emojis` extension that you can use to interact with emojis within any text:
                              .cldrShortcode // :grinning_face:
                              .discordShortcode // :grinning:
                              .githubShortcode // :grinning:
-                             .slackShortcodes // :grinning:
+                             .slackShortcode // :grinning:
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
