@@ -18,22 +18,18 @@ void main() {
 
   group('ShortcodeListExtensions', () {
     test('wherePlatform returns correct value', () {
-      const expected = ':${$default}:';
-      expect(shortcodes.wherePlatform(Platform.Default), expected);
+      expect(shortcodes.wherePlatform(Platform.Default), [':${$default}:']);
     });
     test('cldr returns correct value', () {
-      const expected = ':$cldr:';
-      expect(shortcodes.cldr, expected);
+      expect(shortcodes.cldr, [':$cldr:']);
     });
 
     test('discord returns correct value', () {
-      const expected = ':$discord:';
-      expect(shortcodes.discord, expected);
+      expect(shortcodes.discord, [':$discord:']);
     });
 
     test('slack returns correct value', () {
-      const expected = ':$slack:';
-      expect(shortcodes.slack, expected);
+      expect(shortcodes.slack, [':$slack:']);
     });
   });
 }

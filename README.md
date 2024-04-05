@@ -732,7 +732,20 @@ Emojis.versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
 ## `Emoji` class
 `Emoji` class equipped with numerous properties and getters for your convenience:
 ```dart
-
+Emoji('🦊')
+           .name // Fox
+           .appleName // Fox Face
+           .unicode // 1F98A
+           .shortcode // :fox:
+           .discordShortcode // :fox:
+           .discordShortcodes // [:fox:, :fox_face:]
+                             .first // :fox:
+                             .second // :fox_face:
+           .hasSkinTone // false
+           .hasHairStyle // false
+           .isPerson // false
+           .isAnimal // true
+           .hasFace // true
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

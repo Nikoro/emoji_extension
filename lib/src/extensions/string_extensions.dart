@@ -12,4 +12,6 @@ extension StringExtensions on String {
   bool equalsIgnoreCase(String other) {
     return toLowerCase() == other.toLowerCase();
   }
+
+  String wrapWithColons() => ':$this:';
 }

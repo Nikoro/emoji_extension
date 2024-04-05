@@ -1,25 +1,36 @@
 part of '../emojis.dart';
 
-
 /// Extension providing various utility getters for Emoji class.
 extension EmojiGetters on Emoji {
   /// Returns the default shortcode of the emoji as a String.
-  String get shortcode => shortcodes.wherePlatform(Platform.Default)!;
+  String get shortcode => shortcodes.wherePlatform(Platform.Default).first;
 
   /// Returns the CLDR shortcode of the emoji as a String.
-  String get cldrShortcode => shortcodes.cldr;
+  String get cldrShortcode => cldrShortcodes.first;
 
   /// Returns the Discord shortcode of the emoji as a String
   /// or null if there isn't one.
-  String? get discordShortcode => shortcodes.discord;
+  String? get discordShortcode => discordShortcodes.firstOrNull;
+
+  /// Returns the Discord shortcode of the emoji as a String
+  /// or null if there isn't one.
+  String? get slackShortcode => slackShortcodes.firstOrNull;
 
   /// Returns the GitHub shortcode of the emoji as a String
   /// or null if there isn't one.
-  String? get githubShortcode => shortcodes.github;
+  String? get githubShortcode => githubShortcodes.firstOrNull;
 
-  /// Returns the Slack shortcode of the emoji as a String
-  /// or null if there isn't one.
-  String? get slackShortcode => shortcodes.slack;
+  /// Returns the CLDR shortcodes of the emoji as a List of Strings.
+  List<String> get cldrShortcodes => shortcodes.cldr;
+
+  /// Returns the Discord shortcodes of the emoji as a List of Strings.
+  List<String> get discordShortcodes => shortcodes.discord;
+
+  /// Returns the GitHub shortcodes of the emoji as a List of Strings.
+  List<String> get githubShortcodes => shortcodes.github;
+
+  /// Returns the Slack shortcodes of the emoji as a List of Strings.
+  List<String> get slackShortcodes => shortcodes.slack;
 
   bool get hasSkinTone => RegExp(r'1F3F[B-F]').hasMatch(unicode);
 
@@ -83,7 +94,9 @@ extension EmojiGetters on Emoji {
       Subgroup.values
           .where((s) => s.value.contains('face'))
           .any((s) => s == subgroup) ||
-      name.containsIgnoreCase(' face');
+      name.containsIgnoreCase(' face') ||
+      (appleName != null && appleName!.containsIgnoreCase(' face') ||
+          alsoKnownAs.any((a) => a.containsIgnoreCase(' face')));
 
   bool get isPerson => Subgroup.values
       .where((s) => s.value.contains('person'))
