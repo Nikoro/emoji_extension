@@ -1,11 +1,8 @@
-import 'package:collection/collection.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/emojis/status.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
+
+part 'emoji_getters.dart';
+
+part 'emoji_methods.dart';
 
 /// Represents an Emoji.
 /// An Emoji is characterized by its value, unicode, name, group, subgroup, and shortcodes.
@@ -64,44 +61,6 @@ class Emoji {
 
   /// The shortcodes of the emoji as a List of Shortcode objects.
   final List<Shortcode> shortcodes;
-
-  /// Returns the Unicode escape sequence for the emoji as a String.
-  String toUnicodeEscapeSequence() {
-    return String.fromCharCodes(value.runes)
-        .codeUnits
-        .map((unit) => "\\u${unit.toRadixString(16).toUpperCase()}")
-        .join();
-  }
-
-  /// Returns the default shortcode of the emoji as a String.
-  String get shortcode => shortcodes.wherePlatform(Platform.Default)!;
-
-  /// Returns a new [Emoji] object with updated properties.
-  Emoji copyWith({
-    String? value,
-    String? unicode,
-    String? name,
-    String? appleName,
-    List<String>? alsoKnownAs,
-    Group? group,
-    Subgroup? subgroup,
-    Version? version,
-    Status? status,
-    List<Shortcode>? shortcodes,
-  }) {
-    return Emoji(
-      value: value ?? this.value,
-      unicode: unicode ?? this.unicode,
-      name: name ?? this.name,
-      appleName: appleName ?? this.appleName,
-      alsoKnownAs: alsoKnownAs ?? this.alsoKnownAs,
-      group: group ?? this.group,
-      subgroup: subgroup ?? this.subgroup,
-      version: version ?? this.version,
-      status: status ?? this.status,
-      shortcodes: shortcodes ?? this.shortcodes,
-    );
-  }
 
   /// Determines whether the current emoji is equal to another object.
   @override

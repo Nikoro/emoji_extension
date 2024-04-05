@@ -1,5 +1,4 @@
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 
 /// Extension methods for List of [Subgroup] objects.
 extension SubgroupListExtensions on List<Subgroup> {

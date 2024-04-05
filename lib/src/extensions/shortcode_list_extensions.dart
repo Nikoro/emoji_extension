@@ -1,13 +1,10 @@
-import 'package:collection/collection.dart';
-import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 
 /// An extension on [List] of [Shortcode] that provides methods for retrieving
 /// shortcodes based on their platform.
 extension ShortcodeListExtensions on List<Shortcode> {
-  /// Returns the CLDR shortcode from the list of shortcodes,
-  /// or null if there isn't one.
-  String? get cldr => wherePlatform(Platform.CLDR);
+  /// Returns the CLDR shortcode from the list of shortcodes.
+  String get cldr => wherePlatform(Platform.CLDR)!;
 
   /// Returns the Discord shortcode from the list of shortcodes,
   /// or null if there isn't one.

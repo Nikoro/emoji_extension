@@ -1,8 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
-import '../../../_tools/tools.dart';
+import '../../_tools/tools.dart';
 
 void main() {
   group('EmojiParserGetters', () {

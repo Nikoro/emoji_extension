@@ -4,4 +4,12 @@ extension StringExtensions on String {
   /// If the string does not start or end with a colon, returns the original string.
   /// Example: ':smile:' becomes 'smile'.
   String removeColons() => replaceAll(RegExp(r'^:|:$'), '');
+
+  bool containsIgnoreCase(String other) {
+    return toLowerCase().contains(other.toLowerCase());
+  }
+
+  bool equalsIgnoreCase(String other) {
+    return toLowerCase() == other.toLowerCase();
+  }
 }

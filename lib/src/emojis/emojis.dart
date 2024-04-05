@@ -1,12 +1,4 @@
-import 'package:collection/collection.dart';
-import 'package:emoji_extension/src/emojis/emoji.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/emojis/status.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 
 part 'emojis_data.dart';
 
@@ -63,9 +55,9 @@ abstract class Emojis {
       (e) =>
           e.value == param ||
           e.unicode == param ||
-          e.name.toLowerCase() == param.toLowerCase() ||
-          e.appleName?.toLowerCase() == param.toLowerCase() ||
-          e.alsoKnownAs.any((s) => s.toLowerCase() == param.toLowerCase()) ||
+          e.name.equalsIgnoreCase(param) ||
+          (e.appleName != null && e.appleName!.equalsIgnoreCase(param)) ||
+          e.alsoKnownAs.any((s) => s.equalsIgnoreCase(param)) ||
           e.shortcodes
               .any((s) => s.values.any((v) => v == param.removeColons())),
       orElse: orElse,
@@ -79,9 +71,9 @@ abstract class Emojis {
       (e) =>
           e.value == param ||
           e.unicode == param ||
-          e.name.toLowerCase() == param.toLowerCase() ||
-          e.appleName?.toLowerCase() == param.toLowerCase() ||
-          e.alsoKnownAs.any((s) => s.toLowerCase() == param.toLowerCase()) ||
+          e.name.equalsIgnoreCase(param) ||
+          (e.appleName != null && e.appleName!.equalsIgnoreCase(param)) ||
+          e.alsoKnownAs.any((s) => s.equalsIgnoreCase(param)) ||
           e.shortcodes
               .any((s) => s.values.any((v) => v == param.removeColons())),
     );

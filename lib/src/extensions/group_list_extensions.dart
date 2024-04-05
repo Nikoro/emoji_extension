@@ -1,5 +1,4 @@
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 
 /// Extension methods for List of [Group] objects.
 extension GroupListExtensions on List<Group> {

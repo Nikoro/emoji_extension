@@ -1,16 +1,11 @@
-import 'package:emoji_extension/src/emojis/emoji.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/emojis/status.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/test_emojis.dart';
 
 void main() {
   const emoji1 = TestEmojis.grinningFace;
-  final emoji2 = emoji1.copyWith();
+  final emoji2 = emoji('😀');
   const emoji3 = Emoji(
     value: '😀',
     name: 'Grinning Face',
@@ -76,14 +71,6 @@ void main() {
           '  )]\n'
           ')';
       expect(result, expected);
-    });
-
-    test('shortcode returns CLDR shortcode with colons around', () {
-      expect(emoji1.shortcode, ':grinning_face:');
-    });
-
-    test('toUnicodeEscapeSequence() returns correct value', () {
-      expect(emoji1.toUnicodeEscapeSequence(), '\\uD83D\\uDE00');
     });
   });
 }

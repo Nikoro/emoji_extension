@@ -1,4 +1,4 @@
-import 'package:emoji_extension/src/emojis/emoji.dart';
+import 'package:emoji_extension/src/emoji/emoji.dart';
 import 'package:emoji_extension/src/emojis/group.dart';
 import 'package:emoji_extension/src/emojis/shortcode.dart';
 import 'package:emoji_extension/src/emojis/status.dart';
