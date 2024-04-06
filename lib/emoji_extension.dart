@@ -1,8 +1,10 @@
 library emoji_extension;
 
 import 'package:emoji_extension/src/emojis/emoji_parser/emoji_parser.dart';
+
 export 'package:collection/collection.dart';
 
+export 'src/emojis/color.dart';
 export 'src/emojis/emoji_parser/emoji_parser.dart';
 export 'src/emojis/emojis.dart';
 export 'src/emojis/group.dart';

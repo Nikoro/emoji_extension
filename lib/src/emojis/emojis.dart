@@ -1,5 +1,6 @@
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:emoji_extension/src/extensions/string_extensions.dart';
+import 'package:emoji_extension/src/regex.dart';
 
 part 'emojis_data.dart';
 part 'emoji/emoji.dart';

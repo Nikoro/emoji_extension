@@ -74,13 +74,13 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 ```
 - Provides [`Emoji`](#emoji-class) class equipped with numerous properties and getters for your convenience:
 ```dart
-Emoji('🩷').shortcode; // :pink_heart:
+Emoji('❤️').shortcode; // :red_heart:
 
-Emoji('👍🏻').hasSkinTone; // true
+Emoji('🦊').isAnimal; // true
 
 Emoji('👪').isMultiPerson; // true
 
-Emoji('🦊').isAnimal; // true
+Emoji('👍🏻').hasSkinTone; // true
 
 Emoji('😃').hasFace; // true
 
@@ -756,11 +756,11 @@ Emoji('🦊')
            .discordShortcodes // [:fox:, :fox_face:]
                              .first // :fox:
                              .second // :fox_face:
-           .hasSkinTone // false
-           .hasHairStyle // false
-           .isPerson // false
            .isAnimal // true
+           .isPerson // false
            .hasFace // true
+           .hasHairStyle // false
+           .hasSkinTone // false
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

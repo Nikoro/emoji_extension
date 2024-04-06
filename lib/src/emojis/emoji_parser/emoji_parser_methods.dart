@@ -279,7 +279,10 @@ extension EmojiParserMethods on EmojiParser {
   String toShortcodes([Platform platform = Platform.Default]) {
     return _value.splitMapJoin(Regex.emoji, onMatch: (m) {
       final match = m.group(0)!;
-      return Emojis.getOneOrNull(match)?.shortcodes.wherePlatform(platform).firstOrNull ??
+      return Emojis.getOneOrNull(match)
+              ?.shortcodes
+              .wherePlatform(platform)
+              .firstOrNull ??
           match;
     });
   }

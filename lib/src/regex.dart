@@ -1,3 +1,5 @@
+import 'package:emoji_extension/src/emojis/color.dart';
+
 /// Provides regex patterns used in emojis_extension library
 abstract class Regex {
   Regex._();
@@ -10,4 +12,17 @@ abstract class Regex {
 
   /// A regular expression for matching emoji shortcodes.
   static final shortcode = RegExp(r':[^:\s]+:(?::skin-tone-[2-6]:)?');
+
+  static final man = RegExp(r'\bman\b(?!.*\bwoman\b)', caseSensitive: false);
+
+  static final woman = RegExp(r'\bwoman\b', caseSensitive: false);
+
+  static final face = RegExp(r'\bface\b', caseSensitive: false);
+
+  static final skinTone = RegExp(r'1F3F[B-F]');
+
+  static final hairStyle = RegExp(r'1F9B[0-3]');
+
+  static final color =
+      RegExp(Color.values.values.join('|'), caseSensitive: false);
 }

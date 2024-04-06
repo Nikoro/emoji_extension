@@ -86,19 +86,44 @@ extension EmojiGetters on Emoji {
       .where((s) => s.value.contains('person'))
       .any((s) => s == subgroup);
 
+  bool get isMan {
+    final regex = Regex.man;
+    return !isMultiPerson &&
+        (regex.hasMatch(name) ||
+            (appleName != null && regex.hasMatch(appleName!) ||
+                alsoKnownAs.any((a) => regex.hasMatch(a))));
+  }
+
+  bool get isWoman {
+    final regex = Regex.woman;
+    return !isMultiPerson &&
+        (regex.hasMatch(name) ||
+            (appleName != null && regex.hasMatch(appleName!) ||
+                alsoKnownAs.any((a) => regex.hasMatch(a))));
+  }
+
   bool get isMultiPerson {
     return subgroup == Subgroup.family || name.containsIgnoreCase('family');
   }
 
-  bool get hasSkinTone => RegExp(r'1F3F[B-F]').hasMatch(unicode);
+  bool get hasSkinTone => Regex.skinTone.hasMatch(unicode);
 
-  bool get hasHairStyle => RegExp(r'1F9B[0-3]').hasMatch(unicode);
+  bool get hasHairStyle => Regex.hairStyle.hasMatch(unicode);
 
-  bool get hasFace =>
-      Subgroup.values
-          .where((s) => s.value.contains('face'))
-          .any((s) => s == subgroup) ||
-          name.containsIgnoreCase(' face') ||
-          (appleName != null && appleName!.containsIgnoreCase(' face') ||
-              alsoKnownAs.any((a) => a.containsIgnoreCase(' face')));
+  bool get hasFace {
+    final regex = Regex.face;
+    return Subgroup.values
+            .where((s) => s.value.contains('face'))
+            .any((s) => s == subgroup) ||
+        regex.hasMatch(name) ||
+        (appleName != null && regex.hasMatch(appleName!) ||
+            alsoKnownAs.any((a) => regex.hasMatch(a)));
+  }
+
+  bool get hasColor {
+    final regex = Regex.color;
+    return (regex.hasMatch(name) ||
+        (appleName != null && regex.hasMatch(appleName!) ||
+            alsoKnownAs.any((a) => regex.hasMatch(a))));
+  }
 }

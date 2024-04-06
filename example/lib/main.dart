@@ -1,8 +1,10 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 void main() {
-  final shortcode = Emoji('🩷').shortcode;
-  // print(shortcode); // :pink_heart:
+
+
+  final shortcode = Emoji('❤️').shortcode;
+  // print(shortcode); // :red_heart:
 
   final hasSkinTone = Emoji('👍🏻').hasSkinTone;
   // print(hasSkinTone); // true
@@ -18,6 +20,9 @@ void main() {
 
   final hasFace = Emoji('😃').hasFace;
   // print(hasFace); // true
+
+  final hasColor = Emoji('🩵').hasColor;
+   print(hasColor); // true
 
   final emojis = Emojis.all;
   // print(emojis); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
@@ -229,5 +234,4 @@ void main() {
 
   final any = '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '😀');
   // print(any); // true
-
 }
