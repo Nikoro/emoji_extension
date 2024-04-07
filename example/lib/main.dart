@@ -1,10 +1,6 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 void main() {
-  print(Emoji('❤️').githubShortcodes);
-  print(Emoji('😆').githubShortcodes);
-  print(Emoji('🫨').githubShortcodes);
-
   final shortcode = Emoji('❤️').shortcode;
   // print(shortcode); // :red_heart:
 
@@ -157,9 +153,6 @@ void main() {
 
   final anyOf = '👍️text'.emojis.anyOf(['👍']);
   // print(anyOf); // true
-
-  final everyOf = '👍️text'.emojis.everyOf(['👍']);
-  // print(everyOf); // true
 
   final splitMapJoin = 'text😀text'.emojis.splitMapJoin(
         onMatch: (_) => '_emoji_',
