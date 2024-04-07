@@ -1,5 +1,4 @@
-import 'package:emoji_extension/src/emojis/version.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 void main() {

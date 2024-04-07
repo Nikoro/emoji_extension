@@ -1,6 +1,4 @@
-import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/extensions/shortcode_list_extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 void main() {

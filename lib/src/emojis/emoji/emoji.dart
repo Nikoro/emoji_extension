@@ -75,22 +75,27 @@ class Emoji {
 
   /// Determines whether the current emoji is equal to another object.
   @override
-  bool operator ==(Object o) =>
-      identical(this, o) ||
-      (o.runtimeType == runtimeType &&
-          o is Emoji &&
-          (identical(o.value, value) || o.value == value) &&
-          (identical(o.unicode, unicode) || o.unicode == unicode) &&
-          (identical(o.name, name) || o.name == name) &&
-          (identical(o.appleName, appleName) || o.appleName == appleName) &&
-          const DeepCollectionEquality.unordered()
-              .equals(o.alsoKnownAs, alsoKnownAs) &&
-          (identical(o.group, group) || o.group == group) &&
-          (identical(o.subgroup, subgroup) || o.subgroup == subgroup) &&
-          (identical(o.version, version) || o.version == version) &&
-          (identical(o.status, status) || o.status == status) &&
-          const DeepCollectionEquality.unordered()
-              .equals(o.shortcodes, shortcodes));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        // coverage:ignore-start
+        (other.runtimeType == runtimeType &&
+            other is Emoji &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.unicode, unicode) || other.unicode == unicode) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.appleName, appleName) ||
+                other.appleName == appleName) &&
+            const DeepCollectionEquality.unordered()
+                .equals(other.alsoKnownAs, alsoKnownAs) &&
+            (identical(other.group, group) || other.group == group) &&
+            (identical(other.subgroup, subgroup) ||
+                other.subgroup == subgroup) &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality.unordered()
+                .equals(other.shortcodes, shortcodes));
+    // coverage:ignore-end
+  }
 
   /// Returns the hash code for the current emoji.
   @override
