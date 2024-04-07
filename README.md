@@ -225,7 +225,6 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
               <li><a href="#emojiscountwhere">countWhere()</a></li>
               <li><a href="#emojiscountwhereindexed">countWhereIndexed()</a></li>
               <li><a href="#emojisevery">every()</a></li>
-              <li><a href="#emojiseveryof">everyOf()</a></li>
               <li><a href="#emojisfirstwhere">firstWhere()</a></li>
               <li><a href="#emojisfirstwhereindexed">firstWhereIndexed()</a></li>
               <li><a href="#emojisfirstwhereornull">firstWhereOrNull()</a></li>
@@ -792,8 +791,6 @@ One `emojis` extension that you can use to interact with emojis within any text:
                          // or
                          .someOf(['😀', '👍🏻']) // true
                          .every((e) => e.value == '😀') // false
-                         .everyOf(['😀', '👍🏻']) // false
-                         // or
                          .containsOf(['😀', '👍🏻']) // false
                          .containsOne((e) => e.value == '😀') // true
                          .none((e) => e.value == '👍🏻') // true
@@ -1307,7 +1304,6 @@ One `emojis` extension that you can use to interact with emojis within any text:
 '😀text🤦🏾‍♀️'.emojis.containsOf(['😀', '👍🏻']); // false
 '😀text🤦🏾‍♀️'.emojis.containsOf(['👍🏻']); // false
 ```
-> Same as: emojis.[everyOf()](#emojiseveryof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.containsExactlyOf()
@@ -1379,17 +1375,6 @@ One `emojis` extension that you can use to interact with emojis within any text:
 '😀text🤦🏾‍♀️'.emojis.every((e) => e.value == '😀'); // false
 '😀text🤦🏾‍♀️'.emojis.every((e) => e.value == '👍🏻'); // false
 ```
-<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
-
-### emojis.everyOf()
-
-```dart
-'😀text🤦🏾‍♀️'.emojis.everyOf(['😀']); // true
-'😀text🤦🏾‍♀️'.emojis.everyOf(['😀', '🤦🏾‍♀️']); // true
-'😀text🤦🏾‍♀️'.emojis.everyOf(['😀', '👍🏻']); // false
-'😀text🤦🏾‍♀️'.emojis.everyOf(['👍🏻']); // false
-```
-> Same as: emojis.[containsOf()](#emojiscontainsof)
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
 ### emojis.firstWhere()

@@ -703,18 +703,6 @@ extension EmojiParserMethods on EmojiParser {
   bool every(bool Function(Emoji emoji) test) => get.every(test);
 
   /// Determines if the String value contains all of the given emojis.
-  /// Same as [containsOf]
-  ///
-  /// Example:
-  /// ```dart
-  /// '🟡text❤️text🟦text🟢'.emojis.everyOf(['🟢']); // true
-  /// '🟡text❤️text🟦text🟢'.emojis.everyOf(['🟡', '❤️', '🟦', '🟢']); // true
-  /// '🟡text❤️text🟦text🟢'.emojis.everyOf(['🔶']); // false
-  /// ```
-  bool everyOf(List<String> emojis) => emojis.every(_value.contains);
-
-  /// Determines if the String value contains all of the given emojis.
-  /// Same as [everyOf]
   ///
   /// Example:
   /// ```dart

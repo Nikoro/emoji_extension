@@ -182,9 +182,9 @@ void main() {
         });
 
         $({
+          '😑': true,
           '😃': false,
           '😐': false,
-          '😑': true,
           '🤥': false,
           '🤮': false,
           '🥵': false,
@@ -470,6 +470,101 @@ void main() {
         });
 
         $({
+          '👶': true,
+          '🙍': true,
+          '🙍🏻‍♂️': true,
+          '🧑‍⚕️': true,
+          '🎅': true,
+          '💇‍♂️': true,
+          '🏂': true,
+          '🧘': true,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('isPerson returns $expected when emoji is: $input', () {
+            expect(Emoji(input).isPerson, expected);
+          });
+        });
+
+        $({
+          '👨': true,
+          '👩': false,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('isMan returns $expected when emoji is: $input', () {
+            expect(Emoji(input).isMan, expected);
+          });
+        });
+
+        $({
+          '👩': true,
+          '👨': false,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('isWoman returns $expected when emoji is: $input', () {
+            expect(Emoji(input).isWoman, expected);
+          });
+        });
+
+        $({
+          '👪': true,
+          '👨': false,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('isMultiPerson returns $expected when emoji is: $input', () {
+            expect(Emoji(input).isMultiPerson, expected);
+          });
+        });
+
+        $({
+          '👩🏻': true,
+          '👩': false,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('hasSkinTone returns $expected when emoji is: $input', () {
+            expect(Emoji(input).hasSkinTone, expected);
+          });
+        });
+
+        $({
+          '👩🏻': SkinTone.light,
+          '👩🏼': SkinTone.mediumLight,
+          '👩🏽': SkinTone.medium,
+          '👩🏾': SkinTone.mediumDark,
+          '👩🏿': SkinTone.dark,
+          '👩': null,
+          '🔴': null,
+        }).forEach((input, expected) {
+          test('skinTone returns $expected when emoji is: $input', () {
+            expect(Emoji(input).skinTone, expected);
+          });
+        });
+
+        $({
+          '👱‍♂️': true,
+          '👨‍🦰': true,
+          '👨': false,
+          '🔴': false,
+        }).forEach((input, expected) {
+          test('hasHairStyle returns $expected when emoji is: $input', () {
+            expect(Emoji(input).hasHairStyle, expected);
+          });
+        });
+
+        $({
+          '👱‍♂️': HairStyle.blondHair,
+          '👨‍🦰': HairStyle.redHair,
+          '👨‍🦱': HairStyle.curlyHair,
+          '👨‍🦳': HairStyle.whiteHair,
+          '👨‍🦲': HairStyle.bald,
+          '👨': null,
+          '🔴': null,
+        }).forEach((input, expected) {
+          test('hairStyle returns $expected when emoji is: $input', () {
+            expect(Emoji(input).hairStyle, expected);
+          });
+        });
+
+        $({
           '😃': true,
           '🙂‍↔️': true,
           '🤯': true,
@@ -488,18 +583,42 @@ void main() {
         });
 
         $({
-          '👶': true,
-          '🙍': true,
-          '🙍🏻‍♂️': true,
-          '🧑‍⚕️': true,
-          '🎅': true,
-          '💇‍♂️': true,
-          '🏂': true,
-          '🧘': true,
-          '🔴': false,
+          '🔴': true,
+          '🩵': true,
+          '😃': false,
         }).forEach((input, expected) {
-          test('isPerson returns $expected when emoji is: $input', () {
-            expect(Emoji(input).isPerson, expected);
+          test('hasColor returns $expected when emoji is: $input', () {
+            expect(Emoji(input).hasColor, expected);
+          });
+        });
+
+        $({
+          '❤️': Color.red,
+          '🩷': Color.pink,
+          '🧡': Color.orange,
+          '💛': Color.yellow,
+          '💚': Color.green,
+          '💙': Color.blue,
+          '🩵': Color.lightBlue,
+          '💜': Color.purple,
+          '🤎': Color.brown,
+          '🖤': Color.black,
+          '🩶': Color.grey,
+          '🤍': Color.white,
+          '😃': null,
+        }).forEach((input, expected) {
+          test('color returns $expected when emoji is: $input', () {
+            expect(Emoji(input).color, expected);
+          });
+        });
+
+        $({
+          '🧔': true,
+          '🧑': false,
+          '😃': false,
+        }).forEach((input, expected) {
+          test('hasBeard returns $expected when emoji is: $input', () {
+            expect(Emoji(input).hasBeard, expected);
           });
         });
       });

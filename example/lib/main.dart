@@ -1,7 +1,9 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
 void main() {
-
+  print(Emoji('❤️').githubShortcodes);
+  print(Emoji('😆').githubShortcodes);
+  print(Emoji('🫨').githubShortcodes);
 
   final shortcode = Emoji('❤️').shortcode;
   // print(shortcode); // :red_heart:
@@ -22,7 +24,7 @@ void main() {
   // print(hasFace); // true
 
   final hasColor = Emoji('🩵').hasColor;
-   print(hasColor); // true
+  // print(hasColor); // true
 
   final emojis = Emojis.all;
   // print(emojis); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]

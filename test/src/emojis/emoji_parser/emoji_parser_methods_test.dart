@@ -667,18 +667,6 @@ void main() {
       ['🟡', '❤️', '🟦', '🟢']: true,
       ['🔶']: false,
     }).forEach((input, expected) {
-      test('everyOf() returns correct value', () {
-        const text = '🟡text❤️text🟦text🟢';
-        final result = EmojiParser(text).everyOf(input);
-        expect(result, expected);
-      });
-    });
-
-    $({
-      ['🟢']: true,
-      ['🟡', '❤️', '🟦', '🟢']: true,
-      ['🔶']: false,
-    }).forEach((input, expected) {
       test('containsOf() returns correct value', () {
         const text = '🟡text❤️text🟦text🟢';
         final result = EmojiParser(text).containsOf(input);
