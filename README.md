@@ -718,7 +718,7 @@ Emojis.hairStyles // [HairStyle.blond, HairStyle.red, HairStyle.curly, ...]
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emojis.hairStyles
+### Emojis.skinTones
 
 ```dart
 Emojis.skinTones // [SkinTone.light, SkinTone.mediumLight, ...]
@@ -1096,7 +1096,7 @@ Emoji('🔴').hasHairStyle; // false
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
-### Emoji.hasHairStyle
+### Emoji.hairStyle
 
 ```dart
 Emoji('👨‍🦳').hairStyle; // HairStyle.white
