@@ -6,25 +6,25 @@
 > 
 > Generally `Emojis()` becomes simply `Emojis` (without brackets at the end):
 ```dart
-// Old                                 // New
-Emojis().smileysAndEmotion /*becomes*/ Emojis.smileysAndEmotion
-// Old                                 // New
-Emojis().groups            /*becomes*/ Emojis.groups
-// Old                                 // New
-Emojis().getOne()          /*becomes*/ Emojis.getOne()
+/*Old*/ Emojis()                   /*New*/ Emojis
 
-etc...
+/*Old*/ Emojis().smileysAndEmotion /*New*/ Emojis.smileysAndEmotion
+
+/*Old*/ Emojis().groups            /*New*/ Emojis.groups
+
+/*Old*/ Emojis().getOne()          /*New*/ Emojis.getOne()
+
+// etc...
 ```
-> Changed 'Emojis().get' to 'Emojis.all':
+> Changed `Emojis().get` to `Emojis.all`:
 ```dart
-// Old                          // New
-Emojis().get        /*becomes*/ Emojis.all
-// Old                          // New
-Emojis().get.values /*becomes*/ Emojis.all.values
-// Old                          // New
-Emojis().get.names  /*becomes*/ Emojis.all.names
+/*Old*/ Emojis().get        /*New*/ Emojis.all
 
-etc...
+/*Old*/ Emojis().get.values /*New*/ Emojis.all.values
+
+/*Old*/ Emojis().get.names  /*New*/ Emojis.all.names
+
+// etc...
 ```
 > 
 > Removed `any` getter -> use `contains` instead
@@ -41,44 +41,63 @@ etc...
 ```dart
 Emoji('🦊')
            .name // Fox
-                .appleName // Fox Face
-                .unicode // 1F98A
-                .shortcode // :fox:
-                .discordShortcode // :fox:
-                .discordShortcodes // [:fox:, :fox_face:]
-                .first // :fox:
-                .second // :fox_face:
-                .isAnimal // true
-                .isPerson // false
-                .hasFace // true
+           .appleName // Fox Face
+           .unicode // 1F98A
+           .shortcode // :fox:
+           .discordShortcode // :fox:
+           .discordShortcodes // [:fox:, :fox_face:]
+                             .first // :fox:
+                             .second // :fox_face:
+           .version // Version.v9_0
+                   .value // 9.0
+           .isAnimal // true
+           .isFlag // false
+           .isFlower // false
+           .isFruit // false
+           .isGeometric // false
+           .isMan // false
+           .isWoman // false
+           .isVegetable // false
+           .isPerson // false
+           .isMultiPerson // false
+           .isSymbol // false
+           .isV9_0 // true
+           .hasBeard // false
+           .hasFace // true
            .hasHairStyle // false
            .hasSkinTone // false
+           .hasColor // false
+           .color // null
+           .skinTone // null
+           .hairStyle // null
 ```
-- Added new methods and getters
-- first
+
+- Added new methods and getters:
+
+**first**
 ```dart
 '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.first // Emoji(value: 🔴, ...)
 ```
-  - firstOrNull
+**firstOrNull**
 ```dart
 '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.firstOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.firstOrNull; // null
 ```
-  - second
+**second**
 ```dart
 '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.second // Emoji(value: 🔴, ...)
 ```
-  - secondOrNull
+**secondOrNull**
 ```dart
 '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.secondOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.secondOrNull; // null
 ```
-  - third
+**third**
 ```dart
 '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.secondOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.secondOrNull; // null
 ```
-  - thirdOrNull
+**thirdOrNull**
 ```dart
 '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.secondOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.secondOrNull; // null
@@ -87,312 +106,312 @@ Emoji('🦊')
 ```dart
 '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.fourth // Emoji(value: 🔴, ...)
 ```
-  - fourthOrNull
+**fourthOrNull**
 ```dart
 '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.fourthOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.fourthOrNull; // null
 ```
-  - fifth
+**fifth**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.fifth // Emoji(value: 🔴, ...)
 ```
-  - fifthOrNull
+**fifthOrNull**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.fifthOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.fifthOrNull; // null
 ```
-  - sixth
+**sixth**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.sixth // Emoji(value: 🔴, ...)
 ```
-  - sixthOrNull
+**sixthOrNull**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.sixthOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.sixthOrNull; // null
 ```
-  - penultimate
+**penultimate**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.penultimate // Emoji(value: 🔴, ...)
 ```
-  - penultimateOrNull
+**penultimateOrNull**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.penultimateOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.penultimateOrNull; // null
 ```
-  - last
+**last**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.last // Emoji(value: 🔴, ...)
 ```
-  - lastOrNull
+**lastOrNull**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.lastOrNull // Emoji(value: 🔴, ...)
 'text'.emojis.lastOrNull; // null
 ```
-  - removeFirst
+**removeFirst**
 ```dart
 '🔴te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.removeFirst; // te👍🏻xt👍🏼te👍🏽xt👍🏾te👍🏿xt
 ```
-  - removeSecond
+**removeSecond**
 ```dart
 '👍️te🔴xt👍🏼te👍🏽xt👍🏾te👍🏿xt'.emojis.removeSecond; // 👍️text👍🏼te👍🏽xt👍🏾te👍🏿xt
 ```
-  - removeThird
+**removeThird**
 ```dart
 '👍️te👍🏻xt🔴te👍🏽xt👍🏾te👍🏿xt'.emojis.removeThird; // 👍️te👍🏻xtte👍🏽xt👍🏾te👍🏿xt
 ```
-  - removeFourth
+**removeFourth**
 ```dart
 '👍️te👍🏻xt👍🏼te🔴xt👍🏾te👍🏿xt'.emojis.removeFourth; // 👍️te👍🏻xt👍🏼text👍🏾te👍🏿xt
 ```
-  - removeFifth
+**removeFifth**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.removeFifth; // 👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt
 ```
-  - removeSixth
+**removeSixth**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.removeSixth; // 👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text
 ```
-  - removePenultimate
+**removePenultimate**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt🔴te👍🏿xt'.emojis.removePenultimate; // 👍️te👍🏻xt👍🏼te👍🏽xtte👍🏿xt
 ```
-  - removeLast
+**removeLast**
 ```dart
 '👍️te👍🏻xt👍🏼te👍🏽xt👍🏾te🔴xt'.emojis.removeLast; // 👍️te👍🏻xt👍🏼te👍🏽xt👍🏾text
 ```
-  - any()
+**any()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.any((e) => e.value == '👍🏻'); // false
 ```
-  - containsOf()
+**containsOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.containsOf(['😀']); // true
 '😀text🤦🏾‍♀️'.emojis.containsOf(['😀', '🤦🏾‍♀️']); // true
 '😀text🤦🏾‍♀️'.emojis.containsOf(['😀', '👍🏻']); // false
 '😀text🤦🏾‍♀️'.emojis.containsOf(['👍🏻']); // false
 ```
-  - containsExactlyOf()
+**containsExactlyOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOf(['😀']); // false
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOf(['😀', '🤦🏾‍♀️']); // true
 '😀text🤦🏾‍♀️text😀'.emojis.containsExactlyOf(['😀', '🤦🏾‍♀️']); // true
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOf(['👍🏻']); // false
 ```
-  - containsOne()
+**containsOne()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.containsOne((e) => e.value == '🤦🏾‍♀️'); // true
 '😀text🤦🏾‍♀️text😀'.emojis.containsOne((e) => e.value == '👍🏻'); // false
 '😀text🤦🏾‍♀️text😀'.emojis.containsOne((e) => e.value == '😀'); // false
 ```
-  - containsOneOf()
+**containsOneOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.containsOneOf({'🤦🏾‍♀️'}); // true
 '😀text🤦🏾‍♀️'.emojis.containsOneOf({'😀', '🤦🏾‍♀️'}); // true
 '😀text🤦🏾‍♀️'.emojis.containsOneOf('😀', '🤦🏾‍♀️', '👍🏻'}); // false
 '😀text🤦🏾‍♀️text😀'.emojis.containsOneOf({'😀'}); // false
 ```
-  - containsExactlyOne()
+**containsExactlyOne()**
 ```dart
 '😀text'.emojis.containsExactlyOne((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOne((e) => e.value == '😀'); // false
 'text'.emojis.containsExactlyOne((e) => e.value == '😀'); // false
 ```
-  - containsExactlyOneOf()
+**containsExactlyOneOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOneOf({'😀', '🤦🏾‍♀️'}); // true
 '😀text🤦🏾‍♀️text😀'.emojis.containsExactlyOneOf({'😀', '🤦🏾‍♀️'}); // false
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOneOf({'😀'}); // false
 '😀text🤦🏾‍♀️'.emojis.containsExactlyOneOf({'😀', '👍🏻'}); // false
 ```
-  - countWhere()
+**countWhere()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.countWhere((e) => e.value == '😀'); // 2
 ```
-  - countWhereIndexed()
+**countWhereIndexed()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.countWhereIndexed((i, e) => i == 0 && e.value == '😀'); // 1
 ```
-  - every()
+**every()**
 ```dart
 '😀text😀'.emojis.every((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.every((e) => e.value == '😀'); // false
 '😀text🤦🏾‍♀️'.emojis.every((e) => e.value == '👍🏻'); // false
 ```
-  - firstWhere()
+**firstWhere()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhere((e) => e.name.contains('Woman')); // Emoji(value: 🤦🏾‍♀️, ...)
 ```
-  - firstWhereIndexed()
+**firstWhereIndexed()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhereIndexed((i, e) => i > 0 && e.name.contains('Woman')); // Emoji(value: 🤦🏻‍♀️, ...)
 ```
-  - firstWhereOrNull()
+**firstWhereOrNull()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhereOrNull((e) => e.name.contains('Woman')); // Emoji(value: 🤦🏾‍♀️, ...)
 
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhereOrNull((e) => e.value == '👍🏻'); // null
 ```
-  - firstWhereIndexedOrNull()
+**firstWhereIndexedOrNull()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhereIndexedOrNull((i, e) => i == 0 && e.name.contains('Woman')); // Emoji(value: 🤦🏾‍♀️, ...)
 
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.firstWhereIndexedOrNull((i, e) => i == 0 && e.value == '😀'); // null
 ```
-  - fold()
+**fold()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.fold('start', (p, c) => p + c.value); // start😀🤦🏾‍♀️
 ```
-  - foldIndexed()
+**foldIndexed()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.foldIndexed('start', (i, p ,c) => '$p${c.value}$i'); // start😀0🤦🏾‍♀️1
 ```
-  - forEach()
+**forEach()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.forEach((e) => print(e.value)); // 😀 🤦🏾‍♀️
 ```
-  - forEachIndexed()
+**forEachIndexed()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.forEachIndexed(i,e) => print('$i:${e.value}')); // 0:😀 1:🤦🏾‍♀️
 ```
-  - forEachWhile()
+**forEachWhile()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.forEachWhile((e) {
                                           print(e.value);
                                           return e.value == '😀';
                                           }); // 😀 🤦🏾‍♀️
 ```
-  - forEachIndexedWhile()
+**forEachIndexedWhile()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.forEachIndexedWhile((i, e) {
                                                     print('$i:${e.value}');
                                                     return e.value == '😀';
                                                     }); // 0:😀 1:🤦🏾‍♀️
 ```
-  - join()
+**join()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.join((e) => e.value, 
                               separator: '.', 
                               prefix: 'prefix', 
                               suffix: 'suffix'); // 'prefix😀.🤦🏾‍♀️suffix'
 ```
-  - map()
+**map()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.map((e) => 'Emoji: ${e.name}'); // [Emoji: Grinning Face, Emoji: Woman Facepalming: Medium-Dark Skin Tone]
 ```
-  - mapIndexed()
+**mapIndexed()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.mapIndexed((i, e) => '$i: ${e.name}'); // [0: Grinning Face, 1: Woman Facepalming: Medium-Dark Skin Tone]
 ```
-  - none()
+**none()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.none((e) => e.value == '👍🏻'); // true
 '😀text🤦🏾‍♀️'.emojis.none((e) => e.value == '😀'); // false
 ```
-  - noneOf()
+**noneOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.noneOf(['👍🏻']); // true
 '😀text🤦🏾‍♀️'.emojis.noneOf(['👍🏻', '🤦🏾‍♀️']); // false
 '😀text🤦🏾‍♀️'.emojis.noneOf(['😀', '🤦🏾‍♀️']); // false
 ```
-  - removeAt()
+**removeAt()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.removeAt(0); // text🤦🏾‍♀️
 '😀text🤦🏾‍♀️'.emojis.removeAt(10); // 😀text🤦🏾‍♀️
 ```
-  - removeFromEnd()
+**removeFromEnd()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.removeFromEnd(0); // 😀text
 '😀text🤦🏾‍♀️'.emojis.removeFromEnd(10); // 😀text🤦🏾‍♀️
 ```
-  - removeEveryOf()
+**removeEveryOf()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻text😀'.emojis.removeEveryOf(['😀', '👍🏻']); // text🤦🏾‍♀️texttext
 ```
-  - removeWhereIndexed()
+**removeWhereIndexed()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.removeWhereIndexed((i, e) => i == 0 && e.value == '😀'); // text🤦🏾‍♀️text😀
 ```
-  - replaceWhereIndexed()
+**replaceWhereIndexed()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.replaceWhereIndexed((i, e) => i == 1 ? '_123_' : null); // 😀text_123_text😀
 ```
-  - skip()
+**skip()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.skip(1); // [Emoji(value: 🤦🏾‍♀️, ...), Emoji(value: 👍🏻, ...)]
 ```
-  - skipLast()
+**skipLast()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.skipLast(1); // [Emoji(value: 😀, ...), Emoji(value: 🤦🏾‍♀️, ...)]
 ```
-  - skipWhile()
+**skipWhile()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.skipWhile((e) => e.value == '😀'); // [Emoji(value: 🤦🏾‍♀️, ...), Emoji(value: 👍🏻, ...)]
 ```
-  - some()
+**some()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.some((e) => e.value == '😀'); // true
 '😀text🤦🏾‍♀️'.emojis.some((e) => e.value == '👍🏻'); // false
 ```
-  - someOf()
+**someOf()**
 ```dart
 '😀text🤦🏾‍♀️'.emojis.someOf(['😀']); // true
 '😀text🤦🏾‍♀️'.emojis.someOf(['😀', '👍🏻']); // true
 '😀text🤦🏾‍♀️'.emojis.someOf(['👍🏻']); // false
 ```
-  - splitWhere()
+**splitWhere()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.splitWhere((e) => e.value == '🤦🏾‍♀️'); // [😀text, text😀]
 ```
-  - splitWhereIndexed()
+**splitWhereIndexed()**
 ```dart
 '😀text🤦🏾‍♀️text😀'.emojis.splitWhereIndexed((i, e) => i == 1 && e.value == '🤦🏾‍♀️'); // [😀text, text😀]
 ```
-  - lastWhere()
+**lastWhere()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhere((e) => e.name.contains('Woman')); // Emoji(value: 🤦🏻‍♀️, ...)
 ```
-  - lastWhereIndexed()
+**lastWhereIndexed()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhereIndexed((i, e) => i == 0 && e.name.contains('Woman')); // Emoji(value: 🤦🏾‍♀️, ...)
 ```
-  - lastWhereOrNull()
+**lastWhereOrNull()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhereOrNull((e) => e.name.contains('Woman')); // Emoji(value: 🤦🏻‍♀️, ...)
 
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhereOrNull((e) => e.value == '👍🏻'); // null
 ```
-  - lastWhereIndexedOrNull()
+**lastWhereIndexedOrNull()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhereIndexedOrNull((i, e) => i == 0 && e.name.contains('Woman')); // Emoji(value: 🤦🏾‍♀️, ...)
 
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.lastWhereIndexedOrNull((i, e) => i == 0 && e.value == '😀'); // null
 ```
-  - take()
+**take()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.take(2); // [Emoji(value: 😀, ...), Emoji(value: 🤦🏾‍♀️, ...)]
 ```
-  - takeLast()
+**takeLast()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.takeLast(2); // [Emoji(value: 🤦🏾‍♀️, ...), Emoji(value: 👍🏻, ...)]
 ```
-  - takeWhile()
+**takeWhile()**
 ```dart
 '😀text🤦🏾‍♀️text👍🏻'.emojis.takeWhile((e) => e.value == '😀'); // [Emoji(value: 😀, ...)]
 ```
-  - where()
+**where()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.where((e) => e.name.contains('Woman')); // [Emoji(value: 🤦🏾‍♀️, ...), Emoji(value: 🤦🏻‍♀️, ...)]
 ```
-  - whereIndexed()
+**whereIndexed()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.whereIndexed((i, e) => i == 0 && e.name.contains('Woman')); // [Emoji(value: 🤦🏾‍♀️, ...)]
 ```
-  - whereNot()
+**whereNot()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.whereNot((e) => e.name.contains('Woman')); // [Emoji(value: 😀, ...)]
 ```
-  - whereNotIndexed()
+**whereNotIndexed()**
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.whereNotIndexed((i, e) => i == 0 && e.name.contains('Woman')); // [Emoji(value: 😀, ...), Emoji(value: 🤦🏻‍♀️, ...)]
 ```
