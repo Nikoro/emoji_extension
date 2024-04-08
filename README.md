@@ -652,7 +652,7 @@ Emojis.animalBird; // [Emoji(value: 🦃, ...), Emoji(value: 🐔, ...), ...]
 
 ```dart
 Emojis.byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
-Emojis.byVersion(Version.v15_0 // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
+Emojis.byVersion(Version.v15_0); // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
 
 //or use convenient getters:
 Emojis.v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
@@ -704,8 +704,8 @@ Emojis.hairStyles // [HairStyle.blond, HairStyle.red, HairStyle.curly, ...]
                  .fourth // HairStyle.white
                  .fifth // HairStyle.bald
                  .sixthOrNull // null
-                 .penultimate // HairStyle.grey
-                 .last // HairStyle.white
+                 .penultimate // HairStyle.white
+                 .last // HairStyle.bald
                  .values // [1F471, 1F9B0, 1F9B1, 1F9B3, 1F9B2]
                         .first // 1F471
                         .second // 1F9B0
@@ -873,11 +873,28 @@ Emoji('🦊')
            .discordShortcodes // [:fox:, :fox_face:]
                              .first // :fox:
                              .second // :fox_face:
+           .version // Version.v9_0
+           .value // 9.0
            .isAnimal // true
+           .isFlag // false
+           .isFlower // false
+           .isFruit // false
+           .isGeometric // false
+           .isMan // false
+           .isWoman // false
+           .isVegetable // false
            .isPerson // false
+           .isMultiPerson // false
+           .isSymbol // false
+           .isV9_0 // true
+           .hasBeard // false
            .hasFace // true
            .hasHairStyle // false
            .hasSkinTone // false
+           .hasColor // false
+           .color // null
+           .skinTone // null
+           .hairStyle // null
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
