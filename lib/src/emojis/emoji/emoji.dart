@@ -29,6 +29,19 @@ class Emoji {
     required this.shortcodes,
   });
 
+  /// Constructs an [Emoji] object from the provided [value].
+  ///
+  /// The [value] must represent a single emoji. If the provided value does not
+  /// represent a single emoji, an assertion error will be thrown.
+  ///
+  /// Examples of valid inputs include:
+  /// - `Emoji('😀')`
+  ///
+  /// Examples of invalid inputs include:
+  /// - `Emoji('😀😀')` (multiple emojis)
+  /// - `Emoji('not an emoji')` (non-emoji text)
+  ///
+  /// Throws an [AssertionError] if the provided value does not represent a single emoji.
   factory Emoji(String value) {
     assert(
       EmojiParser(value).onlyOne,
