@@ -1,7 +1,7 @@
 import 'package:emoji_extension/emoji_extension.dart';
 
-/// Extension that provides several getters to extract specific data from the list of emojis.
-extension EmojiListExtensions on List<Emoji> {
+/// Extension that provides several getters to extract specific data from the iterable of emojis.
+extension EmojiIterableExtensions on Iterable<Emoji> {
   /// Provides a list of all emoji values.
   List<String> get values => map((e) => e.value).toUnmodifiableList();
 

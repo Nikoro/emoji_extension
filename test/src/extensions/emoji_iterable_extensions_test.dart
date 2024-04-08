@@ -9,7 +9,7 @@ void main() {
     TestEmojis.womanFacepalmingMediumDarkSkinTone,
   ];
 
-  group('EmojiListExtensions', () {
+  group('EmojiIterableExtensions', () {
     test('values returns correct value', () {
       expect(emojis.values, [
         TestEmojis.grinningFace.value,

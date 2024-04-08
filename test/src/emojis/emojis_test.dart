@@ -25,6 +25,18 @@ void main() {
       expect(Emojis.statuses, Status.values);
     });
 
+    test('colors returns correct value', () {
+      expect(Emojis.colors, Color.values);
+    });
+
+    test('hairStyles returns correct value', () {
+      expect(Emojis.hairStyles, HairStyle.values);
+    });
+
+    test('skinTones returns correct value', () {
+      expect(Emojis.skinTones, SkinTone.values);
+    });
+
     test('groupsWithSubgroups returns correct type', () {
       expect(Emojis.groupsWithSubgroups, isA<Map<Group, List<Subgroup>>>());
     });
@@ -251,6 +263,54 @@ void main() {
       });
     });
 
+    $({
+      Color.red: 69,
+      Color.pink: 8,
+      Color.orange: 11,
+      Color.yellow: 10,
+      Color.green: 14,
+      Color.blue: 12,
+      Color.lightBlue: 1,
+      Color.purple: 7,
+      Color.brown: 6,
+      Color.black: 16,
+      Color.grey: 2,
+      Color.white: 91,
+    }).forEach((input, expected) {
+      test('byColor() returns $expected emojis when status is: [${input.name}]',
+          () {
+        expect(Emojis.byColor(input).length, expected);
+      });
+    });
+
+    $({
+      HairStyle.blond: 30,
+      HairStyle.red: 19,
+      HairStyle.curly: 19,
+      HairStyle.white: 19,
+      HairStyle.bald: 19,
+    }).forEach((input, expected) {
+      test(
+          'byHairStyle() returns $expected emojis when status is: [${input.name}]',
+          () {
+        expect(Emojis.byHairStyle(input).length, expected);
+      });
+    });
+
+    $({
+      SkinTone.light: 547,
+      SkinTone.mediumLight: 547,
+      SkinTone.medium: 547,
+      SkinTone.mediumDark: 547,
+      SkinTone.dark: 547,
+    }).forEach((input, expected) {
+      test(
+          'bySkinTone() returns $expected emojis when status is: [${input.name}]',
+          () {
+        expect(Emojis.bySkinTone(input).length, expected);
+      });
+    });
+
     test('all returns correct values', () {
       expect(Emojis.all.values, TestEmojis.values);
     });
@@ -404,6 +464,49 @@ void main() {
       Emojis.fullyQualified: 3773,
       Emojis.minimallyQualified: 1009,
       Emojis.unqualified: 243,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis.red: 69,
+      Emojis.pink: 8,
+      Emojis.orange: 11,
+      Emojis.yellow: 10,
+      Emojis.green: 14,
+      Emojis.blue: 12,
+      Emojis.lightBlue: 1,
+      Emojis.purple: 7,
+      Emojis.brown: 6,
+      Emojis.black: 16,
+      Emojis.grey: 2,
+      Emojis.white: 91,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis.blondHairStyle: 30,
+      Emojis.redHairStyle: 19,
+      Emojis.curlyHairStyle: 19,
+      Emojis.whiteHairStyle: 19,
+      Emojis.baldHairStyle: 19,
+    }).forEach((input, expected) {
+      test('returns $expected emojis', () {
+        expect(input.length, expected);
+      });
+    });
+
+    $({
+      Emojis.lightSkinTone: 547,
+      Emojis.mediumLightSkinTone: 547,
+      Emojis.mediumSkinTone: 547,
+      Emojis.mediumDarkSkinTone: 547,
+      Emojis.darkSkinTone: 547,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
         expect(input.length, expected);

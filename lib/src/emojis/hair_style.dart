@@ -1,16 +1,16 @@
 /// Enum representing the hair style of an emoji.
 enum HairStyle {
   /// Blond hair style of emoji.
-  blondHair('1F471'),
+  blond('1F471'),
 
   /// Red hair style of emoji.
-  redHair('1F9B0'),
+  red('1F9B0'),
 
   /// Curly hair style tone of emoji.
-  curlyHair('1F9B1'),
+  curly('1F9B1'),
 
   /// White hair style of emoji.
-  whiteHair('1F9B3'),
+  white('1F9B3'),
 
   /// Bald hair style of emoji.
   bald('1F9B2');

@@ -79,6 +79,18 @@ void main() {
   // print(availableStatuses); // [Status.fullyQualified, Status.minimallyQualified, ...]
   // print(availableStatuses.values); // [fully-qualified, minimally-qualified, unqualified, ...]
 
+  final availableColors = Emojis.colors;
+  // print(availableColors); // [Color.red, Color.pink, Color.orange, Color.yellow, ...]
+  // print(availableColors.values); // [red, pink, orange, yellow, green, blue, light blue, ...]
+
+  final availableHairStyles = Emojis.hairStyles;
+  // print(availableHairStyles); // [HairStyle.blond, HairStyle.red, HairStyle.curly, ...]
+  //  print(availableHairStyles.values); // [1F471, 1F9B0, 1F9B1, 1F9B3, 1F9B2]
+
+  final availableSkinTones = Emojis.skinTones;
+  // print(availableSkinTones); // [SkinTone.light, SkinTone.mediumLight, ...]
+  // print(availableSkinTones.values); // [1F3FB, 1F3FC, 1F3FD, 1F3FE, 1F3FF]
+
   final availableGroups = Emojis.groups;
   // print(availableGroups); // [Group.smileysAndEmotion, Group.peopleAndBody, Group.component, ...]
   // print(availableGroups.values); // [Smileys & Emotion, People & Body, Component, Animals & Nature, ...]

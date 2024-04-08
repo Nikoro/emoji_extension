@@ -14,7 +14,7 @@ void main() {
     Shortcode.slack([slack])
   ];
 
-  group('ShortcodeListExtensions', () {
+  group('ShortcodeIterableExtensions', () {
     test('wherePlatform returns correct value', () {
       expect(shortcodes.wherePlatform(Platform.Default), [':${$default}:']);
     });

@@ -114,10 +114,16 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
         </ul>
         <li><a href="#emojisgetone">getOne()</a></li>
         <li><a href="#emojisgetoneornull">getOneOrNull()</a></li>
+        <li><a href="#emojisbycolor">byColor()</a></li>
+        <li><a href="#emojisbyhairstyle">byHairStyle()</a></li>
+        <li><a href="#emojisbyskintone">bySkinTone()</a></li>
         <li><a href="#emojisbygroup">byGroup()</a></li>
         <li><a href="#emojisbysubgroup">bySubgroup()</a></li>
         <li><a href="#emojisbyversion">byVersion()</a></li>
         <li><a href="#emojisbystatus">byStatus()</a></li>
+        <li><a href="#emojiscolors">colors</a></li>
+        <li><a href="#emojishairstyles">hairStyles</a></li>
+        <li><a href="#emojisskintones">skinTones</a></li>
         <li><a href="#emojisgroups">groups</a></li>
         <li><a href="#emojissubgroups">subgroups</a></li>
         <li><a href="#emojisgroupswithsubgroups">groupsWithSubgroups</a></li>
@@ -132,6 +138,7 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
           <li><a href="#emojiname">name</a></li>
           <li><a href="#emojiapplename">appleName</a></li>
           <li><a href="#emojialsoknownas">alsoKnownAs</a></li>
+          <li><a href="#emojicolor">color</a></li>
           <li><a href="#emojishortcode">shortcode</a></li>
             <ul>
               <li><a href="#emojicldrshortcode">CLDR</a></li>
@@ -140,19 +147,25 @@ Import `import 'package:emoji_extension/emoji_extension.dart';` and you've got 2
               <li><a href="#emojislackshortcode">Slack</a></li>
             </ul>
           <li><a href="#emojiunicode">unicode</a></li>
-          <li><a href="#emojivalue">value</a></li>
+          <li><a href="#emojiversion">version</a></li>
           <li><a href="#emojiisanimal">isAnimal</a></li>
-          <li><a href="#emojiisperson">isPerson</a></li>
-          <li><a href="#emojiismultiperson">isMultiPerson</a></li>
           <li><a href="#emojiisflag">isFlag</a></li>
+          <li><a href="#emojiisflower">isFlower</a></li>
           <li><a href="#emojiisfruit">isFruit</a></li>
           <li><a href="#emojiisvegetable">isVegetable</a></li>
-          <li><a href="#emojiisflower">isFlower</a></li>
-          <li><a href="#emojiissymbol">isSymbol</a></li>
           <li><a href="#emojiisgeometric">isGeometric</a></li>
+          <li><a href="#emojiisman">isMan</a></li>
+          <li><a href="#emojiiswoman">isWoman</a></li>
+          <li><a href="#emojiisperson">isPerson</a></li>
+          <li><a href="#emojiismultiperson">isMultiPerson</a></li>
+          <li><a href="#emojiissymbol">isSymbol</a></li>
+          <li><a href="#emojihasbeard">hasBeard</a></li>
           <li><a href="#emojihasface">hasFace</a></li>
-          <li><a href="#emojihasskintone">hasSkinTone</a></li>
+          <li><a href="#emojihascolor">hasColor</a></li>
           <li><a href="#emojihashairstyle">hasHairStyle</a></li>
+          <li><a href="#emojihasskintone">hasSkinTone</a></li>
+          <li><a href="#emojihairstyle">hairStyle</a></li>
+          <li><a href="#emojiskinTone">skinTone</a></li>
         </ul>
       </ul>
     </td>
@@ -579,6 +592,39 @@ Emojis.getOneOrNull('some unknown value')?.name; // null
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
+### Emojis.byColor()
+```dart
+Emojis.byColor(Color.blue); // [Emoji(value: 😰, ...), Emoji(value: 💙, ...), ...]
+Emojis.byColor(Color.black); // [Emoji(value: 🖤, ...), Emoji(value: 🐈‍⬛, ...), ...]
+
+//or use convenient getters:
+Emojis.blue; // [Emoji(value: 😰, ...), Emoji(value: 💙, ...), ...]
+Emojis.black; // [Emoji(value: 🖤, ...), Emoji(value: 🐈‍⬛, ...), ...]
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.byHairStyle()
+```dart
+Emojis.byHairStyle(HairStyle.white); // [Emoji(value: 👨‍🦳, ...), Emoji(value: 👨🏻‍🦳, ...), ...]
+Emojis.byHairStyle(HairStyle.red); // [Emoji(value: 👨‍🦰, ...), Emoji(value: 👨🏻‍🦰, ...), ...]
+
+//or use convenient getters:
+Emojis.whiteHairStyle; // [Emoji(value: 👨‍🦳, ...), Emoji(value: 👨🏻‍🦳, ...), ...]
+Emojis.redHairStyle; // [Emoji(value: 👨‍🦰, ...), Emoji(value: 👨🏻‍🦰, ...), ...]
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.bySkinTone()
+```dart
+Emojis.bySkinTone(SkinTone.light); // [Emoji(value: 👋🏻, ...), Emoji(value: 🤚🏻, ...), ...]
+Emojis.bySkinTone(SkinTone.dark); // [Emoji(value: 👋🏿, ...), Emoji(value: 🤚🏿, ...), ...]
+
+//or use convenient getters:
+Emojis.lightSkinTone; // [Emoji(value: 👋🏻, ...), Emoji(value: 🤚🏻, ...), ...]
+Emojis.darkSkinTone; // [Emoji(value: 👋🏿, ...), Emoji(value: 🤚🏿, ...), ...]
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
 ### Emojis.byGroup()
 ```dart
 Emojis.byGroup(Group.smileysAndEmotion); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
@@ -621,6 +667,78 @@ Emojis.byStatus(Status.fullyQualified); // [Emoji(value: 😃, ...), Emoji(value
 
 //or use convenient getters:
 Emojis.fullyQualified; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.colors
+
+```dart
+Emojis.colors // [Color.red, Color.pink, Color.orange, Color.yellow, ...]
+             .first // Color.red
+             .second // Color.pink
+             .third // Color.orange
+             .fourth // Color.yellow
+             .fifth // Color.green
+             .sixth // Color.blue
+             .penultimate // Color.grey
+             .last // Color.white
+             .values // [red, pink, orange, yellow, green, blue, light blue, ...]
+                    .first // red
+                    .second // pink
+                    .third // orange
+                    .fourth // yellow
+                    .fifth // green
+                    .sixth // blue
+                    .penultimate // grey
+                    .last // white
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.hairStyles
+
+```dart
+Emojis.hairStyles // [HairStyle.blond, HairStyle.red, HairStyle.curly, ...]
+                 .first // HairStyle.blond
+                 .second // HairStyle.red
+                 .third // HairStyle.curly
+                 .fourth // HairStyle.white
+                 .fifth // HairStyle.bald
+                 .sixthOrNull // null
+                 .penultimate // HairStyle.grey
+                 .last // HairStyle.white
+                 .values // [1F471, 1F9B0, 1F9B1, 1F9B3, 1F9B2]
+                        .first // 1F471
+                        .second // 1F9B0
+                        .third // 1F9B1
+                        .fourth // 1F9B3
+                        .fifth // 1F9B2
+                        .sixthOrNull // null
+                        .penultimate // 1F9B3
+                        .last // 1F9B2
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emojis.hairStyles
+
+```dart
+Emojis.skinTones // [SkinTone.light, SkinTone.mediumLight, ...]
+                .first // SkinTone.blond
+                .second // SkinTone.mediumLight
+                .third // SkinTone.medium
+                .fourth // SkinTone.mediumDark
+                .fifth // SkinTone.dark
+                .sixthOrNull // null
+                .penultimate // SkinTone.mediumDark
+                .last // SkinTone.dark
+                .values // [1F3FB, 1F3FC, 1F3FD, 1F3FE, 1F3FF]
+                       .first // 1F3FB
+                       .second // 1F3FC
+                       .third // 1F3FD
+                       .fourth // 1F3FE
+                       .fifth // 1F3FF
+                       .sixthOrNull // null
+                       .penultimate // 1F3FE
+                       .last // 1F3FF
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -760,6 +878,248 @@ Emoji('🦊')
            .hasFace // true
            .hasHairStyle // false
            .hasSkinTone // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.name
+
+```dart
+Emoji('😀').name; // Grinning Face
+Emoji('🦊').name; // Fox
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.appleName
+
+```dart
+Emoji('😀').appleName; // Grinning Face
+Emoji('🦊').appleName; // Fox Face
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.alsoKnownAs
+
+```dart
+Emoji('😀').alsoKnownAs; // [Happy Face, Smiley Face]
+Emoji('🦊').alsoKnownAs; // [Fox]
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.color
+
+```dart
+Emoji('🔴').color; // Color.red
+Emoji('😀').color; // null
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.shortcode
+
+```dart
+Emoji('😀').shortcode; // :grinning_face:
+Emoji('🦊').shortcode; // :fox:
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.cldrShortcode
+
+```dart
+Emoji('😀').cldrShortcode; // :grinning_face:
+Emoji('🦊').cldrShortcode; // :fox:
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.discordShortcode
+
+```dart
+Emoji('😀').discordShortcode; // :grinning:
+Emoji('🦊').discordShortcode; // :fox:
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.githubShortcode
+
+```dart
+Emoji('😀').githubShortcode; // :grinning:
+Emoji('🦊').githubShortcode; // :fox_face:
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.slackShortcode
+
+```dart
+Emoji('😀').slackShortcode; // :grinning:
+Emoji('🦊').slackShortcode; // :fox_face:
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.unicode
+
+```dart
+Emoji('😀').unicode; // 1F600
+Emoji('🦊').unicode; // 1F98A
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.version
+
+```dart
+Emoji('😀').version; // Version.v8_0
+Emoji('🦊').version; // Version.v9_0
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isAnimal
+
+```dart
+Emoji('🦊').isAnimal; // true
+Emoji('😀').isAnimal; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isFlag
+
+```dart
+Emoji('🏁').isFlag; // true
+Emoji('😀').isFlag; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isFlower
+
+```dart
+Emoji('💐').isFlower; // true
+Emoji('😀').isFlower; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isFruit
+
+```dart
+Emoji('🍇').isFruit; // true
+Emoji('😀').isFruit; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isVegetable
+
+```dart
+Emoji('🍆').isVegetable; // true
+Emoji('😀').isVegetable; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isGeometric
+
+```dart
+Emoji('🔴').isGeometric; // true
+Emoji('😀').isGeometric; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isMan
+
+```dart
+Emoji('👨').isMan; // true
+Emoji('👩').isMan; // false
+Emoji('🔴').isMan; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isWoman
+
+```dart
+Emoji('👩').isWoman; // true
+Emoji('👨').isWoman; // false
+Emoji('🔴').isWoman; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isPerson
+
+```dart
+Emoji('🙍').isPerson; // true
+Emoji('🔴').isPerson; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isMultiPerson
+
+```dart
+Emoji('👪').isMultiPerson; // true
+Emoji('👨').isMultiPerson; // false
+Emoji('🔴').isMultiPerson; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.isSymbol
+
+```dart
+Emoji('🏧').isSymbol; // true
+Emoji('😀').isSymbol; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasBeard
+
+```dart
+Emoji('🧔').hasBeard; // true
+Emoji('🧑').hasBeard; // false
+Emoji('😀').hasBeard; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasFace
+
+```dart
+Emoji('😀').hasFace; // true
+Emoji('🌚').hasFace; // true
+Emoji('🔴').hasFace; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasColor
+
+```dart
+Emoji('🔴').hasColor; // true
+Emoji('🟩').hasColor; // true
+Emoji('😀').hasColor; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasHairStyle
+
+```dart
+Emoji('👨‍🦰').hasHairStyle; // true
+Emoji('👨').hasHairStyle; // false
+Emoji('🔴').hasHairStyle; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasHairStyle
+
+```dart
+Emoji('👨‍🦳').hairStyle; // HairStyle.white
+Emoji('👨').hairStyle; // null
+Emoji('🔴').hasHairStyle; // null
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.hasSkinTone
+
+```dart
+Emoji('👩🏻').hasSkinTone; // true
+Emoji('👩').hasSkinTone; // false
+Emoji('🔴').hasSkinTone; // false
+```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+### Emoji.skinTone
+
+```dart
+Emoji('👩🏻').skinTone; // SkinTone.light
+Emoji('👩').skinTone; // null
+Emoji('🔴').skinTone; // null
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

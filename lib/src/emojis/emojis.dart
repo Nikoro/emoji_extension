@@ -1,11 +1,13 @@
 import 'package:emoji_extension/emoji_extension.dart';
-import 'package:emoji_extension/src/emojis/hair_style.dart';
 import 'package:emoji_extension/src/extensions/string_extensions.dart';
 import 'package:emoji_extension/src/regex.dart';
 
 part 'emojis_data.dart';
+
 part 'emoji/emoji.dart';
+
 part 'emoji/emoji_getters.dart';
+
 part 'emoji/emoji_methods.dart';
 
 /// A class that represents a collection of Emojis.
@@ -33,6 +35,15 @@ abstract class Emojis {
 
   /// Returns an unmodifiable list of all the Emoji statuses.
   static List<Status> get statuses => Status.values;
+
+  /// Returns an unmodifiable list of all the Emoji colors.
+  static List<Color> get colors => Color.values;
+
+  /// Returns an unmodifiable list of all the Emoji hair styles.
+  static List<HairStyle> get hairStyles => HairStyle.values;
+
+  /// Returns an unmodifiable list of all the Emoji skin tones.
+  static List<SkinTone> get skinTones => SkinTone.values;
 
   /// Returns a map of all the Emoji groups with their corresponding subgroups.
   static Map<Group, List<Subgroup>> get groupsWithSubgroups {
@@ -107,6 +118,24 @@ abstract class Emojis {
   /// to the specified [Status].
   static List<Emoji> byStatus(Status status) {
     return _emojis.where((e) => e.status == status).toUnmodifiableList();
+  }
+
+  /// Returns a list of all [Emoji] objects in the _emojis list that has
+  /// specified [Color].
+  static List<Emoji> byColor(Color color) {
+    return _emojis.where((e) => e.color == color).toUnmodifiableList();
+  }
+
+  /// Returns a list of all [Emoji] objects in the _emojis list that has
+  /// specified [HairStyle].
+  static List<Emoji> byHairStyle(HairStyle hairStyle) {
+    return _emojis.where((e) => e.hairStyle == hairStyle).toUnmodifiableList();
+  }
+
+  /// Returns a list of all [Emoji] objects in the _emojis list that has
+  /// specified [SkinTone].
+  static List<Emoji> bySkinTone(SkinTone skinTone) {
+    return _emojis.where((e) => e.skinTone == skinTone).toUnmodifiableList();
   }
 
   /* -------------------------------- Groups -------------------------------- */
@@ -509,4 +538,77 @@ abstract class Emojis {
 
   /// Returns a list of emojis under the 'unqualified' status.
   static List<Emoji> get unqualified => byStatus(Status.unqualified);
+
+  /* ------------------------------ Color ------------------------------- */
+
+  /// Returns a list of emojis that are associated with the color red.
+  static List<Emoji> get red => byColor(Color.red);
+
+  /// Returns a list of emojis that are associated with the color pink.
+  static List<Emoji> get pink => byColor(Color.pink);
+
+  /// Returns a list of emojis that are associated with the color orange.
+  static List<Emoji> get orange => byColor(Color.orange);
+
+  /// Returns a list of emojis that are associated with the color yellow.
+  static List<Emoji> get yellow => byColor(Color.yellow);
+
+  /// Returns a list of emojis that are associated with the color green.
+  static List<Emoji> get green => byColor(Color.green);
+
+  /// Returns a list of emojis that are associated with the color blue.
+  static List<Emoji> get blue => byColor(Color.blue);
+
+  /// Returns a list of emojis that are associated with the light blue color.
+  static List<Emoji> get lightBlue => byColor(Color.lightBlue);
+
+  /// Returns a list of emojis that are associated with the color purple.
+  static List<Emoji> get purple => byColor(Color.purple);
+
+  /// Returns a list of emojis that are associated with the color brown.
+  static List<Emoji> get brown => byColor(Color.brown);
+
+  /// Returns a list of emojis that are associated with the color black.
+  static List<Emoji> get black => byColor(Color.black);
+
+  /// Returns a list of emojis that are associated with the color grey.
+  static List<Emoji> get grey => byColor(Color.grey);
+
+  /// Returns a list of emojis that are associated with the color white.
+  static List<Emoji> get white => byColor(Color.white);
+
+  /* ------------------------------ Hair style ------------------------------- */
+
+  /// Returns a list of emojis that are associated with the blond hair style.
+  static List<Emoji> get blondHairStyle => byHairStyle(HairStyle.blond);
+
+  /// Returns a list of emojis that are associated with the red hair style.
+  static List<Emoji> get redHairStyle => byHairStyle(HairStyle.red);
+
+  /// Returns a list of emojis that are associated with the curly hair style.
+  static List<Emoji> get curlyHairStyle => byHairStyle(HairStyle.curly);
+
+  /// Returns a list of emojis that are associated with the white hair style.
+  static List<Emoji> get whiteHairStyle => byHairStyle(HairStyle.white);
+
+  /// Returns a list of emojis that are associated with the bald hair style.
+  static List<Emoji> get baldHairStyle => byHairStyle(HairStyle.bald);
+
+  /* ------------------------------ Hair style ------------------------------- */
+
+  /// Returns a list of emojis that are associated with the light skin tone.
+  static List<Emoji> get lightSkinTone => bySkinTone(SkinTone.light);
+
+  /// Returns a list of emojis that are associated with the medium light skin tone.
+  static List<Emoji> get mediumLightSkinTone =>
+      bySkinTone(SkinTone.mediumLight);
+
+  /// Returns a list of emojis that are associated with the medium skin tone.
+  static List<Emoji> get mediumSkinTone => bySkinTone(SkinTone.medium);
+
+  /// Returns a list of emojis that are associated with the medium dark skin tone.
+  static List<Emoji> get mediumDarkSkinTone => bySkinTone(SkinTone.mediumDark);
+
+  /// Returns a list of emojis that are associated with the dark skin tone.
+  static List<Emoji> get darkSkinTone => bySkinTone(SkinTone.dark);
 }

@@ -551,10 +551,10 @@ void main() {
         });
 
         $({
-          '👱‍♂️': HairStyle.blondHair,
-          '👨‍🦰': HairStyle.redHair,
-          '👨‍🦱': HairStyle.curlyHair,
-          '👨‍🦳': HairStyle.whiteHair,
+          '👱‍♂️': HairStyle.blond,
+          '👨‍🦰': HairStyle.red,
+          '👨‍🦱': HairStyle.curly,
+          '👨‍🦳': HairStyle.white,
           '👨‍🦲': HairStyle.bald,
           '👨': null,
           '🔴': null,
