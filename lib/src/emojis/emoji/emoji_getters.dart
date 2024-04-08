@@ -9,10 +9,7 @@ extension EmojiGetters on Emoji {
   /// Emoji('❤️').shortcode; // :red_heart:
   /// Emoji('🟡').shortcode; // :yellow_circle:
   /// ```
-  String get shortcode =>
-      shortcodes
-          .wherePlatform(Platform.Default)
-          .first;
+  String get shortcode => shortcodes.wherePlatform(Platform.Default).first;
 
   /// Returns the CLDR shortcode of the emoji as a String.
   ///
@@ -273,10 +270,9 @@ extension EmojiGetters on Emoji {
   /// Emoji('🐵').isAnimal; // true
   /// Emoji('😀').isAnimal; // false
   /// ```
-  bool get isAnimal =>
-      Subgroup.values
-          .where((s) => s.value.contains('animal'))
-          .any((s) => s == subgroup);
+  bool get isAnimal => Subgroup.values
+      .where((s) => s.value.contains('animal'))
+      .any((s) => s == subgroup);
 
   /// Returns `true` if the emoji belongs to the plant sub-group flower.
   ///
@@ -312,10 +308,9 @@ extension EmojiGetters on Emoji {
   /// Emoji('🙍').isPerson; // true
   /// Emoji('🔴').isPerson; // false
   /// ```
-  bool get isPerson =>
-      Subgroup.values
-          .where((s) => s.value.contains('person'))
-          .any((s) => s == subgroup);
+  bool get isPerson => Subgroup.values
+      .where((s) => s.value.contains('person'))
+      .any((s) => s == subgroup);
 
   /// Returns `true` if the emoji represents a man.
   ///
@@ -427,8 +422,8 @@ extension EmojiGetters on Emoji {
   bool get hasFace {
     final regex = Regex.face;
     return Subgroup.values
-        .where((s) => s.value.contains('face'))
-        .any((s) => s == subgroup) ||
+            .where((s) => s.value.contains('face'))
+            .any((s) => s == subgroup) ||
         regex.hasMatch(name) ||
         (appleName != null && regex.hasMatch(appleName!) ||
             alsoKnownAs.any((a) => regex.hasMatch(a)));
@@ -462,8 +457,8 @@ extension EmojiGetters on Emoji {
   Color? get color {
     final regex = Regex.color;
     final value = (regex.firstMatch(name) ??
-        regex.firstMatch(appleName ?? '') ??
-        regex.firstMatch(alsoKnownAs.join(' ')))
+            regex.firstMatch(appleName ?? '') ??
+            regex.firstMatch(alsoKnownAs.join(' ')))
         ?.group(0)
         ?.toLowerCase();
     return value != null ? Color.from(value) : null;
