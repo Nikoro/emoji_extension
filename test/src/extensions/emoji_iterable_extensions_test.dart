@@ -1,15 +1,15 @@
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/test_emojis.dart';
 
 void main() {
-  const emojis = [
+  final emojis = [
     TestEmojis.grinningFace,
     TestEmojis.womanFacepalmingMediumDarkSkinTone,
   ];
 
-  group('EmojiListExtensions', () {
+  group('EmojiIterableExtensions', () {
     test('values returns correct value', () {
       expect(emojis.values, [
         TestEmojis.grinningFace.value,
@@ -53,28 +53,28 @@ void main() {
 
     test('cldrShortcodes returns correct value', () {
       expect(emojis.cldrShortcodes, [
-        TestEmojis.grinningFace.shortcodes.cldr,
-        TestEmojis.womanFacepalmingMediumDarkSkinTone.shortcodes.cldr,
+        TestEmojis.grinningFace.cldrShortcode,
+        TestEmojis.womanFacepalmingMediumDarkSkinTone.cldrShortcode,
       ]);
     });
 
     test('discordShortcodes returns correct value', () {
       expect(emojis.discordShortcodes, [
-        TestEmojis.grinningFace.shortcodes.discord,
-        TestEmojis.womanFacepalmingMediumDarkSkinTone.shortcodes.discord,
+        ...TestEmojis.grinningFace.discordShortcodes,
+        ...TestEmojis.womanFacepalmingMediumDarkSkinTone.discordShortcodes,
       ]);
     });
 
     test('githubShortcodes returns correct value', () {
       expect(emojis.githubShortcodes, [
-        TestEmojis.grinningFace.shortcodes.github,
+        ...TestEmojis.grinningFace.githubShortcodes,
       ]);
     });
 
     test('discordShortcodes returns correct value', () {
       expect(emojis.slackShortcodes, [
-        TestEmojis.grinningFace.shortcodes.slack,
-        TestEmojis.womanFacepalmingMediumDarkSkinTone.shortcodes.slack,
+        ...TestEmojis.grinningFace.slackShortcodes,
+        ...TestEmojis.womanFacepalmingMediumDarkSkinTone.slackShortcodes,
       ]);
     });
 

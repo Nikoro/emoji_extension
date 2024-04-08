@@ -1,9 +1,8 @@
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('SubgroupListExtensions', () {
+  group('SubgroupIterableExtensions', () {
     test('values returns correct value', () {
       final values = [Subgroup.faceSmiling, Subgroup.faceAffection].values;
       expect(

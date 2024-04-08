@@ -1,11 +1,4 @@
-import 'package:collection/collection.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/platform.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/emojis/status.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+part of '../emojis.dart';
 
 /// Represents an Emoji.
 /// An Emoji is characterized by its value, unicode, name, group, subgroup, and shortcodes.
@@ -22,7 +15,8 @@ import 'package:emoji_extension/src/extensions/extensions.dart';
 
 class Emoji {
   /// Constructs an Emoji object with the specified properties.
-  const Emoji({
+  ///
+  const Emoji._({
     required this.value,
     required this.unicode,
     required this.name,
@@ -34,6 +28,33 @@ class Emoji {
     required this.status,
     required this.shortcodes,
   });
+
+  /// Constructs an [Emoji] object from the provided [value].
+  ///
+  /// The [value] must represent a single emoji. If the provided value does not
+  /// represent a single emoji, an assertion error will be thrown.
+  ///
+  /// Examples of valid inputs include:
+  /// - `Emoji('😀')`
+  ///
+  /// Examples of invalid inputs include:
+  /// - `Emoji('😀😀')` (multiple emojis)
+  /// - `Emoji('not an emoji')` (non-emoji text)
+  ///
+  /// Throws an [AssertionError] if the provided value does not represent a single emoji.
+  factory Emoji(String value) {
+    assert(
+      EmojiParser(value).onlyOne,
+      """
+    
+    Provided value must be a single emoji:
+    ✅ emoji('😀') - valid
+    ❌ emoji('😀😀') - invalid
+    ❌ emoji('not an emoji') - invalid
+    """,
+    );
+    return Emojis.getOne(value.trim());
+  }
 
   /// The value of the emoji as a String.
   final String value;
@@ -65,62 +86,29 @@ class Emoji {
   /// The shortcodes of the emoji as a List of Shortcode objects.
   final List<Shortcode> shortcodes;
 
-  /// Returns the Unicode escape sequence for the emoji as a String.
-  String toUnicodeEscapeSequence() {
-    return String.fromCharCodes(value.runes)
-        .codeUnits
-        .map((unit) => "\\u${unit.toRadixString(16).toUpperCase()}")
-        .join();
-  }
-
-  /// Returns the default shortcode of the emoji as a String.
-  String get shortcode => shortcodes.wherePlatform(Platform.Default)!;
-
-  /// Returns a new [Emoji] object with updated properties.
-  Emoji copyWith({
-    String? value,
-    String? unicode,
-    String? name,
-    String? appleName,
-    List<String>? alsoKnownAs,
-    Group? group,
-    Subgroup? subgroup,
-    Version? version,
-    Status? status,
-    List<Shortcode>? shortcodes,
-  }) {
-    return Emoji(
-      value: value ?? this.value,
-      unicode: unicode ?? this.unicode,
-      name: name ?? this.name,
-      appleName: appleName ?? this.appleName,
-      alsoKnownAs: alsoKnownAs ?? this.alsoKnownAs,
-      group: group ?? this.group,
-      subgroup: subgroup ?? this.subgroup,
-      version: version ?? this.version,
-      status: status ?? this.status,
-      shortcodes: shortcodes ?? this.shortcodes,
-    );
-  }
-
   /// Determines whether the current emoji is equal to another object.
   @override
-  bool operator ==(Object o) =>
-      identical(this, o) ||
-      (o.runtimeType == runtimeType &&
-          o is Emoji &&
-          (identical(o.value, value) || o.value == value) &&
-          (identical(o.unicode, unicode) || o.unicode == unicode) &&
-          (identical(o.name, name) || o.name == name) &&
-          (identical(o.appleName, appleName) || o.appleName == appleName) &&
-          const DeepCollectionEquality.unordered()
-              .equals(o.alsoKnownAs, alsoKnownAs) &&
-          (identical(o.group, group) || o.group == group) &&
-          (identical(o.subgroup, subgroup) || o.subgroup == subgroup) &&
-          (identical(o.version, version) || o.version == version) &&
-          (identical(o.status, status) || o.status == status) &&
-          const DeepCollectionEquality.unordered()
-              .equals(o.shortcodes, shortcodes));
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        // coverage:ignore-start
+        (other.runtimeType == runtimeType &&
+            other is Emoji &&
+            (identical(other.value, value) || other.value == value) &&
+            (identical(other.unicode, unicode) || other.unicode == unicode) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.appleName, appleName) ||
+                other.appleName == appleName) &&
+            const DeepCollectionEquality.unordered()
+                .equals(other.alsoKnownAs, alsoKnownAs) &&
+            (identical(other.group, group) || other.group == group) &&
+            (identical(other.subgroup, subgroup) ||
+                other.subgroup == subgroup) &&
+            (identical(other.version, version) || other.version == version) &&
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality.unordered()
+                .equals(other.shortcodes, shortcodes));
+    // coverage:ignore-end
+  }
 
   /// Returns the hash code for the current emoji.
   @override

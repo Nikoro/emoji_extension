@@ -1,8 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:emoji_extension/emoji_extension.dart';
 
-/// Extension that provides several getters to extract specific data from the list of emojis.
-extension EmojiListExtensions on List<Emoji> {
+/// Extension that provides several getters to extract specific data from the iterable of emojis.
+extension EmojiIterableExtensions on Iterable<Emoji> {
   /// Provides a list of all emoji values.
   List<String> get values => map((e) => e.value).toUnmodifiableList();
 
@@ -25,22 +24,22 @@ extension EmojiListExtensions on List<Emoji> {
 
   /// Provides a list of all the CLDR shortcodes for the emojis
   List<String> get cldrShortcodes {
-    return map((e) => e.shortcodes.cldr).whereNotNull().toUnmodifiableList();
+    return map((e) => e.cldrShortcode).toUnmodifiableList();
   }
 
   /// Provides a list of all the Discord-specific shortcodes for the emojis
   List<String> get discordShortcodes {
-    return map((e) => e.shortcodes.discord).whereNotNull().toUnmodifiableList();
+    return expand((e) => e.discordShortcodes).toUnmodifiableList();
   }
 
   /// Provides a list of all the GitHub-specific shortcodes for the emojis
   List<String> get githubShortcodes {
-    return map((e) => e.shortcodes.github).whereNotNull().toUnmodifiableList();
+    return expand((e) => e.githubShortcodes).toUnmodifiableList();
   }
 
   /// Provides a list of all the Slack-specific shortcodes for the emojis
   List<String> get slackShortcodes {
-    return map((e) => e.shortcodes.slack).whereNotNull().toUnmodifiableList();
+    return expand((e) => e.slackShortcodes).toUnmodifiableList();
   }
 
   /// Provides a list of all the groups to which the emojis belong

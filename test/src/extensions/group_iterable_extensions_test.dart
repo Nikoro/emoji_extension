@@ -1,9 +1,8 @@
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/extensions/extensions.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('GroupListExtensions', () {
+  group('GroupIterableExtensions', () {
     test('values returns correct value', () {
       final values = [Group.smileysAndEmotion, Group.peopleAndBody].values;
       expect(

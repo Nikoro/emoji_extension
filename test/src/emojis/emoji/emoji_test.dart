@@ -1,36 +1,28 @@
-import 'package:emoji_extension/src/emojis/emoji.dart';
-import 'package:emoji_extension/src/emojis/group.dart';
-import 'package:emoji_extension/src/emojis/shortcode.dart';
-import 'package:emoji_extension/src/emojis/status.dart';
-import 'package:emoji_extension/src/emojis/subgroup.dart';
-import 'package:emoji_extension/src/emojis/version.dart';
+import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 
-import '../../_tools/test_emojis.dart';
+import '../../../_tools/tools.dart';
 
 void main() {
-  const emoji1 = TestEmojis.grinningFace;
-  final emoji2 = emoji1.copyWith();
-  const emoji3 = Emoji(
-    value: '😀',
-    name: 'Grinning Face',
-    appleName: 'Grinning Face',
-    alsoKnownAs: ['Happy Face', 'Smiley Face'],
-    unicode: '1F600',
-    group: Group.smileysAndEmotion,
-    subgroup: Subgroup.faceSmiling,
-    version: Version.v8_0,
-    status: Status.fullyQualified,
-    shortcodes: [
-      Shortcode.$default(['grinning_face']),
-      Shortcode.cldr(['grinning_face']),
-      Shortcode.discord(['grinning']),
-      Shortcode.github(['grinning']),
-      Shortcode.slack(['grinning']),
-    ],
-  );
+  final emoji1 = TestEmojis.grinningFace;
+  final emoji2 = Emoji('😀');
+  final emoji3 = Emojis.getOne('1F600');
 
   group('Emoji', () {
+    group('Constructor Emoji()', () {
+      test('constructs Emoji object when provided value is single emoji', () {
+        expect(Emoji('😀'), TestEmojis.grinningFace);
+      });
+
+      test('throws assertion error  when provided value is multiple emojis',
+          () {
+        expect(() => Emoji('😀😀'), throwsA(isA<AssertionError>()));
+      });
+
+      test('throws assertion error  when provided value is not an emoji', () {
+        expect(() => Emoji('not an emoji'), throwsA(isA<AssertionError>()));
+      });
+    });
     test('equality', () {
       expect(emoji1 == emoji2, true);
       expect(emoji2 == emoji3, true);
@@ -76,14 +68,6 @@ void main() {
           '  )]\n'
           ')';
       expect(result, expected);
-    });
-
-    test('shortcode returns CLDR shortcode with colons around', () {
-      expect(emoji1.shortcode, ':grinning_face:');
-    });
-
-    test('toUnicodeEscapeSequence() returns correct value', () {
-      expect(emoji1.toUnicodeEscapeSequence(), '\\uD83D\\uDE00');
     });
   });
 }
