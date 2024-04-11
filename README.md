@@ -22,6 +22,9 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   <a href="https://www.unicode.org/reports/tr51/">
     <img alt="Unicode 15.1" src="https://img.shields.io/badge/unicode-15.1-5555FF?logo=unicode&logoColor=white">
   </a>
+  <a href="https://www.youtube.com/">
+    <img alt="YouTube Tutorial" src="https://tinyurl.com/2amvfxbu">
+  </a>
 </p>
 
 ---
