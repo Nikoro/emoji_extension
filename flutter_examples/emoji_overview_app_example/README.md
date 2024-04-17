@@ -1,16 +1,21 @@
-# emoji_overview_app_example
+# Emoji Overview App Example
+<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/flutter_examples/emoji_overview_app_example/demo.gif" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
 
-A new Flutter project.
+The Emoji Overview App Example is a Flutter application designed to showcase the functionality
+of the [emoji_extension](https://pub.dev/packages/emoji_extension) package. This app provides users with a comprehensive display of all 
+available emojis included in the [emoji_extension](https://pub.dev/packages/emoji_extension) package.
 
-## Getting Started
+With the Emoji Overview App, users can explore a wide range of emojis conveniently categorized by group for easy navigation. 
+Whether for communication, expression, or creative purposes, this app offers a visual representation of emojis 
+that users can incorporate into their Flutter projects.
 
-This project is a starting point for a Flutter application.
+Run the below command in the terminal to start the app:
+```shell script
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+<h2 align="center"><a href="https://youtu.be/fLPVkksEpJw">Tutorial</a></h2>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <a href="https://youtu.be/fLPVkksEpJw"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/images/youtube.webp" width="600"/></a>
+</p>

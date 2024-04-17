@@ -1,16 +1,16 @@
-# emoji_chat_app_example
+# Emoji Chat App Example
+<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/flutter_examples/emoji_chat_app_example/demo.gif" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
 
-A new Flutter project.
+The Emoji Chat App Example is a Flutter application showcasing the integration of the
+[emoji_extension](https://pub.dev/packages/emoji_extension) package to create a basic chat screen resembling popular messenger apps.
 
-## Getting Started
+Run the below command in the terminal to start the app:
+```shell script
+flutter run
+```
 
-This project is a starting point for a Flutter application.
+<h2 align="center"><a href="https://youtu.be/fLPVkksEpJw">Tutorial</a></h2>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <a href="https://youtu.be/fLPVkksEpJw"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/images/youtube.webp" width="600"/></a>
+</p>
