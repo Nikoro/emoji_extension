@@ -1,3 +1,3 @@
-# emoji_extensions_example
+# emoji_extension_example
 
-Demonstrates how to use the emoji_extensions package.
+Demonstrates how to use the emoji_extension package.

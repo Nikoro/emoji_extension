@@ -1,6 +1,6 @@
 name: emoji_extension
 description: Emojis for Flutter & Dart (Unicode 15.1) + one, yet powerful emojis String extension
-version: 1.0.0
+version: 1.1.0
 repository: https://github.com/Nikoro/emoji_extension
 issue_tracker: https://github.com/Nikoro/emoji_extension/issues
 topics: [emoji, emojis, collection, unicode]
@@ -12,9 +12,13 @@ dependencies:
   collection: ^1.18.0
 
 dev_dependencies:
-  test: ^1.25.2
+  test: ^1.25.4
   flutter_lints: ^3.0.2
 
 screenshots:
   - description: The emoji extension logo
-    path: logo/logo.webp
+    path: images/logo.webp
+  - description: Emoji Overview App demo
+    path: flutter_examples/emoji_overview_app_example/demo.gif
+  - description: Emoji Chat App demo
+    path: flutter_examples/emoji_chat_app_example/demo.gif

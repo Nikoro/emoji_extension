@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/logo/logo.png" width="600"/></a>
+  <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/images/logo.png" width="600"/></a>
 </p>
 <h2 align="center">
 Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.1</a><br>
@@ -21,6 +21,9 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   </a>
   <a href="https://www.unicode.org/reports/tr51/">
     <img alt="Unicode 15.1" src="https://img.shields.io/badge/unicode-15.1-5555FF?logo=unicode&logoColor=white">
+  </a>
+  <a href="https://youtu.be/fLPVkksEpJw">
+    <img alt="YouTube Tutorial" src="https://tinyurl.com/2amvfxbu">
   </a>
 </p>
 
@@ -86,6 +89,12 @@ Emoji('😃').hasFace; // true
 
 ... // and many more
 ```
+
+<h2 align="center"><a href="https://youtu.be/fLPVkksEpJw">YouTube Video Tutorial</a></h2>
+
+<p align="center">
+  <a href="https://youtu.be/fLPVkksEpJw"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/images/youtube.webp" width="600"/></a>
+</p>
 
 ## Table of contents
 
@@ -652,7 +661,7 @@ Emojis.animalBird; // [Emoji(value: 🦃, ...), Emoji(value: 🐔, ...), ...]
 
 ```dart
 Emojis.byVersion(Version.v6_0); // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
-Emojis.byVersion(Version.v15_0 // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
+Emojis.byVersion(Version.v15_0); // [Emoji(value: 🫨, ...), Emoji(value: 🩷, ...), ...]
 
 //or use convenient getters:
 Emojis.v6_0; // [Emoji(value: 😃, ...), Emoji(value: 😄, ...), ...]
@@ -704,8 +713,8 @@ Emojis.hairStyles // [HairStyle.blond, HairStyle.red, HairStyle.curly, ...]
                  .fourth // HairStyle.white
                  .fifth // HairStyle.bald
                  .sixthOrNull // null
-                 .penultimate // HairStyle.grey
-                 .last // HairStyle.white
+                 .penultimate // HairStyle.white
+                 .last // HairStyle.bald
                  .values // [1F471, 1F9B0, 1F9B1, 1F9B3, 1F9B2]
                         .first // 1F471
                         .second // 1F9B0
@@ -873,11 +882,28 @@ Emoji('🦊')
            .discordShortcodes // [:fox:, :fox_face:]
                              .first // :fox:
                              .second // :fox_face:
+           .version // Version.v9_0
+           .value // 9.0
            .isAnimal // true
+           .isFlag // false
+           .isFlower // false
+           .isFruit // false
+           .isGeometric // false
+           .isMan // false
+           .isWoman // false
+           .isVegetable // false
            .isPerson // false
+           .isMultiPerson // false
+           .isSymbol // false
+           .isV9_0 // true
+           .hasBeard // false
            .hasFace // true
            .hasHairStyle // false
            .hasSkinTone // false
+           .hasColor // false
+           .color // null
+           .skinTone // null
+           .hairStyle // null
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 
@@ -2107,4 +2133,25 @@ onNonMatch: (s) => s.toUpperCase(),
 ```dart
 '🤦🏾‍♀️text😀text🤦🏻‍♀️'.emojis.whereNotIndexed((i, e) => i == 0 && e.name.contains('Woman')); // [Emoji(value: 😀, ...), Emoji(value: 🤦🏻‍♀️, ...)]
 ```
+<div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
+
+<h2 align="center"><a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples">Example Flutter Apps</a></h2>
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_overview_app_example">Emoji Overview App Example</a></br></br>
+      <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_overview_app_example">
+        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_overview_app_example/demo.gif" alt="Emoji overview app demo GIF" width="300"/>
+      </a>    
+    </td>
+    <td align="center">
+      <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_chat_app_example">Emoji Chat App Example</a></br></br>
+      <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_chat_app_example">
+        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_chat_app_example/demo.gif" alt="Emoji chat app demo GIF" width="300"/>
+      </a>    
+    </td>
+  </tr>
+</table>
+
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
