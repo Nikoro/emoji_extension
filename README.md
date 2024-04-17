@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/logo/logo.png" width="600"/></a>
+  <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/images/logo.png" width="600"/></a>
 </p>
 <h2 align="center">
 Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.1</a><br>
@@ -22,7 +22,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
   <a href="https://www.unicode.org/reports/tr51/">
     <img alt="Unicode 15.1" src="https://img.shields.io/badge/unicode-15.1-5555FF?logo=unicode&logoColor=white">
   </a>
-  <a href="https://www.youtube.com/">
+  <a href="https://youtu.be/fLPVkksEpJw">
     <img alt="YouTube Tutorial" src="https://tinyurl.com/2amvfxbu">
   </a>
 </p>
@@ -89,6 +89,11 @@ Emoji('😃').hasFace; // true
 
 ... // and many more
 ```
+## [Tutorial](https://youtu.be/fLPVkksEpJw)
+
+<p align="center">
+  <a href="https://youtu.be/fLPVkksEpJw"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/images/youtube.webp" width="600"/></a>
+</p>
 
 ## Table of contents
 
