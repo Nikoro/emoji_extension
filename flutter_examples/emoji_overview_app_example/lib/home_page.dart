@@ -22,7 +22,8 @@ class HomePage extends StatelessWidget {
         ),
         body: Expanded(
             child: TabBarView(
-          children: groups.map((g) => EmojiList(emojis: Emojis.byGroup(g))).toList(),
+          children:
+              groups.map((g) => EmojiList(emojis: Emojis.byGroup(g))).toList(),
         )),
       ),
     );

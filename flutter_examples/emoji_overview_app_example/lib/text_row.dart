@@ -10,21 +10,19 @@ class TextRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return Row(
-          children: [
-            SizedBox(
-              width: constraints.maxWidth / 2,
-              child: Text(
-                '$title:',
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
+    return LayoutBuilder(builder: (context, constraints) {
+      return Row(
+        children: [
+          SizedBox(
+            width: constraints.maxWidth / 2,
+            child: Text(
+              '$title:',
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-            Flexible(child: Text('$value'))
-          ],
-        );
-      }
-    );
+          ),
+          Flexible(child: Text('$value'))
+        ],
+      );
+    });
   }
 }

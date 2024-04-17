@@ -20,11 +20,10 @@ packages:
   emoji_extension:
     dependency: "direct main"
     description:
-      name: emoji_extension
-      sha256: "6e7a03b82a0d2871ce28e6f68ff50e5562b511adc18efa41aa10aa3bae6f2a8c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
+      path: "../.."
+      relative: true
+    source: path
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
