@@ -1,3 +1,15 @@
+## 1.1.0
+
+- Updated dependencies
+- Added 2 Flutter example apps:
+  - [Emoji Overview App Example](https://github.com/Nikoro/emoji_extension/tree/develop/flutter_examples/emoji_overview_app_example)
+  - [Emoji Chat App Example](https://github.com/Nikoro/emoji_extension/tree/develop/flutter_examples/emoji_chat_app_example)
+- Created video tutorial on [YouTube](https://youtu.be/fLPVkksEpJw)
+
+<p align="center">
+  <a href="https://youtu.be/fLPVkksEpJw"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/develop/images/youtube.webp" width="600"/></a>
+</p>
+
 ## 1.0.0
 
 **BREAKING CHANGES**:
