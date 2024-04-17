@@ -1,4 +1,4 @@
-import 'package:emoji_overview_app_example/home_page.dart';
+import 'package:emoji_chat_app_example/chat_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +10,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const title = 'Emoji overview app example';
+    const title = 'Emoji chat app example';
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const HomePage(title: title),
+      home: const ChatPage(title: title),
     );
   }
 }
