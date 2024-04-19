@@ -2142,13 +2142,13 @@ onNonMatch: (s) => s.toUpperCase(),
     <td align="center">
       <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_overview_app_example">Emoji Overview App Example</a></br></br>
       <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_overview_app_example">
-        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_overview_app_example/demo.gif" alt="Emoji overview app demo GIF" width="300"/>
+        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_overview_app_example/demo.webp" alt="Emoji overview app demo GIF" width="300"/>
       </a>    
     </td>
     <td align="center">
       <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_chat_app_example">Emoji Chat App Example</a></br></br>
       <a href="https://github.com/Nikoro/emoji_extension/tree/main/flutter_examples/emoji_chat_app_example">
-        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_chat_app_example/demo.gif" alt="Emoji chat app demo GIF" width="300"/>
+        <img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_chat_app_example/demo.webp" alt="Emoji chat app demo GIF" width="300"/>
       </a>    
     </td>
   </tr>

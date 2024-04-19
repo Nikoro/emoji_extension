@@ -19,6 +19,6 @@ screenshots:
   - description: The emoji extension logo
     path: images/logo.webp
   - description: Emoji Overview App demo
-    path: flutter_examples/emoji_overview_app_example/demo.gif
+    path: flutter_examples/emoji_overview_app_example/demo.webp
   - description: Emoji Chat App demo
-    path: flutter_examples/emoji_chat_app_example/demo.gif
+    path: flutter_examples/emoji_chat_app_example/demo.webp
