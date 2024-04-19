@@ -1,3 +1,6 @@
+## 1.1.1
+- Changed *gif demo files to *webp format
+
 ## 1.1.0
 
 - Updated dependencies

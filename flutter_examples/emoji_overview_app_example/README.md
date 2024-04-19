@@ -1,5 +1,5 @@
 # Emoji Overview App Example
-<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_overview_app_example/demo.gif" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
+<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_overview_app_example/demo.webp" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
 
 The Emoji Overview App Example is a Flutter application designed to showcase the functionality
 of the [emoji_extension](https://pub.dev/packages/emoji_extension) package. This app provides users with a comprehensive display of all 

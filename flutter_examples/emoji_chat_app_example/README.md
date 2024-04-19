@@ -1,5 +1,5 @@
 # Emoji Chat App Example
-<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_chat_app_example/demo.gif" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
+<img align="right" src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/flutter_examples/emoji_chat_app_example/demo.webp" alt="A demo illustrating the UI of the app" width="288" height="624" style="display: inline; float: right"/>
 
 The Emoji Chat App Example is a Flutter application showcasing the integration of the
 [emoji_extension](https://pub.dev/packages/emoji_extension) package to create a basic chat screen resembling popular messenger apps.
