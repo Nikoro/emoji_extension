@@ -299,12 +299,15 @@ extension EmojiParserGetters on EmojiParser {
   /// ```
   String get shuffle {
     String output = _value;
+    final extract = this.extract;
     extract.forEachIndexed((i, e) {
       output = output.replaceFirst(e, '[$i]');
     });
-    extract.shuffled.forEachIndexed((i, e) {
-      output = output.replaceFirst('[$i]', e);
-    });
+    extract
+      ..shuffle()
+      ..forEachIndexed((i, e) {
+        output = output.replaceFirst('[$i]', e);
+      });
 
     return output;
   }

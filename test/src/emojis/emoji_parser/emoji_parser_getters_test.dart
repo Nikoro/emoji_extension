@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:emoji_extension/emoji_extension.dart';
 import 'package:test/test.dart';
 

@@ -6,14 +6,14 @@ issue_tracker: https://github.com/Nikoro/emoji_extension/issues
 topics: [emoji, emojis, collection, unicode]
 
 environment:
-  sdk: '>=2.18.6 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
   collection: ^1.18.0
 
 dev_dependencies:
   test: ^1.25.4
-  flutter_lints: ^3.0.2
+  flutter_lints: ^5.0.0
 
 screenshots:
   - description: The emoji extension logo
