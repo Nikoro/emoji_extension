@@ -12,8 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
 
+dependency_overrides:
+  collection: ^1.19.1
+
 dev_dependencies:
-  flutter_lints: ^3.0.2
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true

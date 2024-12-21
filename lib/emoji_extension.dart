@@ -1,4 +1,4 @@
-library emoji_extension;
+library;
 
 import 'package:emoji_extension/src/emojis/emoji_parser/emoji_parser.dart';
 

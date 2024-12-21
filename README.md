@@ -2,7 +2,7 @@
   <a href="https://pub.dev/packages/emoji_extension"><img src="https://raw.githubusercontent.com/nikoro/emoji_extension/main/images/logo.png" width="600"/></a>
 </p>
 <h2 align="center">
-Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 15.1</a><br>
+Emojis for Dart <a href="https://www.unicode.org/reports/tr51/">Unicode 16.0</a><br>
 +<br>
 One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 </h2>
@@ -20,7 +20,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
     <img alt="MIT License" src="https://tinyurl.com/3uf9tzpy">
   </a>
   <a href="https://www.unicode.org/reports/tr51/">
-    <img alt="Unicode 15.1" src="https://img.shields.io/badge/unicode-15.1-5555FF?logo=unicode&logoColor=white">
+    <img alt="Unicode 16.0" src="https://img.shields.io/badge/unicode-16.0-5555FF?logo=unicode&logoColor=white">
   </a>
   <a href="https://youtu.be/fLPVkksEpJw">
     <img alt="YouTube Tutorial" src="https://tinyurl.com/2amvfxbu">
@@ -30,7 +30,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
 ---
 ## Features
 
-- Contains over **5,000** emojis from Unicode 15.1 💪
+- Contains over **5,000** emojis from Unicode 16.0 💪
 - Supports:
   - `shorcodes`: **Discord**, **Github**, **Slack** 🫡
   - skin tone variations: 👍 👍🏻 👍🏼 👍🏽 👍🏾 👍🏿
@@ -856,8 +856,8 @@ Emojis.versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
                .fourth // Version.v9_0
                .fifth // Version.v10_0
                .sixth // Version.v11_0
-               .penultimate // Version.v15_0
-               .last // Version.v15_1
+               .penultimate // Version.v15_1
+               .last // Version.v16_0
                .values // [6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.1, 13.0, ...]
                       .first // 6.0
                       .second // 7.0
@@ -865,8 +865,8 @@ Emojis.versions // [Version.v6_0, Version.v7_0, Version.v8_0, Version.v9_0, ...]
                       .fourth // 9.0
                       .fifth // 10.0
                       .sixth // 11.0
-                      .penultimate // 15.0
-                      .last // 15.1
+                      .penultimate // 15.1
+                      .last // 16.0
 ```
 <div align="center"><a href="#table-of-contents">↑ Table of contents ↑</a></div>
 

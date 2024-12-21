@@ -6,7 +6,7 @@ import '../../_tools/tools.dart';
 void main() {
   group('Version', () {
     test('values count', () {
-      expect(Version.values.length, 13);
+      expect(Version.values.length, 14);
     });
 
     $({
@@ -23,6 +23,7 @@ void main() {
       14.0: Version.v14_0,
       15.0: Version.v15_0,
       15.1: Version.v15_1,
+      16.0: Version.v16_0,
     }).forEach((input, expected) {
       test('from returns returns $expected  when input is: [$input]', () {
         expect(Version.from(input), expected);

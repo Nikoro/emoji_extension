@@ -155,6 +155,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV6_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV6_0, expected);
@@ -175,6 +176,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV7_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV7_0, expected);
@@ -195,6 +197,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV8_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV8_0, expected);
@@ -215,6 +218,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV9_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV9_0, expected);
@@ -235,6 +239,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV10_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV10_0, expected);
@@ -255,6 +260,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV11_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV11_0, expected);
@@ -275,6 +281,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV12_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV12_0, expected);
@@ -295,6 +302,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV12_1 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV12_1, expected);
@@ -315,6 +323,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV13_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV13_0, expected);
@@ -335,6 +344,7 @@ void main() {
           '🪸': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV13_1 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV13_1, expected);
@@ -355,6 +365,7 @@ void main() {
           '💏🏻': false,
           '🪼': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV14_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV14_0, expected);
@@ -375,6 +386,7 @@ void main() {
           '💏🏻': false,
           '🪸': false,
           '🍋‍🟩': false,
+          '🫩': false,
         }).forEach((input, expected) {
           test('isV15_0 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV15_0, expected);
@@ -398,6 +410,27 @@ void main() {
         }).forEach((input, expected) {
           test('isV15_1 returns $expected when emoji is: $input', () {
             expect(Emoji(input).isV15_1, expected);
+          });
+        });
+
+        $({
+          '🫩': true,
+          '🍋‍🟩': false,
+          '😃': false,
+          '😐': false,
+          '😑': false,
+          '🤥': false,
+          '🤮': false,
+          '🥵': false,
+          '🥱': false,
+          '🧑‍🦰': false,
+          '🥷': false,
+          '💏🏻': false,
+          '🪸': false,
+          '🪼': false,
+        }).forEach((input, expected) {
+          test('isV16_0 returns $expected when emoji is: $input', () {
+            expect(Emoji(input).isV16_0, expected);
           });
         });
 
