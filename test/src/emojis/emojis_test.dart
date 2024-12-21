@@ -1,4 +1,5 @@
 import 'package:emoji_extension/emoji_extension.dart';
+import 'package:emoji_extension/src/regex.dart';
 import 'package:test/test.dart';
 
 import '../../_tools/tools.dart';
@@ -35,6 +36,10 @@ void main() {
 
     test('skinTones returns correct value', () {
       expect(Emojis.skinTones, SkinTone.values);
+    });
+
+    test('regex returns correct value', () {
+      expect(Emojis.regex, Regex.emoji);
     });
 
     test('groupsWithSubgroups returns correct type', () {
