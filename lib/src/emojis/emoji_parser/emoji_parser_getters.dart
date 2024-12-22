@@ -302,7 +302,7 @@ extension EmojiParserGetters on EmojiParser {
     extract.forEachIndexed((i, e) {
       output = output.replaceFirst(e, '[$i]');
     });
-    extract.shuffled.forEachIndexed((i, e) {
+    extract.shuffled().forEachIndexed((i, e) {
       output = output.replaceFirst('[$i]', e);
     });
 

@@ -20,11 +20,10 @@ class HomePage extends StatelessWidget {
               isScrollable: true,
               tabs: groups.map((g) => Tab(text: g.value)).toList()),
         ),
-        body: Expanded(
-            child: TabBarView(
+        body: TabBarView(
           children:
               groups.map((g) => EmojiList(emojis: Emojis.byGroup(g))).toList(),
-        )),
+        ),
       ),
     );
   }

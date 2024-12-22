@@ -1038,6 +1038,22 @@ const _emojis = [
         Shortcode.slack(['sleeping'])
       ]),
   Emoji._(
+      value: '🫩',
+      unicode: '1FAE9',
+      name: 'Face with Bags Under Eyes',
+      alsoKnownAs: [],
+      group: Group.smileysAndEmotion,
+      subgroup: Subgroup.faceSleepy,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['face_with_bags_under_eyes']),
+        Shortcode.cldr(['face_with_bags_under_eyes']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
       value: '😷',
       unicode: '1F637',
       name: 'Face with Medical Mask',
@@ -61140,6 +61156,22 @@ const _emojis = [
         Shortcode.slack(['footprints'])
       ]),
   Emoji._(
+      value: '🫆',
+      unicode: '1FAC6',
+      name: 'Fingerprint',
+      alsoKnownAs: [],
+      group: Group.peopleAndBody,
+      subgroup: Subgroup.personSymbol,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['fingerprint']),
+        Shortcode.cldr(['fingerprint']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
       value: '🏻',
       unicode: '1F3FB',
       name: 'Light Skin Tone',
@@ -64004,6 +64036,22 @@ const _emojis = [
         Shortcode.slack(['mushroom'])
       ]),
   Emoji._(
+      value: '🪾',
+      unicode: '1FABE',
+      name: 'Leafless Tree',
+      alsoKnownAs: [],
+      group: Group.animalsAndNature,
+      subgroup: Subgroup.plantOther,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['leafless_tree']),
+        Shortcode.cldr(['leafless_tree']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
       value: '🍇',
       unicode: '1F347',
       name: 'Grapes',
@@ -64662,6 +64710,22 @@ const _emojis = [
       shortcodes: [
         Shortcode.$default(['brown_mushroom']),
         Shortcode.cldr(['brown_mushroom']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
+      value: '🫜',
+      unicode: '1FADC',
+      name: 'Root Vegetable',
+      alsoKnownAs: [],
+      group: Group.foodAndDrink,
+      subgroup: Subgroup.foodVegetable,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['root_vegetable']),
+        Shortcode.cldr(['root_vegetable']),
         Shortcode.discord([]),
         Shortcode.github([]),
         Shortcode.slack([])
@@ -73957,6 +74021,22 @@ const _emojis = [
         Shortcode.slack([])
       ]),
   Emoji._(
+      value: '🪉',
+      unicode: '1FA89',
+      name: 'Harp',
+      alsoKnownAs: [],
+      group: Group.objects,
+      subgroup: Subgroup.musicalInstrument,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['harp']),
+        Shortcode.cldr(['harp']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
       value: '📱',
       unicode: '1F4F1',
       name: 'Mobile Phone',
@@ -76971,6 +77051,22 @@ const _emojis = [
         Shortcode.discord(['ladder']),
         Shortcode.github([]),
         Shortcode.slack(['ladder'])
+      ]),
+  Emoji._(
+      value: '🪏',
+      unicode: '1FA8F',
+      name: 'Shovel',
+      alsoKnownAs: [],
+      group: Group.objects,
+      subgroup: Subgroup.tool,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['shovel']),
+        Shortcode.cldr(['shovel']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
       ]),
   Emoji._(
       value: '⚗️',
@@ -81143,6 +81239,22 @@ const _emojis = [
         Shortcode.slack(['tm'])
       ]),
   Emoji._(
+      value: '🫟',
+      unicode: '1FADF',
+      name: 'Splatter',
+      alsoKnownAs: [],
+      group: Group.symbols,
+      subgroup: Subgroup.otherSymbol,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['splatter']),
+        Shortcode.cldr(['splatter']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
+      ]),
+  Emoji._(
       value: '#️⃣',
       unicode: '0023 FE0F 20E3',
       name: 'Keycap Number Sign',
@@ -84148,6 +84260,22 @@ const _emojis = [
         Shortcode.discord(['flag_cp']),
         Shortcode.github(['clipperton_island']),
         Shortcode.slack(['flag-cp'])
+      ]),
+  Emoji._(
+      value: '🇨🇶',
+      unicode: '1F1E8 1F1F6',
+      name: 'Flag: Sark',
+      alsoKnownAs: [],
+      group: Group.flags,
+      subgroup: Subgroup.countryFlag,
+      version: Version.v16_0,
+      status: Status.fullyQualified,
+      shortcodes: [
+        Shortcode.$default(['flag_sark']),
+        Shortcode.cldr(['flag_sark']),
+        Shortcode.discord([]),
+        Shortcode.github([]),
+        Shortcode.slack([])
       ]),
   Emoji._(
       value: '🇨🇷',

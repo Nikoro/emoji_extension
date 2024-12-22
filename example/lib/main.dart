@@ -22,6 +22,9 @@ void main() {
   final hasColor = Emoji('🩵').hasColor;
   // print(hasColor); // true
 
+  final regex = Emojis.regex;
+  // print(regex); // RegExp: pattern=[#*\d]\uFE0F?\u20E3|[\xA9\...
+
   final emojis = Emojis.all;
   // print(emojis); // [Emoji(value: 😀, ...), Emoji(value: 😃, ...), ...]
 

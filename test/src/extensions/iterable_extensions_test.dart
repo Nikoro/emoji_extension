@@ -251,16 +251,5 @@ void main() {
         expect(result, equals([1, 2, 3, 4, 5]));
       });
     });
-
-    group('shuffled', () {
-      test('returns a shuffled version of the list', () {
-        final list = [1, 2, 3, 4, 5];
-        final shuffledList = list.shuffled;
-
-        expect(
-            const DeepCollectionEquality.unordered().equals(shuffledList, list),
-            true);
-      });
-    });
   });
 }

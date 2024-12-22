@@ -38,7 +38,10 @@ enum Version {
   v15_0(15.0),
 
   /// Representation of Unicode 15.1
-  v15_1(15.1);
+  v15_1(15.1),
+
+  /// Representation of Unicode 16.0
+  v16_0(16.0);
 
   /// Creates a new Status object with the given String value.
   const Version(this.value);

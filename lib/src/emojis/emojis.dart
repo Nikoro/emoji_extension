@@ -45,6 +45,9 @@ abstract class Emojis {
   /// Returns an unmodifiable list of all the Emoji skin tones.
   static List<SkinTone> get skinTones => SkinTone.values;
 
+  /// Returns a regular expression that matches Emoji characters.
+  static RegExp get regex => Regex.emoji;
+
   /// Returns a map of all the Emoji groups with their corresponding subgroups.
   static Map<Group, List<Subgroup>> get groupsWithSubgroups {
     return {for (final group in groups) group: group.subgroups};
@@ -526,6 +529,9 @@ abstract class Emojis {
 
   /// Returns a list of emojis under the Unicode 15.1 version.
   static List<Emoji> get v15_1 => byVersion(Version.v15_1);
+
+  /// Returns a list of emojis under the Unicode 16.0 version.
+  static List<Emoji> get v16_0 => byVersion(Version.v16_0);
 
   /* ------------------------------ Status ------------------------------- */
 

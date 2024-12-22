@@ -231,12 +231,4 @@ extension IterableExtensions<E> on Iterable<E> {
   /// [].penultimateOrNull; // null
   /// ```
   E? get penultimateOrNull => length < 2 ? null : elementAtOrNull(length - 2);
-
-  /// Returns a new unmodifiable list containing the elements of this list in a random order.
-  ///
-  /// Example:
-  /// ```dart
-  /// [1, 2, 3, 4, 5].shuffled; // e.g. [4, 2, 5, 1, 3]
-  /// ```
-  List<E> get shuffled => ([...this]..shuffle()).toUnmodifiableList();
 }
