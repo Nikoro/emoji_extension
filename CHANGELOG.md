@@ -1,3 +1,13 @@
+## 1.2.0
+- Updated emoji dataset to newest [Unicode 16.0](https://www.unicode.org/reports/tr51/)
+- Updated dependencies
+- Require Dart `^3.4.0`
+- Exported emoji regex:
+```dart
+final regex = Emojis.regex;
+  // print(regex); // RegExp: pattern=[#*\d]\uFE0F?\u20E3|[\xA9\...
+```
+
 ## 1.1.1
 - Changed *gif demo files to *webp format
 
