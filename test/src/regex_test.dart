@@ -111,9 +111,11 @@ void main() {
 
   $({
     '1F9D4 200D 2642 FE0F': true, // Valid: Beard emoji
-    '1F9D4 1F3FD 200D 2642 FE0F': true, // Valid: Beard emoji with skin tone modifier
+    '1F9D4 1F3FD 200D 2642 FE0F':
+        true, // Valid: Beard emoji with skin tone modifier
     '1F9D4 1F3FB': true, // Valid: Beard emoji with light skin tone modifier
-    '1F9D4 1F3FE': true, // Valid: Beard emoji with medium dark skin tone modifier
+    '1F9D4 1F3FE':
+        true, // Valid: Beard emoji with medium dark skin tone modifier
     'Hello 1F9D4': true, // Valid: Beard emoji in text
     '12345': false, // Invalid: Random text that doesn’t match the emoji
     '': false, // Invalid: Empty string

@@ -530,7 +530,7 @@ abstract class Emojis {
   /// Returns a list of emojis under the Unicode 15.1 version.
   static List<Emoji> get v15_1 => byVersion(Version.v15_1);
 
-    /// Returns a list of emojis under the Unicode 16.0 version.
+  /// Returns a list of emojis under the Unicode 16.0 version.
   static List<Emoji> get v16_0 => byVersion(Version.v16_0);
 
   /* ------------------------------ Status ------------------------------- */

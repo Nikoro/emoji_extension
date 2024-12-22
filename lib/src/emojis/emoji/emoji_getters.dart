@@ -236,7 +236,7 @@ extension EmojiGetters on Emoji {
   /// ```
   bool get isV15_1 => version == Version.v15_1;
 
-    /// Returns `true` if the emoji's version is v16.0.
+  /// Returns `true` if the emoji's version is v16.0.
   ///
   /// Example:
   /// ```dart
