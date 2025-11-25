@@ -245,6 +245,15 @@ extension EmojiGetters on Emoji {
   /// ```
   bool get isV16_0 => version == Version.v16_0;
 
+  /// Returns `true` if the emoji belongs to Unicode version 17.0.
+  ///
+  /// Example:
+  /// ```dart
+  /// Emoji('🫪').isV17_0; // true
+  /// Emoji('😀').isV17_0; // false
+  /// ```
+  bool get isV17_0 => version == Version.v17_0;
+
   /// Returns `true` if the emoji belongs to the flags group.
   ///
   /// Example:

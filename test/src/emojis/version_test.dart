@@ -6,7 +6,7 @@ import '../../_tools/tools.dart';
 void main() {
   group('Version', () {
     test('values count', () {
-      expect(Version.values.length, 14);
+      expect(Version.values.length, 15);
     });
 
     $({

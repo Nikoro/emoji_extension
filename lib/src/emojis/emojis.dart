@@ -533,6 +533,9 @@ abstract class Emojis {
   /// Returns a list of emojis under the Unicode 16.0 version.
   static List<Emoji> get v16_0 => byVersion(Version.v16_0);
 
+  /// Returns a list of emojis under the Unicode 17.0 version.
+  static List<Emoji> get v17_0 => byVersion(Version.v17_0);
+
   /* ------------------------------ Status ------------------------------- */
 
   /// Returns a list of emojis under the 'fully-qualified' status.
