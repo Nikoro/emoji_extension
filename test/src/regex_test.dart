@@ -5,7 +5,7 @@ import '../_tools/tools.dart';
 
 void main() {
   group('Regex', () {
-    test('emoji should match all available emojis up to version 16.0',
+    test('emoji should match all available emojis up to version 17.0',
         () async {
       final text = TestEmojis.values.join();
 
@@ -14,6 +14,26 @@ void main() {
 
       expect(extracted, TestEmojis.values);
     });
+
+    test('emoji should match all available emojis from emoji-test.txt v17.0',
+        () async {
+      final emojis = await TestEmojis.valuesAsync;
+      final text = emojis.join();
+
+      final extracted =
+          Regex.emoji.allMatches(text).map((m) => m.group(0)).toList();
+
+      expect(extracted, emojis);
+    }, timeout: const Timeout(Duration(minutes: 3)));
+
+    test('static values should match Unicode emoji-test.txt v17.0 order',
+        () async {
+      final unicodeEmojis = await TestEmojis.valuesAsync;
+
+      expect(TestEmojis.values, unicodeEmojis,
+          reason:
+              'TestEmojis.values should contain all emojis from Unicode v17.0 in the same order');
+    }, timeout: const Timeout(Duration(minutes: 3)));
   });
 
   $({

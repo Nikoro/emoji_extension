@@ -5,9 +5,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.6 <4.0.0'
+  sdk: ^3.4.0
 
 dependencies:
-
   emoji_extension:
     path: ../
+
+dev_dependencies:
+  lints: ^6.0.0

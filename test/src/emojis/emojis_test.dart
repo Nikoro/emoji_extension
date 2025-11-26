@@ -7,7 +7,7 @@ import '../../_tools/tools.dart';
 void main() {
   group('Emojis', () {
     test('count returns correct value', () {
-      expect(Emojis.count, 5042);
+      expect(Emojis.count, 5225);
     });
 
     test('groups returns correct value', () {
@@ -106,14 +106,14 @@ void main() {
     });
 
     $({
-      Group.smileysAndEmotion: 185,
-      Group.peopleAndBody: 3291,
+      Group.smileysAndEmotion: 187,
+      Group.peopleAndBody: 3468,
       Group.component: 9,
-      Group.animalsAndNature: 161,
+      Group.animalsAndNature: 162,
       Group.foodAndDrink: 138,
-      Group.travelAndPlaces: 267,
+      Group.travelAndPlaces: 268,
       Group.activities: 96,
-      Group.objects: 314,
+      Group.objects: 316,
       Group.symbols: 305,
       Group.flags: 276,
     }).forEach((input, expected) {
@@ -133,13 +133,13 @@ void main() {
       Subgroup.faceUnwell: 12,
       Subgroup.faceHat: 3,
       Subgroup.faceGlasses: 3,
-      Subgroup.faceConcerned: 27,
+      Subgroup.faceConcerned: 28,
       Subgroup.faceNegative: 9,
       Subgroup.faceCostume: 8,
       Subgroup.catFace: 9,
       Subgroup.monkeyFace: 3,
       Subgroup.heart: 29,
-      Subgroup.emotion: 20,
+      Subgroup.emotion: 21,
       Subgroup.handFingersOpen: 67,
       Subgroup.handFingersPartial: 55,
       Subgroup.handSingleFinger: 43,
@@ -150,9 +150,9 @@ void main() {
       Subgroup.person: 192,
       Subgroup.personGesture: 300,
       Subgroup.personRole: 635,
-      Subgroup.personFantasy: 245,
-      Subgroup.personActivity: 606,
-      Subgroup.personSport: 395,
+      Subgroup.personFantasy: 246,
+      Subgroup.personActivity: 697,
+      Subgroup.personSport: 480,
       Subgroup.personResting: 42,
       Subgroup.family: 533,
       Subgroup.personSymbol: 12,
@@ -162,7 +162,7 @@ void main() {
       Subgroup.animalBird: 23,
       Subgroup.animalAmphibian: 1,
       Subgroup.animalReptile: 8,
-      Subgroup.animalMarine: 12,
+      Subgroup.animalMarine: 13,
       Subgroup.animalBug: 18,
       Subgroup.plantFlower: 13,
       Subgroup.plantOther: 18,
@@ -175,7 +175,7 @@ void main() {
       Subgroup.drink: 20,
       Subgroup.dishware: 8,
       Subgroup.placeMap: 8,
-      Subgroup.placeGeographic: 16,
+      Subgroup.placeGeographic: 17,
       Subgroup.placeBuilding: 32,
       Subgroup.placeReligious: 7,
       Subgroup.placeOther: 19,
@@ -193,12 +193,12 @@ void main() {
       Subgroup.clothing: 50,
       Subgroup.sound: 9,
       Subgroup.music: 12,
-      Subgroup.musicalInstrument: 12,
+      Subgroup.musicalInstrument: 13,
       Subgroup.phone: 7,
       Subgroup.computer: 19,
       Subgroup.lightAndVideo: 19,
       Subgroup.bookPaper: 19,
-      Subgroup.money: 10,
+      Subgroup.money: 11,
       Subgroup.mail: 15,
       Subgroup.writing: 13,
       Subgroup.office: 31,
@@ -257,8 +257,8 @@ void main() {
     });
 
     $({
-      Status.fullyQualified: 3781,
-      Status.minimallyQualified: 1009,
+      Status.fullyQualified: 3944,
+      Status.minimallyQualified: 1029,
       Status.unqualified: 243,
       Status.component: 9,
     }).forEach((input, expected) {
@@ -304,11 +304,11 @@ void main() {
     });
 
     $({
-      SkinTone.light: 547,
-      SkinTone.mediumLight: 547,
-      SkinTone.medium: 547,
-      SkinTone.mediumDark: 547,
-      SkinTone.dark: 547,
+      SkinTone.light: 582,
+      SkinTone.mediumLight: 582,
+      SkinTone.medium: 582,
+      SkinTone.mediumDark: 582,
+      SkinTone.dark: 582,
     }).forEach((input, expected) {
       test(
           'bySkinTone() returns $expected emojis when status is: [${input.name}]',
@@ -322,14 +322,14 @@ void main() {
     });
 
     $({
-      Emojis.smileysAndEmotion: 185,
-      Emojis.peopleAndBody: 3291,
+      Emojis.smileysAndEmotion: 187,
+      Emojis.peopleAndBody: 3468,
       Emojis.component: 9,
-      Emojis.animalsAndNature: 161,
+      Emojis.animalsAndNature: 162,
       Emojis.foodAndDrink: 138,
-      Emojis.travelAndPlaces: 267,
+      Emojis.travelAndPlaces: 268,
       Emojis.activities: 96,
-      Emojis.objects: 314,
+      Emojis.objects: 316,
       Emojis.symbols: 305,
       Emojis.flags: 276,
     }).forEach((input, expected) {
@@ -348,13 +348,13 @@ void main() {
       Emojis.faceUnwell: 12,
       Emojis.faceHat: 3,
       Emojis.faceGlasses: 3,
-      Emojis.faceConcerned: 27,
+      Emojis.faceConcerned: 28,
       Emojis.faceNegative: 9,
       Emojis.faceCostume: 8,
       Emojis.catFace: 9,
       Emojis.monkeyFace: 3,
       Emojis.heart: 29,
-      Emojis.emotion: 20,
+      Emojis.emotion: 21,
       Emojis.handFingersOpen: 67,
       Emojis.handFingersPartial: 55,
       Emojis.handSingleFinger: 43,
@@ -365,9 +365,9 @@ void main() {
       Emojis.person: 192,
       Emojis.personGesture: 300,
       Emojis.personRole: 635,
-      Emojis.personFantasy: 245,
-      Emojis.personActivity: 606,
-      Emojis.personSport: 395,
+      Emojis.personFantasy: 246,
+      Emojis.personActivity: 697,
+      Emojis.personSport: 480,
       Emojis.personResting: 42,
       Emojis.family: 533,
       Emojis.personSymbol: 12,
@@ -377,7 +377,7 @@ void main() {
       Emojis.animalBird: 23,
       Emojis.animalAmphibian: 1,
       Emojis.animalReptile: 8,
-      Emojis.animalMarine: 12,
+      Emojis.animalMarine: 13,
       Emojis.animalBug: 18,
       Emojis.plantFlower: 13,
       Emojis.plantOther: 18,
@@ -390,7 +390,7 @@ void main() {
       Emojis.drink: 20,
       Emojis.dishware: 8,
       Emojis.placeMap: 8,
-      Emojis.placeGeographic: 16,
+      Emojis.placeGeographic: 17,
       Emojis.placeBuilding: 32,
       Emojis.placeReligious: 7,
       Emojis.placeOther: 19,
@@ -408,12 +408,12 @@ void main() {
       Emojis.clothing: 50,
       Emojis.sound: 9,
       Emojis.music: 12,
-      Emojis.musicalInstrument: 12,
+      Emojis.musicalInstrument: 13,
       Emojis.phone: 7,
       Emojis.computer: 19,
       Emojis.lightAndVideo: 19,
       Emojis.bookPaper: 19,
-      Emojis.money: 10,
+      Emojis.money: 11,
       Emojis.mail: 15,
       Emojis.writing: 13,
       Emojis.office: 31,
@@ -468,8 +468,8 @@ void main() {
     });
 
     $({
-      Emojis.fullyQualified: 3781,
-      Emojis.minimallyQualified: 1009,
+      Emojis.fullyQualified: 3944,
+      Emojis.minimallyQualified: 1029,
       Emojis.unqualified: 243,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
@@ -509,11 +509,11 @@ void main() {
     });
 
     $({
-      Emojis.lightSkinTone: 547,
-      Emojis.mediumLightSkinTone: 547,
-      Emojis.mediumSkinTone: 547,
-      Emojis.mediumDarkSkinTone: 547,
-      Emojis.darkSkinTone: 547,
+      Emojis.lightSkinTone: 582,
+      Emojis.mediumLightSkinTone: 582,
+      Emojis.mediumSkinTone: 582,
+      Emojis.mediumDarkSkinTone: 582,
+      Emojis.darkSkinTone: 582,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
         expect(input.length, expected);
