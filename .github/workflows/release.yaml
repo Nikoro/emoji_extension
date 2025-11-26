@@ -16,7 +16,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       
       - name: Install dependencies
-        run: dart pub get
+        run: dart pub get --no-example
       
       - name: Verify pubspec.yaml version matches tag
         run: |
@@ -29,19 +29,19 @@ jobs:
           echo "✓ Version validated: $PUBSPEC_VERSION"
       
       - name: Static code analysis
-        run: dart analyze
+        run: dart analyze --fatal-infos
       
       - name: Check code formatting
-        run: dart format . --set-exit-if-changed
+        run: dart format --output=none --set-exit-if-changed .
       
       - name: Run tests
-        run: make test
+        run: dart test --test-randomize-ordering-seed=random --reporter=expanded
       
       - name: Dry run publish
         run: dart pub publish --dry-run
       
       - name: Publish to pub.dev
-        run: dart pub publish --force
+        run: dart pub publish --force --skip-validation
   
   release:
     needs: publish
@@ -62,13 +62,8 @@ jobs:
         id: changelog
         run: |
           VERSION="${{ steps.get_version.outputs.version }}"
-          # Extract changelog section for this version
-          awk "/## $VERSION/,/## [0-9]/" CHANGELOG.md | sed '$d' > release_notes.md
-          # If empty, use a default message
-          if [ ! -s release_notes.md ]; then
-            echo "Release $VERSION" > release_notes.md
-          fi
-
+          # Extract changelog content for this version
+          awk "/## $VERSION/{flag=1; next} /^## /{flag=0} flag" CHANGELOG.md > release_notes.md
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:

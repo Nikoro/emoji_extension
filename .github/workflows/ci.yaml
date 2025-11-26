@@ -9,20 +9,27 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: Install lcov
-        run: sudo apt-get install -y lcov
       - name: Checkout the code
         uses: actions/checkout@v4
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+      
+      - name: Install lcov
+        run: sudo apt-get install -y lcov
+      
       - name: Get dependencies
-        run: flutter pub get
+        run: dart pub get --no-example
+      
       - name: Static code analysis
-        run: flutter analyze --no-pub
+        run: dart analyze --fatal-infos
+      
       - name: Check code formatting
-        run: dart format . --set-exit-if-changed
+        run: dart format --output=none --set-exit-if-changed .
+      
       - name: Unit tests
-        run: make test
+        run: dart test --coverage --test-randomize-ordering-seed=random --reporter=expanded
+      
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.1.0
         with:
