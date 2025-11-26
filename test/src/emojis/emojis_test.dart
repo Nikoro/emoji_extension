@@ -248,6 +248,7 @@ void main() {
       Version.v15_0: 31,
       Version.v15_1: 301,
       Version.v16_0: 8,
+      Version.v17_0: 183,
     }).forEach((input, expected) {
       test(
           'byVersion() returns $expected emojis when version is: [${input.name}]',
@@ -461,6 +462,7 @@ void main() {
       Emojis.v15_0: 31,
       Emojis.v15_1: 301,
       Emojis.v16_0: 8,
+      Emojis.v17_0: 183,
     }).forEach((input, expected) {
       test('returns $expected emojis', () {
         expect(input.length, expected);

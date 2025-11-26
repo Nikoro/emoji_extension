@@ -1,3 +1,12 @@
+## 1.3.0
+- Updated emoji dataset to newest [Unicode 17.0](https://www.unicode.org/reports/tr51/)
+- Add new emoji getter methods for improved accessibility
+- Upgrade Flutter examples to latest stable version
+- Migrate Android build configuration to Kotlin DSL
+- Update SDK constraints to ^3.4.0 for all packages
+- Refactor emoji data structure and version tracking
+- Enhance test coverage for new emoji getters
+
 ## 1.2.0
 - Updated emoji dataset to newest [Unicode 16.0](https://www.unicode.org/reports/tr51/)
 - Updated dependencies

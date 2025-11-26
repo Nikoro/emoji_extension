@@ -5,7 +5,7 @@ help:
 
 
 test: ## Run all tests with coverage
-	@flutter test --no-pub --coverage --test-randomize-ordering-seed=random
+	@dart test --coverage --test-randomize-ordering-seed=random
 
 test-report: test ## Run all tests with html coverage report
 	@echo "Generating html report..."
