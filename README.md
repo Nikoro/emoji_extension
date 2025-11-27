@@ -11,7 +11,7 @@ One, yet powerful <a href="#emojis-extension">emojis</a> String extension
     <img alt="Pub Package" src="https://tinyurl.com/mvjwxt98">
   </a>
   <a href="https://github.com/Nikoro/emoji_extension/actions">
-    <img alt="Build Status" src="https://github.com/Nikoro/emoji_extension/actions/workflows/build.yaml/badge.svg">
+    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/Nikoro/emoji_extension/ci.yaml?label=build">
   </a>
   <a href="https://codecov.io/gh/Nikoro/emoji_extension">
     <img alt="Code Coverage" src="https://codecov.io/gh/Nikoro/emoji_extension/branch/main/graph/badge.svg">

@@ -35,13 +35,13 @@ jobs:
         run: dart format --output=none --set-exit-if-changed .
       
       - name: Run tests
-        run: dart test --test-randomize-ordering-seed=random --reporter=expanded
+        run: dart test --test-randomize-ordering-seed=random
       
       - name: Dry run publish
         run: dart pub publish --dry-run
       
       - name: Publish to pub.dev
-        run: dart pub publish --force --skip-validation
+        run: dart pub publish --force
   
   release:
     needs: publish
