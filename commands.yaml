@@ -1,0 +1,6 @@
+format: ## Check code formatting
+  script: dart format --output=none --set-exit-if-changed .
+analyze: ## Static code analysis
+  script: dart analyze --fatal-infos
+tests: ## Run unit tests
+  script: dart test --coverage --test-randomize-ordering-seed=random

@@ -21,14 +21,20 @@ jobs:
       - name: Get dependencies
         run: dart pub get --no-example
       
-      - name: Static code analysis
-        run: dart analyze --fatal-infos
-      
+      - name: Set up commands
+        uses: Nikoro/setup-commands@v1
+
+      - name: Activate commands
+        run: commands
+
       - name: Check code formatting
-        run: dart format --output=none --set-exit-if-changed .
-      
-      - name: Unit tests
-        run: dart test --coverage --test-randomize-ordering-seed=random --reporter=expanded
+        run: format
+
+      - name: Static code analysis
+        run: analyze
+        
+      - name: Run unit tests
+        run: tests
       
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4.1.0

@@ -28,14 +28,20 @@ jobs:
           fi
           echo "✓ Version validated: $PUBSPEC_VERSION"
       
-      - name: Static code analysis
-        run: dart analyze --fatal-infos
-      
+      - name: Set up commands
+        uses: Nikoro/setup-commands@v1
+
+      - name: Activate commands
+        run: commands
+
       - name: Check code formatting
-        run: dart format --output=none --set-exit-if-changed .
-      
-      - name: Run tests
-        run: dart test --test-randomize-ordering-seed=random
+        run: format
+
+      - name: Static code analysis
+        run: analyze
+        
+      - name: Run unit tests
+        run: tests
       
       - name: Dry run publish
         run: dart pub publish --dry-run
